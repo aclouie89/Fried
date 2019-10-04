@@ -4,7 +4,59 @@ using UnityEngine;
 
 public class PlayerOneControl : MonoBehaviour
 {
-    public float movementSpeed;
+    CharacterController controller;
+    public float movementSpeed = 5.0F;
+    public float jumpSpeed = 8.0F;
+    public float gravity = 32.0F;
+    //public float rotateSpeed = 3.0f;
+    private Vector3 moveDirection = Vector3.zero;
+    private bool movementEnabled = true;
+
+    void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
+
+    void allowMovement(bool flag)
+    {
+        movementEnabled = flag;
+    }
+    
+    // non oriented movement
+    void Update()
+    {
+        // only change movement when grounded
+        if (controller.isGrounded)
+        {
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= movementSpeed;
+            if (Input.GetButton("Jump"))
+                moveDirection.y = jumpSpeed;
+
+        }
+
+        // move character
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
+
+    }
+
+    /*
+    // rotational - oriented movement
+    void Update()
+    {
+        // Rotate around y - axis
+        transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+
+        // Move forward / backward
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        float curSpeed = movementSpeed * Input.GetAxis("Vertical");
+        controller.SimpleMove(forward * curSpeed);
+    }*/
+
+    /*
+    public float movementSpeed = 10.0f;
 
     void Start()
     {
@@ -34,7 +86,7 @@ public class PlayerOneControl : MonoBehaviour
         {
             transform.position -= transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
         }
-    }
+    }*/
 
 
     //public float inputDelay = 0.1f;
