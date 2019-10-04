@@ -28,7 +28,28 @@ public class PlayerOneControl : MonoBehaviour
         // only change movement when grounded
         if (controller.isGrounded)
         {
+            moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
+            // move forward
+            if (Input.GetKey("w"))
+            {
+                moveDirection.z += Input.GetAxis("Vertical");
+            }
+            if(Input.GetKey("s"))
+            {
+                moveDirection.z += Input.GetAxis("Vertical");
+            }
+            if (Input.GetKey("a"))
+            {
+                moveDirection.x += Input.GetAxis("Horizontal");
+            }
+            if (Input.GetKey("d"))
+            {
+                moveDirection.x += Input.GetAxis("Horizontal");
+            }
+            //if (input.GetKeyDown(KeyCode.A))
+            /*
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            */
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= movementSpeed;
             if (Input.GetButton("Jump"))
