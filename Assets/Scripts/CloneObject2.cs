@@ -4,88 +4,116 @@ using UnityEngine;
 
 public class CloneObject2 : MonoBehaviour
 {
-    public GameObject object1;
-    public GameObject object2;
-    public GameObject object3;
-    public GameObject object4;
-    public GameObject object5;
-    public GameObject object6;
+    public GameObject tomato1;
+    public GameObject tomato2;
+    public GameObject cheese1;
+    public GameObject cheese2;
+    public GameObject lettuce1;
+    public GameObject lettuce2;
     public Transform Player;
     GameObject clone2;
-    public Transform plate;
+    public Transform plate_1, plate_2, plate_3, plate_4;
     bool flagHold = false;
     public float smoothTime = 0.001f;
     private Vector3 AVelocity = Vector3.zero;
     //bool flagDestroy = false;
     public Transform TrashCan1, TrashCan2, TrashCan3, TrashCan4;
-    float delDis = 3f;
-    float putDis = 3f;
+    float deleteDis1, deleteDis2, deleteDis3, deleteDis4 = 3f;
+    float putDish1, putDish2, putDish3, putDish4 = 3f;
 
     // Update is called once per frame
     void Update()
     {
-        float dist1 = Vector3.Distance(object1.transform.position, Player.position);
-        float dist2 = Vector3.Distance(object2.transform.position, Player.position);
-        float dist3 = Vector3.Distance(object3.transform.position, Player.position);
-        float dist4 = Vector3.Distance(object4.transform.position, Player.position);
-        float dist5 = Vector3.Distance(object5.transform.position, Player.position);
-        float dist6 = Vector3.Distance(object6.transform.position, Player.position);
+        float dist1 = Vector3.Distance(tomato1.transform.position, Player.position);
+        float dist2 = Vector3.Distance(tomato2.transform.position, Player.position);
+        float dist3 = Vector3.Distance(cheese1.transform.position, Player.position);
+        float dist4 = Vector3.Distance(cheese2.transform.position, Player.position);
+        float dist5 = Vector3.Distance(lettuce1.transform.position, Player.position);
+        float dist6 = Vector3.Distance(lettuce2.transform.position, Player.position);
     
         //print(dist);
         if (Input.GetKeyDown(KeyCode.P) && !flagHold)
         {
             if (dist1 < 1.5f)
             {
-                clone2 = Instantiate(object1, Player.position, Quaternion.identity) as GameObject;
+                clone2 = Instantiate(tomato1, Player.position, Quaternion.identity) as GameObject;
                 flagHold = true;
 
             }
             else if (dist2 < 1.5f)
             {
-                clone2 = Instantiate(object2, Player.position, Quaternion.identity) as GameObject;
+                clone2 = Instantiate(tomato2, Player.position, Quaternion.identity) as GameObject;
                 flagHold = true;
             }
             else if (dist3 < 1.5f)
             {
-                clone2 = Instantiate(object3, Player.position, Quaternion.identity) as GameObject;
+                clone2 = Instantiate(cheese1, Player.position, Quaternion.identity) as GameObject;
                 flagHold = true;
             }
             else if (dist4 < 1.5f)
             {
-                clone2 = Instantiate(object4, Player.position, Quaternion.identity) as GameObject;
+                clone2 = Instantiate(cheese2, Player.position, Quaternion.identity) as GameObject;
                 flagHold = true;
             }
             else if (dist5 < 1.5f)
             {
-                clone2 = Instantiate(object5, Player.position, Quaternion.identity) as GameObject;
+                clone2 = Instantiate(lettuce1, Player.position, Quaternion.identity) as GameObject;
                 flagHold = true;
             }
             else if (dist6 < 1.5f)
             {
-                clone2 = Instantiate(object6, Player.position, Quaternion.identity) as GameObject;
+                clone2 = Instantiate(lettuce2, Player.position, Quaternion.identity) as GameObject;
                 flagHold = true;
             }
         }
 
 
-        delDis = Vector3.Distance(Player.position, TrashCan1.position);
-        delDis = Vector3.Distance(Player.position, TrashCan2.position);
-        delDis = Vector3.Distance(Player.position, TrashCan3.position);
-        delDis = Vector3.Distance(Player.position, TrashCan4.position);
+        deleteDis1 = Vector3.Distance(Player.position, TrashCan1.position);
+        deleteDis2 = Vector3.Distance(Player.position, TrashCan2.position);
+        deleteDis3 = Vector3.Distance(Player.position, TrashCan3.position);
+        deleteDis4 = Vector3.Distance(Player.position, TrashCan4.position);
 
-        if (Input.GetKeyDown(KeyCode.P) && flagHold && delDis < 2f)
+        if (Input.GetKeyDown(KeyCode.P) && flagHold && deleteDis1 < 2f)
         {
             Destroy(clone2);
-            //flag1 = false;
             flagHold = false;
-            delDis = 0f;
+            deleteDis1 = 0f;
+        } else if (Input.GetKeyDown(KeyCode.P) && flagHold && deleteDis2 < 2f)
+        {
+            Destroy(clone2);
+            flagHold = false;
+            deleteDis2 = 0f;
+        } else if (Input.GetKeyDown(KeyCode.P) && flagHold && deleteDis3 < 2f)
+        {
+            Destroy(clone2);
+            flagHold = false;
+            deleteDis3 = 0f;
+        } else if (Input.GetKeyDown(KeyCode.P) && flagHold && deleteDis4 < 2f)
+        {
+            Destroy(clone2);
+            flagHold = false;
+            deleteDis4 = 0f;
         }
 
-        putDis = Vector3.Distance(Player.position, plate.position);
-        if (Input.GetKeyDown(KeyCode.P) && flagHold && putDis < 2f)
+        putDish1 = Vector3.Distance(Player.position, plate_1.position);
+        putDish2 = Vector3.Distance(Player.position, plate_2.position);
+        putDish3 = Vector3.Distance(Player.position, plate_3.position);
+        putDish4 = Vector3.Distance(Player.position, plate_4.position);
+        if (Input.GetKeyDown(KeyCode.P) && flagHold && putDish1 < 2f)
         {
-            clone2.transform.position = plate.position;
-
+            clone2.transform.position = plate_1.position;
+            flagHold = false;
+        } else if (Input.GetKeyDown(KeyCode.P) && flagHold && putDish2 < 2f)
+        {
+            clone2.transform.position = plate_2.position;
+            flagHold = false;
+        } else if (Input.GetKeyDown(KeyCode.P) && flagHold && putDish3 < 2f)
+        {
+            clone2.transform.position = plate_3.position;
+            flagHold = false;
+        } else if (Input.GetKeyDown(KeyCode.P) && flagHold && putDish4 < 2f)
+        {
+            clone2.transform.position = plate_4.position;
             flagHold = false;
         }
 
