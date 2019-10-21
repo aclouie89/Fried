@@ -32,30 +32,60 @@ public class CloneObject : MonoBehaviour
             if(dist1 < 2f)
             {
                 clone1 = Instantiate(TomatoBoxLeft, Player.position, Quaternion.identity) as GameObject;
+              
+                if (clone1.gameObject.GetComponent<Rigidbody>()) {
+                    Debug.Log("rigidbody");
+                }
                 flagHold = true;
 
             }else if (dist2< 2f)
             {
                 clone1 = Instantiate(TomatoBoxRight, Player.position, Quaternion.identity) as GameObject;
+                
+                if (clone1.gameObject.GetComponent<Rigidbody>())
+                {
+                    Debug.Log("rigidbody");
+                }
                 flagHold = true;
             }else if(dist3 < 2f)
             {
                 clone1 = Instantiate(CheeseBoxLeft, Player.position, Quaternion.identity) as GameObject;
+              
+                if (clone1.gameObject.GetComponent<Rigidbody>())
+                {
+                    Debug.Log("rigidbody");
+                }
                 flagHold = true;
             }
             else if (dist4 < 1.5f)
             {
                 clone1 = Instantiate(CheeseBoxRight, Player.position, Quaternion.identity) as GameObject;
+               
+                if (clone1.gameObject.GetComponent<Rigidbody>())
+                {
+                    Debug.Log("rigidbody");
+                }
                 flagHold = true;
             }
             else if (dist5 < 1.5f)
             {
                 clone1 = Instantiate(LettuceBoxLeft, Player.position, Quaternion.identity) as GameObject;
+                
+                if (clone1.gameObject.GetComponent<Rigidbody>())
+                {
+                    Debug.Log("rigidbody");
+                }
                 flagHold = true;
             }
             else if (dist6 < 1.5f)
             {
                 clone1 = Instantiate(LettuceBoxRight, Player.position, Quaternion.identity) as GameObject;
+               
+                if (clone1.gameObject.GetComponent<Rigidbody>())
+                {
+                    Debug.Log("rigidbody");
+                }
+
                 flagHold = true;
             }
         }
@@ -137,6 +167,7 @@ public class CloneObject : MonoBehaviour
             clone1.transform.position = Vector3.SmoothDamp(clone1.transform.position, Player.position + new Vector3(0, 2, 0), ref AVelocity, smoothTime);
         }
 
-
+      
     }
+   
 }
