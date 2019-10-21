@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum player_tag { None = 0, Player1, Player2 }
+enum player_tag { None = 0, Player1, Player2, Both }
 
 public class OutputTable : MonoBehaviour
 {
@@ -49,6 +49,7 @@ public class OutputTable : MonoBehaviour
 
     if(dist_p1 < min_dist && dist_p2 < min_dist)
     {
+      player_found = (int)player_tag.Both;
       Debug.Log("Both players in export zone");
     }
     else if(dist_p1 < min_dist)
@@ -65,24 +66,6 @@ public class OutputTable : MonoBehaviour
     return player_found;
   }
 
-  /*int OnCollisionEnter(Collision collision)
-  {
-    int player_found = (int)player_tag.None;
-    Debug.Log("OnCollisionEnter()");
-    if(collision.gameObject.name == player1_tag)
-    {
-      player_found = (int)player_tag.Player1;
-      Debug.Log("Player 1 in export zone");
-    }
-    else if(collision.gameObject.name == player2_tag)
-    {
-      player_found = (int)player_tag.Player2;
-      Debug.Log("Player 2 in export zone");
-    }
-
-    return player_found;
-  }*/
-
   // Start is called before the first frame update
   void Start()
   {
@@ -92,6 +75,6 @@ public class OutputTable : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    check_for_player();
+    int player = check_for_player();
   }
 }
