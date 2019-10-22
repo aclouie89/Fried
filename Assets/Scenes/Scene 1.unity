@@ -39,7 +39,11 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.44384786, g: 0.49321133, b: 0.5727186, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.44384694, g: 0.49320996, b: 0.57271755, a: 1}
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
   m_IndirectSpecularColor: {r: 0.44384694, g: 0.49320996, b: 0.57271755, a: 1}
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
@@ -27591,7 +27595,10 @@ GameObject:
   - component: {fileID: 1672202265}
   - component: {fileID: 1672202264}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 1672202267}
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
   m_Layer: 0
@@ -27676,6 +27683,7 @@ MeshFilter:
   m_GameObject: {fileID: 1672202262}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &1672202267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27690,6 +27698,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialsCount: 0
   plateflag1: 000000
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
 --- !u!1 &1674726313

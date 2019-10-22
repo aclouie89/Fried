@@ -15,15 +15,21 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 8.8
     y: 43.2
     width: 1536
     height: 780.8
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     x: 0
     y: 44
     width: 1440
     height: 789
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
   m_ShowMode: 4
   m_Title: 
@@ -101,6 +107,7 @@ MonoBehaviour:
     x: 0
     y: 30
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1536
     height: 731
   m_MinSize: {x: 681, y: 494}
@@ -109,6 +116,8 @@ MonoBehaviour:
   controlID: 72
 --- !u!114 &5
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     width: 1440
     height: 739
   m_MinSize: {x: 683, y: 494}
@@ -132,6 +141,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1208
     y: 0
     width: 328
@@ -142,6 +152,10 @@ MonoBehaviour:
 =======
     x: 1139
     y: 0
+=======
+    x: 1139
+    y: 0
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     width: 301
     height: 739
   m_MinSize: {x: 275, y: 50}
@@ -171,12 +185,15 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 292
     height: 454
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     width: 285
     height: 467
   m_MinSize: {x: 202, y: 222}
@@ -204,6 +221,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 0
     width: 459
     height: 277
@@ -216,6 +234,8 @@ MonoBehaviour:
   m_LastSelected: 0
 --- !u!114 &8
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     y: 467
     width: 1139
     height: 272
@@ -315,6 +335,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1208
     height: 731
   m_MinSize: {x: 404, y: 494}
@@ -328,6 +349,13 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
+=======
+    width: 1139
+    height: 739
+  m_MinSize: {x: 406, y: 494}
+  m_MaxSize: {x: 10002, y: 14044}
+  vertical: 1
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
   controlID: 19
 --- !u!114 &10
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
@@ -350,6 +378,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1208
     height: 454
   m_MinSize: {x: 404, y: 222}
@@ -358,6 +387,8 @@ MonoBehaviour:
   controlID: 74
 --- !u!114 &13
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     width: 1139
     height: 467
   m_MinSize: {x: 406, y: 222}
@@ -381,10 +412,17 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 292
     y: 0
     width: 916
     height: 454
+=======
+    x: 285
+    y: 0
+    width: 854
+    height: 467
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
     x: 285
     y: 0
@@ -481,15 +519,21 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 8.8
     y: 527.2
     width: 459
     height: 258
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     x: 0
     y: 542
     width: 1139
     height: 253
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -510,6 +554,7 @@ MonoBehaviour:
   m_StartGridSize: 61
   m_LastFolders:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - Assets/Scripts
   m_LastFoldersGridSize: 61
   m_LastProjectPath: O:\git\Fried
@@ -527,10 +572,21 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+=======
+  - Assets/Levels/Floor_Box
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: /Users/laichian/Fried
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     scrollPos: {x: 0, y: 147}
     m_SelectedIDs: 302d0000
     m_LastClickedID: 11568
     m_ExpandedIDs: 00000000222d00005e2e0000f22e0000d02f00007e300000263100008c310000b23100001441000016410000184100001a4100001c4100001e4100002041000022410000244100002641000000ca9a3b
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -560,7 +616,11 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 000000007e3c0000a23d0000263e0000f23e0000923f00002840000088400000aa4000003e50000040500000425000004450000046500000485000004a5000004c5000004e50000050500000
+=======
+    m_ExpandedIDs: 00000000222d00005e2e0000f22e0000d02f00007e300000263100008c310000b23100001441000016410000184100001a4100001c4100001e41000020410000224100002441000026410000
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
     m_ExpandedIDs: 00000000222d00005e2e0000f22e0000d02f00007e300000263100008c310000b23100001441000016410000184100001a4100001c4100001e41000020410000224100002441000026410000
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
@@ -591,8 +651,11 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 1
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     m_HadKeyboardFocusLastEvent: 0
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
     m_ExpandedInstanceIDs: c623000000000000005a0000085a0000
@@ -645,15 +708,21 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1216.8
     y: 73.6
     width: 326
     height: 712
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     x: 1139
     y: 75
     width: 299
     height: 720
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
@@ -688,6 +757,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 8.8
     y: 73.6
     width: 292
@@ -707,10 +777,22 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
+=======
+    x: 0
+    y: 75
+    width: 285
+    height: 448
+  m_ViewDataDictionary: {fileID: 0}
+  m_SceneHierarchy:
+    m_TreeViewState:
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: 78fbffff
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -728,7 +810,11 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
         m_ClientGUIView: {fileID: 6}
+=======
+        m_ClientGUIView: {fileID: 0}
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
         m_ClientGUIView: {fileID: 0}
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
@@ -761,15 +847,21 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 300.80002
     y: 73.6
     width: 914
     height: 435
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     x: 285
     y: 75
     width: 852
     height: 448
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
@@ -783,9 +875,15 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: -4.48, y: 1.5, z: 3}
     speed: 2
     m_Value: {x: -4.48, y: 1.5, z: 3}
+=======
+    m_Target: {x: -3.009653, y: 0.013037205, z: 0.43492126}
+    speed: 2
+    m_Value: {x: -3.009653, y: 0.013037205, z: 0.43492126}
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
     m_Target: {x: -3.009653, y: 0.013037205, z: 0.43492126}
     speed: 2
@@ -824,9 +922,15 @@ MonoBehaviour:
     m_Value: {x: 0.23333319, y: 0.18535277, z: -0.045364533, w: 0.9534894}
   m_Size:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: 17.52774
     speed: 2
     m_Value: 17.52774
+=======
+    m_Target: 9.544077
+    speed: 2
+    m_Value: 9.544077
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
     m_Target: 9.544077
     speed: 2
@@ -879,15 +983,21 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 300.80002
     y: 73.6
     width: 914
     height: 435
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     x: 285
     y: 75
     width: 852
     height: 448
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
   m_ViewDataDictionary: {fileID: 0}
   m_VSyncEnabled: 0
@@ -902,15 +1012,21 @@ MonoBehaviour:
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_HBaseRangeMin: -457
     m_HBaseRangeMax: 457
     m_VBaseRangeMin: -209
     m_VBaseRangeMax: 209
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     m_HBaseRangeMin: -426
     m_HBaseRangeMax: 426
     m_VBaseRangeMin: -215.5
     m_VBaseRangeMax: 215.5
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
@@ -930,10 +1046,17 @@ MonoBehaviour:
       x: 0
       y: 17
 <<<<<<< HEAD
+<<<<<<< HEAD
       width: 914
       height: 418
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 457, y: 209}
+=======
+      width: 852
+      height: 431
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 426, y: 215.5}
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
       width: 852
       height: 431
@@ -947,22 +1070,32 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
       x: -457
       y: -209
       width: 914
       height: 418
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
       x: -426
       y: -215.5
       width: 852
       height: 431
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 1142.5, y: 543.75}
+=======
+  m_LastWindowPixelSize: {x: 1704, y: 896}
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
 =======
   m_LastWindowPixelSize: {x: 1704, y: 896}
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
@@ -992,14 +1125,20 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 468
     y: 527.2
     width: 747
     height: 258
 =======
+=======
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
     x: 0
     y: 544
     width: 1161
     height: 252
+<<<<<<< HEAD
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
+=======
 >>>>>>> parent of 7342bf5... added rigidbody to ingredients
   m_ViewDataDictionary: {fileID: 0}
