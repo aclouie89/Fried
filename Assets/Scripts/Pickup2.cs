@@ -1153,7 +1153,7 @@ public class Pickup2 : MonoBehaviour
             }
             if (p1.materialsCount == 1)
             {
-                print(p1.plateflag1[0]);
+                //print(p1.plateflag1[0]);
                 if (p1.plateflag1[0] == true)
                 {
                     pick1.temp1 = GameObject.Find("Plate_Tomato_Right");
@@ -1299,7 +1299,7 @@ public class Pickup2 : MonoBehaviour
             }
             if (p2.materialsCount == 1)
             {
-                // print(p1.plateflag1[0]);
+                // //print(p1.plateflag1[0]);
                 if (p2.plateflag2[0] == true)
                 {
                     pick1.temp2 = GameObject.Find("Plate_Tomato_Right (1)");
@@ -1445,7 +1445,7 @@ public class Pickup2 : MonoBehaviour
             }
             if (p3.materialsCount == 1)
             {
-                // print(p1.plateflag1[0]);
+                // //print(p1.plateflag1[0]);
                 if (p3.plateflag3[0] == true)
                 {
                     pick1.temp3 = GameObject.Find("Plate_Tomato_Right (2)");
@@ -1591,7 +1591,7 @@ public class Pickup2 : MonoBehaviour
             }
             if (p4.materialsCount == 1)
             {
-                // print(p1.plateflag1[0]);
+                // //print(p1.plateflag1[0]);
                 if (p4.plateflag4[0] == true)
                 {
                     pick1.temp4 = GameObject.Find("Plate_Tomato_Right (3)");
@@ -1643,10 +1643,10 @@ public class Pickup2 : MonoBehaviour
 
         // pick up food
         float exportDis = Vector3.Distance(ExportTable.transform.position, Player.position);
-        print(!exportFlag);
-        print(!flagHold);
-        print(!exportHold[0]);
-        print(p1.materialsCount);
+        //print(!exportFlag);
+        //print(!flagHold);
+        //print(!exportHold[0]);
+        //print(p1.materialsCount);
 
         if (Input.GetKeyDown(KeyCode.P) && putDis1 < 1.5f && !exportFlag && !flagHold && !exportHold[0] && p1.materialsCount >= 3)
         {

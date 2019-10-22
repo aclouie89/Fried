@@ -11,8 +11,8 @@ public class PlateCount4 : MonoBehaviour
     public void count4()
     {
         materialsCount = materialsCount + 1;
-        print("plate4");
-        print(materialsCount);
+        //print("plate4");
+        //print(materialsCount);
     }
     public void resetCount4()
     {
