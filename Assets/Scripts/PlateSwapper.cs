@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlateSwapper : MonoBehaviour
 {
+
+    public Material mat;
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("entered");
+
     }
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {    
-            Debug.Log("entered");
+            Debug.Log("trigger");
+
+        Material mat = col.gameObject.GetComponent<Material>;
     }
     // Update is called once per frame
     void Update()
