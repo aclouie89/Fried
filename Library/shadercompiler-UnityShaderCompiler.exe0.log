@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Base path: 'E:/Libraries/Unity Editors/2019.2.4f1/Editor/Data', plugins path 'E:/Libraries/Unity Editors/2019.2.4f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+=======
+Base path: 'E:/Libraries/Unity Editors/2019.2.4f1/Editor/Data', plugins path 'E:/Libraries/Unity Editors/2019.2.4f1/Editor/Data/PlaybackEngines'
+Cmd: initializeCompiler
+>>>>>>> parent of 7342bf5... added rigidbody to ingredients
