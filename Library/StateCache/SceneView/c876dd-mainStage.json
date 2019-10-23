@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-4.480000019073486,"y":1.5,"z":3.0},"rotation":{"x":0.23333802819252015,"y":0.18535661697387696,"z":-0.04536547511816025,"w":0.9535092115402222},"size":17.527740478515626,"orthographic":true}
-=======
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-3.009653091430664,"y":0.01303720474243164,"z":0.4349212646484375},"rotation":{"x":-0.45674699544906618,"y":0.1606569141149521,"z":-0.08423510938882828,"w":-0.8709339499473572},"size":9.544076919555664,"orthographic":true}
->>>>>>> parent of 7342bf5... added rigidbody to ingredients
-=======
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-3.009653091430664,"y":0.01303720474243164,"z":0.4349212646484375},"rotation":{"x":-0.45674699544906618,"y":0.1606569141149521,"z":-0.08423510938882828,"w":-0.8709339499473572},"size":9.544076919555664,"orthographic":true}
->>>>>>> parent of 7342bf5... added rigidbody to ingredients
