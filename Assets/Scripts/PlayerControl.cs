@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour
                           "test_final_plate",
                           // etc items
                           "plate_spawner", "Plate"};
-  string[] putdown_tags = {"normal_table", "output_table", "trashcan"};
+  string[] putdown_tags = {"normal_table", "output_table", "trashcan","Chopping_Board"};
   // minimum distance
   private float min_dist_pickup = 3.0f;
   private float min_dist_putdown = 4.0f;
