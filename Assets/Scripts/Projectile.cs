@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
   private bool thrown = false;
   private int orientation;
   private Vector3 orig_loc;
-  private float dist_to_travel = 50.0f;
+  private float dist_to_travel = 100.0f;
   private bool spinning = false;
 
   // projectile rotation
@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
   private string player_tag;
 
   // movement for held items
-  private float velocity = 30.0f;
+  private float velocity = 44.0f;
   private float smoothTime = 2.0f;
   private Vector3 AVelocity = Vector3.zero;
   private float final_y = 3.0f;
