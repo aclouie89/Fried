@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
   private bool thrown = false;
   private int orientation;
   private Vector3 orig_loc;
-  private float dist_to_travel = 100.0f;
+  private float dist_to_travel = 200.0f;
   private bool spinning = false;
 
   // projectile rotation
