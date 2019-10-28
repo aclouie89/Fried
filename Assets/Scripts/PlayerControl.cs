@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
    * 3 - Verbose
    * 4 - Hyperverbose
    */
-  int DEBUG = 3;
+  int DEBUG = 1;
   // Character related
   public int player_id = (int)PlayerNum.None;
   private string p_vertical;
@@ -36,9 +36,16 @@ public class PlayerControl : MonoBehaviour
   // these following 3 string arrays must be updated for new tags to work
   // MAKE SURE PICKUP TAGS HAS THE SAME ORDER:
   //  SPAWNER, ITEM, PROCESS_ITEM
-  string[] pickup_tags = {"tomato_spawner", "tomato", "cut_tomato", 
+  string[] pickup_tags = {
+                          // Ingredients
+                          // spawner, ingredient, processed_ingredient
+                          "tomato_spawner", "tomato", "cut_tomato", 
                           "cheese_spawner", "Cheese", "cut_cheese",
                           "lettuce_spawner", "Lettuce", "cut_lettuce",
+                          // combined plate names
+                          // final plate names
+                          "test_final_plate",
+                          // etc items
                           "plate_spawner", "Plate"};
   string[] putdown_tags = {"normal_table", "output_table", "trashcan"};
   // minimum distance
@@ -231,12 +238,12 @@ public class PlayerControl : MonoBehaviour
         }
         // place it on our head
         player_item.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
-        dbgprint(1, "Picking up: " + player_item.name);
+        dbgprint(2, "Picking up: " + player_item.name);
         holding_item = true;
       }
       else
       {
-        dbgprint(1, "No item found to pickup");
+        dbgprint(2, "No item found to pickup");
       }
       processing_pickup_putdown = false;
     }
@@ -298,14 +305,23 @@ public class PlayerControl : MonoBehaviour
           // place it on our table
           player_item.transform.position = new Vector3(table.transform.position.x, table.transform.position.y + 0.35f, table.transform.position.z + 0.05f);
         }
-        dbgprint(1, "Putting down object on: " + table.name);
+        dbgprint(2, "Putting down object on: " + table.name);
+        // placed here so we can ditch this item
+        GameObject temp = player_item;
         // set object
         player_item = null;
         holding_item = false;
+        // IF IT'S AN OUTPUT TABLE WE NEED TO SCORE IT
+        // call the output table
+        if(table.tag == "output_table")
+        {
+          var link_table = table.GetComponent<OutputTable>();
+          link_table.playerPlaced(player_id, temp);
+        }
       }
       else
       {
-        dbgprint(1, "No Table found ");
+        dbgprint(2, "No Table found ");
       }
       processing_pickup_putdown = false;
     }

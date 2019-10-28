@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
    * 3 - Verbose
    * 4 - Hyperverbose
    */
-  int DEBUG = 3;
+  int DEBUG = 1;
   private bool thrown = false;
   private int orientation;
   private Vector3 orig_loc;
@@ -68,9 +68,9 @@ public class Projectile : MonoBehaviour
     }
     float x_part = e_mod + w_mod;
     float z_part = n_mod + s_mod;
-    dbgprint(1, "orientation: " + orientation.ToString());
-    dbgprint(1, "setup x part: " + x_part.ToString());
-    dbgprint(1, "setup z part: " + z_part.ToString());
+    dbgprint(3, "orientation: " + orientation.ToString());
+    dbgprint(3, "setup x part: " + x_part.ToString());
+    dbgprint(3, "setup z part: " + z_part.ToString());
     // for now just snap to Y coordinate
     // will dampen in the future
     gameObject.transform.position = new Vector3(transform.position.x + x_part, final_y, transform.position.z + z_part);

@@ -20,6 +20,8 @@ TagManager:
   - lettuce_spawner
   - plate_spawner
   - trashcan
+  - test_final_plate
+  - final_scored
   layers:
   - Default
   - TransparentFX
