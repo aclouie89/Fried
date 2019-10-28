@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum player_tag { None = 0, Player1, Player2, Both }
+//enum player_tag { None = 0, Player1, Player2, Both }
 
 public class OutputTable : MonoBehaviour
 {

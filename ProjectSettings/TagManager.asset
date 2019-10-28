@@ -13,6 +13,8 @@ TagManager:
   - cut_tomato
   - cut_lettuce
   - cut_cheese
+  - normal_table
+  - output_table
   layers:
   - Default
   - TransparentFX
