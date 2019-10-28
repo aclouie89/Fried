@@ -15,6 +15,11 @@ TagManager:
   - cut_cheese
   - normal_table
   - output_table
+  - tomato_spawner
+  - cheese_spawner
+  - lettuce_spawner
+  - plate_spawner
+  - trashcan
   layers:
   - Default
   - TransparentFX

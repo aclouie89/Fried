@@ -3113,7 +3113,7 @@ GameObject:
   - component: {fileID: 172943342}
   m_Layer: 0
   m_Name: Level1_Lettuce_Right
-  m_TagString: Untagged
+  m_TagString: lettuce_spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5343,7 +5343,7 @@ GameObject:
   - component: {fileID: 298572625}
   m_Layer: 0
   m_Name: Plate_Right
-  m_TagString: Untagged
+  m_TagString: plate_spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6084,7 +6084,6 @@ GameObject:
   - component: {fileID: 390435009}
   - component: {fileID: 390435008}
   - component: {fileID: 390435013}
-  - component: {fileID: 390435014}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -6197,36 +6196,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &390435014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390435007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 027d11f1f5dc6cb4887968b21da5e013, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TomatoBoxLeft: {fileID: 1437322441}
-  TomatoBoxRight: {fileID: 1852170294}
-  CheeseBoxLeft: {fileID: 1653089834}
-  CheeseBoxRight: {fileID: 1653089834}
-  LettuceBoxLeft: {fileID: 1732920805}
-  LettuceBoxRight: {fileID: 172943341}
-  Player: {fileID: 390435012}
-  plate1: {fileID: 1672202263}
-  plate2: {fileID: 538001243}
-  plate3: {fileID: 298572624}
-  plate4: {fileID: 1633769752}
-  cuttingboard1: {fileID: 91822791}
-  cuttingboard2: {fileID: 1053213808}
-  smoothTime: 0.001
-  TrashCan1: {fileID: 453259348}
-  TrashCan2: {fileID: 1500736971}
-  TrashCan3: {fileID: 1193895759}
-  TrashCan4: {fileID: 730452780}
 --- !u!1 &402254322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7213,7 +7182,7 @@ GameObject:
   - component: {fileID: 453259345}
   m_Layer: 0
   m_Name: Level1_TrashCan (1)
-  m_TagString: Untagged
+  m_TagString: trashcan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8548,7 +8517,7 @@ GameObject:
   - component: {fileID: 538001245}
   m_Layer: 0
   m_Name: Plate_Left (2)
-  m_TagString: Plate
+  m_TagString: plate_spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12287,7 +12256,7 @@ GameObject:
   - component: {fileID: 730452777}
   m_Layer: 0
   m_Name: Level1_TrashCan (4)
-  m_TagString: Untagged
+  m_TagString: trashcan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14043,7 +14012,6 @@ GameObject:
   - component: {fileID: 824246071}
   - component: {fileID: 824246070}
   - component: {fileID: 824246069}
-  - component: {fileID: 824246075}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -14156,36 +14124,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
---- !u!114 &824246075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824246068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 602691600070e2b43817b10311672adc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tomato1: {fileID: 1437322441}
-  tomato2: {fileID: 1852170294}
-  cheese1: {fileID: 1649034278}
-  cheese2: {fileID: 1653089834}
-  lettuce1: {fileID: 1732920805}
-  lettuce2: {fileID: 172943341}
-  Player: {fileID: 824246074}
-  plate_1: {fileID: 1672202263}
-  plate_2: {fileID: 538001243}
-  plate_3: {fileID: 298572624}
-  plate_4: {fileID: 1633769752}
-  cutting_board1: {fileID: 1053213808}
-  cutting_board2: {fileID: 91822791}
-  smoothTime: 0.001
-  TrashCan1: {fileID: 453259348}
-  TrashCan2: {fileID: 1500736971}
-  TrashCan3: {fileID: 1193895759}
-  TrashCan4: {fileID: 730452780}
 --- !u!1 &824871483
 GameObject:
   m_ObjectHideFlags: 0
@@ -18822,7 +18760,7 @@ GameObject:
   - component: {fileID: 1193895756}
   m_Layer: 0
   m_Name: Level1_TrashCan (3)
-  m_TagString: Untagged
+  m_TagString: trashcan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20308,8 +20246,8 @@ GameObject:
   - component: {fileID: 1288491009}
   - component: {fileID: 1288491008}
   m_Layer: 0
-  m_Name: Level1_Right_PlateBox (2)
-  m_TagString: Untagged
+  m_Name: Level1_Right_KitchenIsland (2)
+  m_TagString: normal_table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20324,8 +20262,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1633769752}
+  m_Children: []
   m_Father: {fileID: 387051507}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20769,8 +20706,8 @@ GameObject:
   - component: {fileID: 1322737860}
   - component: {fileID: 1322737859}
   m_Layer: 0
-  m_Name: Level1_Left_PlateBox (1)
-  m_TagString: Untagged
+  m_Name: Level1_Left_KitchenIsland (1)
+  m_TagString: normal_table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20785,8 +20722,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1672202263}
+  m_Children: []
   m_Father: {fileID: 1479938544}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22380,7 +22316,7 @@ GameObject:
   - component: {fileID: 1437322442}
   m_Layer: 0
   m_Name: Level1_Tomato_Left
-  m_TagString: Untagged
+  m_TagString: tomato_spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23029,7 +22965,7 @@ GameObject:
   - component: {fileID: 1500736968}
   m_Layer: 0
   m_Name: Level1_TrashCan (2)
-  m_TagString: Untagged
+  m_TagString: trashcan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23121,7 +23057,7 @@ GameObject:
   - component: {fileID: 1506619140}
   m_Layer: 0
   m_Name: Level1_CheeseBox_Right
-  m_TagString: Untagged
+  m_TagString: cheese_spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24738,99 +24674,6 @@ Transform:
   m_Father: {fileID: 162494531}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1633769751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1633769752}
-  - component: {fileID: 1633769755}
-  - component: {fileID: 1633769754}
-  - component: {fileID: 1633769753}
-  m_Layer: 0
-  m_Name: Plate_Right (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1633769752
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633769751}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.5214285, z: 0.05000019}
-  m_LocalScale: {x: 0.8, y: 0.014285713, z: 0.8}
-  m_Children: []
-  m_Father: {fileID: 1288491007}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!136 &1633769753
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633769751}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!23 &1633769754
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633769751}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 1edfbea3208ac4ee597df59a48da5b26, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1633769755
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633769751}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1636682373
 GameObject:
   m_ObjectHideFlags: 0
@@ -25029,7 +24872,7 @@ GameObject:
   - component: {fileID: 1649034279}
   m_Layer: 0
   m_Name: Level1_Cheese_left
-  m_TagString: Untagged
+  m_TagString: cheese_spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25123,7 +24966,7 @@ GameObject:
   - component: {fileID: 1653089839}
   m_Layer: 0
   m_Name: Level1_Cheese_Right
-  m_TagString: Cheese
+  m_TagString: cheese_spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25411,147 +25254,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1672202262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1672202263}
-  - component: {fileID: 1672202266}
-  - component: {fileID: 1672202265}
-  - component: {fileID: 1672202264}
-  - component: {fileID: 1672202267}
-  - component: {fileID: 1672202269}
-  - component: {fileID: 1672202268}
-  m_Layer: 0
-  m_Name: Plate_Left (1)
-  m_TagString: Plate
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1672202263
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672202262}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.66, z: 0.05000019}
-  m_LocalScale: {x: 0.8, y: 0.014285712, z: 0.8}
-  m_Children: []
-  m_Father: {fileID: 1322737858}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!136 &1672202264
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672202262}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.39069897
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: -0, y: 6.269218, z: -0.009301081}
---- !u!23 &1672202265
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672202262}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 1edfbea3208ac4ee597df59a48da5b26, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1672202266
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672202262}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &1672202267
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672202262}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &1672202268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672202262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d7c344d9c31334e994c31753231ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cut_tomato_mat: {fileID: 2100000, guid: bfa55cdace3844cf0a922bafb2df9af1, type: 2}
-  cut_lettuce_mat: {fileID: 2100000, guid: eda55b5ae50664e4d9bd205b7023da97, type: 2}
-  cut_cheese_mat: {fileID: 2100000, guid: bb1d239fb549a4e2ca643e3645766cd9, type: 2}
-  plate: {fileID: 1672202262}
---- !u!65 &1672202269
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672202262}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 29.62801, z: 1.5158648}
-  m_Center: {x: 0.000000074505806, y: 13.814012, z: 0.2579322}
 --- !u!1 &1674726313
 GameObject:
   m_ObjectHideFlags: 0
@@ -26910,7 +26612,7 @@ GameObject:
   - component: {fileID: 1732920810}
   m_Layer: 0
   m_Name: Level1_Lettuce_Left
-  m_TagString: Untagged
+  m_TagString: lettuce_spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28442,7 +28144,7 @@ GameObject:
   - component: {fileID: 1852170299}
   m_Layer: 0
   m_Name: Level1_Tomato_Right
-  m_TagString: tomato
+  m_TagString: tomato_spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
