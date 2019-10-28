@@ -8,6 +8,8 @@ enum PlayerNum {None = 0, One, Two}
 enum PlayerStatus {Start = 0, Normal, iFrame, CC}
 // Key ghosting state
 enum KeyGhost {None = 0, DownOnce, DownHold, UpOnce}
+// Player facing
+enum PlayerOrientation {North = 0, East, South, West}
 
 // Player Controller
 /* - Handles Movement
@@ -20,13 +22,14 @@ public class PlayerControl : MonoBehaviour
    * 3 - Verbose
    * 4 - Hyperverbose
    */
-  int DEBUG = 1;
+  int DEBUG = 3;
   // Character related
   public int player_id = (int)PlayerNum.None;
-  private string p_vertical = "Vertical";
-  private string p_horizontal = "Horizontal";
-  private string p_interact = "Interact";
-  private string p_iframe_key = "iFrame_Key";
+  private string p_vertical;
+  private string p_horizontal;
+  private string p_interact_key;
+  private string p_iframe_key;
+  private string p_throw_key;
 
   // Pickup/Placing related
   private int key_ghost = (int)KeyGhost.None;
@@ -46,7 +49,7 @@ public class PlayerControl : MonoBehaviour
   private bool holding_item = false;
   private bool processing_pickup_putdown = false;
   // movement for held items
-  public float smoothTime = 0.001f;
+  private float smoothTime = 0.001f;
   private Vector3 AVelocity = Vector3.zero;
 
   // Collision related
@@ -55,8 +58,7 @@ public class PlayerControl : MonoBehaviour
 
   // Movement related
   CharacterController controller;
-  private float movementSpeed = 4.0F;
-  private float jumpSpeed = 8.0F;
+  private float movementSpeed = 4.0f;
   private float gravity = 32.0F;
   private float rotateSpeed = 1800.0f;
   private Vector3 moveDirection = Vector3.zero;
@@ -64,8 +66,13 @@ public class PlayerControl : MonoBehaviour
 
   private int status = (int)PlayerStatus.Start;
   private float iFrame_time = 0.5f;
+  private float CC_time = 1.5f;
   private float DoubleTapCD = 0.5f;
   private int DoubleTapCount = 0;
+
+  // Throwing related
+  private int orientation;
+  private float throwSpeed = 16.0f;
 
   void dbgprint(int level, string text)
   {
@@ -84,17 +91,23 @@ public class PlayerControl : MonoBehaviour
       p_vertical = "P1Vertical";
       p_horizontal = "P1Horizontal";
       p_iframe_key = "P1_iFrame_Key";
-      p_interact = "P1Interact";
+      p_interact_key = "P1Interact";
+      p_throw_key = "P1Throw";
     }
     else if (player_id == (int)PlayerNum.Two)
     {
       p_vertical = "P2Vertical";
       p_horizontal = "P2Horizontal";
       p_iframe_key = "P2_iFrame_Key";
-      p_interact = "P2Interact";
+      p_interact_key = "P2Interact";
+      p_throw_key = "P2Throw";
     }
 
     status = (int)PlayerStatus.Normal;
+    orientation = (int) PlayerOrientation.South;
+
+    // Players are shrinking after iframe, WHY   
+    StartCoroutine(iFrameRotate());
   }
 
   // allow movement
@@ -103,11 +116,31 @@ public class PlayerControl : MonoBehaviour
     movementEnabled = flag;
   }
 
+  private void UpdateOrientation()
+  {
+    // ORDER?!?!?!?!?
+    // how do i know which way they are facing if theyre hitting multiple keys
+    // im just going to let this cascade and pick
+    if(Input.GetAxis(p_vertical) > 0)
+      orientation = (int) PlayerOrientation.North;
+    if(Input.GetAxis(p_vertical) < 0)
+      orientation = (int) PlayerOrientation.South;
+    if(Input.GetAxis(p_horizontal) > 0)
+      orientation = (int) PlayerOrientation.East;
+    if(Input.GetAxis(p_horizontal) < 0)
+      orientation = (int) PlayerOrientation.West;
+
+    dbgprint(5, "Player is facing: " + orientation.ToString());
+  }
+
   private void Movement()
   {
     // only change movement when grounded
     if (controller.isGrounded)
     {
+        // update which way we're facing
+        UpdateOrientation();
+
         moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
         // move forward
         if (Input.GetButton(p_vertical))
@@ -155,12 +188,12 @@ public class PlayerControl : MonoBehaviour
   // reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
   private void PickUp()
   {
-    if (Input.GetButtonDown(p_interact) && key_ghost == (int)KeyGhost.DownOnce
+    if (Input.GetButtonDown(p_interact_key) && key_ghost == (int)KeyGhost.DownOnce
       && holding_item == false && processing_pickup_putdown == false)
     {
-      key_ghost = (int)KeyGhost.DownHold;
       processing_pickup_putdown = true;
-      dbgprint(2, "player hit T");
+      key_ghost = (int)KeyGhost.DownHold;
+      dbgprint(2, "player hit interact");
       float closest_distance = Mathf.Infinity;
       // find closest object
       for(int i = 0; i < pickup_tags.Length; i++)
@@ -204,7 +237,6 @@ public class PlayerControl : MonoBehaviour
       else
       {
         dbgprint(1, "No item found to pickup");
-        holding_item = false;
       }
       processing_pickup_putdown = false;
     }
@@ -213,12 +245,12 @@ public class PlayerControl : MonoBehaviour
   // put an object down - works on counters, export tables
   private void PutDown()
   {
-    if (Input.GetButtonDown(p_interact) && key_ghost == (int)KeyGhost.DownOnce
+    if (Input.GetButtonDown(p_interact_key) && key_ghost == (int)KeyGhost.DownOnce
       && holding_item == true && processing_pickup_putdown == false)
     {
-      key_ghost = (int)KeyGhost.DownHold;
       processing_pickup_putdown = true;
-      dbgprint(3, "player hit T");
+      key_ghost = (int)KeyGhost.DownHold;
+      dbgprint(3, "player hit interact");
       float closest_distance = Mathf.Infinity;
       GameObject table = null;
       // find closest object
@@ -274,23 +306,42 @@ public class PlayerControl : MonoBehaviour
       else
       {
         dbgprint(1, "No Table found ");
-        holding_item = true;
       }
       processing_pickup_putdown = false;
     }
   }
 
+  private void ThrowObject()
+  {
+    if(Input.GetButton(p_throw_key) && holding_item == true)
+    {
+      dbgprint(3, "player hit throw");
+      if(player_item != null)
+      {
+        var link_projectile = player_item.GetComponent<Projectile>();
+        string player_tag = "";
+        if(player_id == (int)PlayerNum.One)
+          player_tag = "Player2";
+        else if (player_id == (int)PlayerNum.Two)
+          player_tag = "Player1";
+        link_projectile.setThrown(orientation, player_tag);
+        player_item = null;
+        holding_item = false;
+      }
+    }
+  }
+
+  // iframe, take the wheels jesus
   private IEnumerator iFrameRotate()
   {
     float cur_time = iFrame_time;
-    //Debug.Log("iFraming");
     while(cur_time > 0)
     {
       transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
       cur_time -= Time.deltaTime;
       yield return null;
     }
-    //Debug.Log("Normal");
+    dbgprint(3, "iFrame complete");
     status = (int)PlayerStatus.Normal;
     transform.rotation = Quaternion.identity;
   }
@@ -303,24 +354,49 @@ public class PlayerControl : MonoBehaviour
       if (Input.GetButtonDown(p_iframe_key) && status == (int)PlayerStatus.Normal)
       {
         status = (int)PlayerStatus.iFrame;
+        dbgprint(2, gameObject.tag + " iFrame started");
         StartCoroutine(iFrameRotate());
-        //iFrameRotate();
-        // Rotate back to normal
       }
     }
   }
 
-  // https://answers.unity.com/questions/240541/gameobjectfind-closest-.html
-  /*public void setNearestTable(GameObject table)
+  // cc'd take the wheels jesus
+  private IEnumerator CCStutter()
   {
-    closest_table = 
-  }*/
+    float cur_time = CC_time;
+    while(cur_time > 0)
+    {
+      //transform.Rotate(0, rotateSpeed/5 * Time.deltaTime, 0);
+      cur_time -= Time.deltaTime;
+      yield return null;
+    }
+    dbgprint(3, "iFrame complete");
+    status = (int)PlayerStatus.Normal;
+    transform.rotation = Quaternion.identity;
+  }
+
+  // hit by an object
+  public void HitByObject()
+  {
+    if(status != (int)PlayerStatus.iFrame)
+    {
+      status = (int)PlayerStatus.CC;
+      dbgprint(2, gameObject.tag + " CC'd");
+      // maybe do this better
+      transform.Rotate(0, 0.0f, 45.0f);
+      StartCoroutine(CCStutter());
+    }
+    else
+    {
+      dbgprint(2, gameObject.tag + " iFrame'd that CC");
+    }
+  }
 
   // non oriented movement
   void Update()
   {
     // prevent interact key from being fired multiple times
-    if(Input.GetButton(p_interact))
+    if(Input.GetButton(p_interact_key))
     {
       // waiting state
       if(key_ghost == (int)KeyGhost.None)
@@ -337,8 +413,11 @@ public class PlayerControl : MonoBehaviour
     {
       iFrame();
       Movement();
+      ThrowObject();
       PickUp();
       PutDown();
+    // if(player_id == (int)PlayerNum.One)
+    //   dbgprint(1, "Holding item: " + holding_item.ToString() );
     }
 
     // update held item position
