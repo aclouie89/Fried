@@ -22,6 +22,17 @@ TagManager:
   - trashcan
   - test_final_plate
   - final_scored
+  - Chopping_Board
+  - steak
+  - cooked_steak
+  - burnt_steak
+  - plate_tomato
+  - plate_cheese
+  - plate_lettuce
+  - plate_tomato_lettuce
+  - plate_tomato_cheese
+  - plate_tomato_lettuce_cheese
+  - plate_lettuce_cheese
   layers:
   - Default
   - TransparentFX

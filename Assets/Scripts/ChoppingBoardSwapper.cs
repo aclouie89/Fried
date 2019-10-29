@@ -20,26 +20,29 @@ public class ChoppingBoardSwapper : MonoBehaviour
     {
         if (col.gameObject.GetComponent<Renderer>().tag == "tomato")
         {
+            Debug.Log(col.gameObject.GetComponent<Renderer>().tag);
             yield return new WaitForSeconds(5);
             col.gameObject.GetComponent<Renderer>().material = cut_tomato_mat;
             col.gameObject.GetComponent<Renderer>().tag = "cut_tomato";
-            Debug.Log(board.gameObject.GetComponent<Renderer>().tag);
+            Debug.Log(col.gameObject.GetComponent<Renderer>().tag);
        
         }
-        if (col.gameObject.GetComponent<Renderer>().tag == "lettuce")
+        else if (col.gameObject.GetComponent<Renderer>().tag == "Lettuce")
         {
+            Debug.Log(col.gameObject.GetComponent<Renderer>().tag);
             yield return new WaitForSeconds(5);
             col.gameObject.GetComponent<Renderer>().material = cut_lettuce_mat;
             col.gameObject.GetComponent<Renderer>().tag = "cut_lettuce";
-            Debug.Log(board.gameObject.GetComponent<Renderer>().tag);
+            Debug.Log(col.gameObject.GetComponent<Renderer>().tag);
            
         }
-        if (col.gameObject.GetComponent<Renderer>().tag == "cheese")
+        else if (col.gameObject.GetComponent<Renderer>().tag == "Cheese")
         {
+            Debug.Log(col.gameObject.GetComponent<Renderer>().tag);
             yield return new WaitForSeconds(5);
             col.gameObject.GetComponent<Renderer>().material = cut_cheese_mat;
             col.gameObject.GetComponent<Renderer>().tag = "cut_cheese";
-            Debug.Log(board.gameObject.GetComponent<Renderer>().tag);
+            Debug.Log(col.gameObject.GetComponent<Renderer>().tag);
           
         }
 

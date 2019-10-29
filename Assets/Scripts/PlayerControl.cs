@@ -42,9 +42,10 @@ public class PlayerControl : MonoBehaviour
                           "tomato_spawner", "tomato", "cut_tomato", 
                           "cheese_spawner", "Cheese", "cut_cheese",
                           "lettuce_spawner", "Lettuce", "cut_lettuce",
+                          
                           // combined plate names
                           // final plate names
-                          "test_final_plate",
+                          "test_final_plate","plate_tomato_lettuce_cheese",
                           // etc items
                           "plate_spawner", "Plate"};
   string[] putdown_tags = {"normal_table", "output_table", "trashcan","Chopping_Board"};
