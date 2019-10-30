@@ -1633,6 +1633,7 @@ GameObject:
   - component: {fileID: 91822796}
   - component: {fileID: 91822795}
   - component: {fileID: 91822797}
+  - component: {fileID: 91822798}
   m_Layer: 0
   m_Name: CuttingBoard_Right
   m_TagString: Chopping_Board
@@ -1760,6 +1761,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &91822798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91822790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd86fbba580e1441b1c3cfa9bc506a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &94761282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,7 +2353,7 @@ GameObject:
   - component: {fileID: 124003431}
   m_Layer: 0
   m_Name: CuttingBoardBox_Left
-  m_TagString: Untagged
+  m_TagString: Chopping_Board
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13572,6 +13585,7 @@ GameObject:
   - component: {fileID: 780067409}
   - component: {fileID: 780067408}
   - component: {fileID: 780067407}
+  - component: {fileID: 780067411}
   m_Layer: 0
   m_Name: Level1_Left (1)
   m_TagString: normal_table
@@ -13659,6 +13673,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &780067411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780067406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd86fbba580e1441b1c3cfa9bc506a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &782789804
 GameObject:
   m_ObjectHideFlags: 0
@@ -16429,6 +16455,7 @@ GameObject:
   - component: {fileID: 959965889}
   - component: {fileID: 959965888}
   - component: {fileID: 959965887}
+  - component: {fileID: 959965891}
   m_Layer: 0
   m_Name: Level1_Upper_1
   m_TagString: normal_table
@@ -16519,6 +16546,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &959965891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959965886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd86fbba580e1441b1c3cfa9bc506a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -17472,6 +17511,7 @@ GameObject:
   - component: {fileID: 1053213809}
   - component: {fileID: 1053213813}
   - component: {fileID: 1053213812}
+  - component: {fileID: 1053213814}
   m_Layer: 0
   m_Name: CuttingBoard_Left
   m_TagString: Chopping_Board
@@ -17583,6 +17623,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1053213814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053213807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd86fbba580e1441b1c3cfa9bc506a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1059288262
 GameObject:
   m_ObjectHideFlags: 0

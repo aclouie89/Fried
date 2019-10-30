@@ -393,7 +393,7 @@ public class PlayerControl : MonoBehaviour
           player_item = cloneObject(player_item);
         }
         // if we picked it up from a table, tell the table it no longer has an item
-        else if(table.tag == "normal_table")
+        else if(table.tag == "normal_table" || table.tag == "Chopping_Board")
           table.GetComponent<NormalTable>().removeOnTable();
         // place it on our head
         player_item.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
@@ -423,7 +423,7 @@ public class PlayerControl : MonoBehaviour
       {
         GameObject item_on_table = null;
         // check if anything is on counter
-        if(table.tag == "normal_table")
+        if(table.tag == "normal_table" || table.tag == "Chopping_Board")
           item_on_table = table.GetComponent<NormalTable>().isOnTable();
         if(checkIfPlaceable(item_on_table, player_item) == false)
         {
@@ -458,11 +458,11 @@ public class PlayerControl : MonoBehaviour
         }
         // if it's a normal table we need to tell it we put something there
         // call the normal table
-        else if(table.tag == "normal_table")
+        else if(table.tag == "normal_table" || table.tag == "Chopping_Board")
         {
           table.GetComponent<NormalTable>().putOnTable(temp);
         }
-        else if(table.tag == "Chopping_Board")
+        if(table.tag == "Chopping_Board")
         {
           var link_table = table.GetComponent<ChoppingBoardSwapper>();
           // set the processing table and item so we can call back into it in update

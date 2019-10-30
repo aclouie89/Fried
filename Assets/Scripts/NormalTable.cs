@@ -15,16 +15,20 @@ public class NormalTable : MonoBehaviour
 
   public GameObject isOnTable()
   {
+    if(item != null)
+      Debug.Log("isOnTable " + item.tag);
     return item;
   }
 
   public void putOnTable(GameObject new_item)
   {
+    Debug.Log("putOnTable " + new_item.tag);
     item = new_item;
   }
 
   public void removeOnTable()
   {
+    Debug.Log("removeOnTable " + item.tag);
     item = null;
   }
 
