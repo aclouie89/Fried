@@ -5,7 +5,7 @@ using UnityEngine;
 // Player ID enum
 enum PlayerNum {None = 0, One, Two}
 // Player status
-enum PlayerStatus {Start = 0, Normal, iFrame, CC}
+enum PlayerStatus {Start = 0, Normal, iFrame, CC, Chopping}
 // Key ghosting state
 enum KeyGhost {None = 0, DownOnce, DownHold, UpOnce}
 // Player facing
@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
    * 3 - Verbose
    * 4 - Hyperverbose
    */
-  int DEBUG = 1;
+  int DEBUG = 4;
   // Character related
   public int player_id = (int)PlayerNum.None;
   private string p_vertical;
@@ -33,17 +33,31 @@ public class PlayerControl : MonoBehaviour
 
   // Pickup/Placing related
   private int key_ghost = (int)KeyGhost.None;
-  // these following 3 string arrays must be updated for new tags to work
+
+  // this must be updated for the number of raw ingredients
+  int num_ingredients = 3;
+  int num_mid_plates = 6;
+  int num_final_plates = 1;
+  // index of RAW materials
+  int[] type_ingredient;
+  // midway finished plates
+  int[] type_mid;
+  // finished plates
+  int[] type_finished;
+
+  // these following 2 string arrays must be updated for new tags to work
   // MAKE SURE PICKUP TAGS HAS THE SAME ORDER:
   //  SPAWNER, ITEM, PROCESS_ITEM
   string[] pickup_tags = {
                           // Ingredients
                           // spawner, ingredient, processed_ingredient
-                          "tomato_spawner", "tomato", "cut_tomato", 
+                          "tomato_spawner", "tomato", "cut_tomato",
                           "cheese_spawner", "Cheese", "cut_cheese",
                           "lettuce_spawner", "Lettuce", "cut_lettuce",
                           
                           // combined plate names
+                          "plate_tomato", "plate_cheese", "plate_lettuce",
+                          "plate_tomato_lettuce", "plate_tomato_cheese", "plate_lettuce_cheese",
                           // final plate names
                           "test_final_plate","plate_tomato_lettuce_cheese",
                           // etc items
@@ -60,6 +74,13 @@ public class PlayerControl : MonoBehaviour
   private float smoothTime = 0.001f;
   private Vector3 AVelocity = Vector3.zero;
 
+  // Processing ingredients related
+  private float process_wait_time = 0f;
+  private float process_start_time = 0f;
+  GameObject processing_table;
+  GameObject processing_item;
+
+
   // Collision related
   GameObject closest_table;
   string[] collision_tags = {"Player1", "Player2", "normal_table"};
@@ -72,7 +93,7 @@ public class PlayerControl : MonoBehaviour
   private Vector3 moveDirection = Vector3.zero;
   private bool movementEnabled = true;
 
-  private int status = (int)PlayerStatus.Start;
+  public int status = (int)PlayerStatus.Start;
   private float iFrame_time = 0.5f;
   private float CC_time = 1.5f;
   private float DoubleTapCD = 0.5f;
@@ -92,6 +113,52 @@ public class PlayerControl : MonoBehaviour
   void Start()
   {
     controller = GetComponent<CharacterController>();
+
+    // INIT index for types, assumes these strings are the first types
+    // find raw materials
+    int i = 2;
+    for(int x = 0; x < pickup_tags.Length; x++)
+      if(pickup_tags[x] == "tomato")
+      {
+        i = x;
+        break;
+      }
+    type_ingredient = new int[num_ingredients];
+    for(int x = 0; x < num_ingredients; x++)
+    {
+      type_ingredient[x] = i;
+      i += 3;
+      dbgprint(3, "Found ingredient: " + pickup_tags[type_ingredient[x]]);
+      dbgprint(3, "Found processed ingredient: " + pickup_tags[type_ingredient[x]+1]);
+    }
+    // find mid plates
+    for(int x = 0; x < pickup_tags.Length; x++)
+      if(pickup_tags[x] == "plate_tomato")
+      {
+        i = x;
+        break;
+      }
+    type_mid = new int[num_mid_plates];
+    for(int x = 0; x < num_mid_plates; x++)
+    {
+      type_mid[x] = i;
+      i += 1;
+      dbgprint(3, "Found mid_plate: " + pickup_tags[type_mid[x]]);
+    }
+    // find final plates
+    for(int x = 0; x < pickup_tags.Length; x++)
+      if(pickup_tags[x] == "plate_tomato_lettuce_cheese")
+      {
+        i = x;
+        break;
+      }
+    type_finished = new int[num_final_plates];
+    for(int x = 0; x < num_final_plates; x++)
+    {
+      type_finished[x] = i;
+      i += 1;
+      dbgprint(3, "Found final_plate: " + pickup_tags[type_finished[x]]);
+    }
 
     // set player one
     if (player_id == (int)PlayerNum.One)
@@ -192,6 +259,118 @@ public class PlayerControl : MonoBehaviour
     return clone;
   }
 
+  // finds closest game object given a list
+  private GameObject findClosestGameObject(string[] tags, float min_dist)
+  {
+    float closest_distance = Mathf.Infinity;
+    GameObject closest_go = null;
+    // find closest object
+    for(int i = 0; i < tags.Length; i++)
+    {
+      GameObject[] gos = GameObject.FindGameObjectsWithTag(tags[i]);
+      GameObject closest = null;
+      bool new_closest = false;
+      Vector3 position = transform.position;
+      foreach (GameObject go in gos)
+      {
+        Vector3 diff = go.GetComponent<Transform>().position - position;
+        float curDistance = diff.sqrMagnitude;
+        if (curDistance < closest_distance && curDistance < min_dist)
+        {
+          new_closest = true;
+          closest = go;
+          closest_distance = curDistance;
+        }
+      }
+      if(new_closest)
+      {
+        closest_go = closest;
+      }
+    }
+    return closest_go;
+  }
+
+  // returns true if raw ingredient
+  private bool isRawIngredient(GameObject go)
+  {
+    for(int i = 0; i < type_ingredient.Length; i++)
+      if(go.tag == pickup_tags[type_ingredient[i]])
+        return true;
+    return false;
+  }
+
+  // returns true if processed ingredient
+  private bool isProcessedIngredient(GameObject go)
+  {
+    for(int i = 0; i < type_ingredient.Length; i++)
+      if(go.tag == pickup_tags[type_ingredient[i]+1])
+        return true;
+    return false;
+  }
+
+  // returns true if it is a midway finished plate
+  private bool isMidPlate(GameObject go)
+  {
+    for(int i = 0; i < type_mid.Length; i++)
+      if(go.tag == pickup_tags[type_mid[i]])
+        return true;
+    return false;
+  }
+
+  // returns true if processed ingredient
+  private bool isFinalPlate(GameObject go)
+  {
+    for(int i = 0; i < type_finished.Length; i++)
+      if(go.tag == pickup_tags[type_finished[i]])
+        return true;
+    return false;
+  }
+
+  // returns true if empty plate
+  private bool isEmptyPlate(GameObject go)
+  {
+    if(go.tag == "Plate")
+      return true;
+    return false;
+  } 
+
+  // check for pick up items and return
+  private bool checkIfPlaceable(GameObject go, GameObject held)
+  {
+    // no item found just return
+    if(go == null)
+      return true;
+    dbgprint(1, "Item on table: " + go.tag);
+    dbgprint(1, "Item held: " + held.tag);
+    // some if logic to check if it's placeable
+    // raw materials cant be placed on: ingredients of any sort, mid plates, finished plates
+    if(isRawIngredient(held))
+    {
+      if(isRawIngredient(go) || isProcessedIngredient(go) || isEmptyPlate(go) || isMidPlate(go) || isFinalPlate(go))
+      {
+        dbgprint(1, "Cant place due to " + go.tag);
+        return false;
+      }
+    }
+    // processed materials cant be placed on: ingredients of any sort, finished plates
+    else if(isProcessedIngredient(held))
+    {
+      if(isRawIngredient(go) || isProcessedIngredient(go) || isFinalPlate(go))
+      {
+        dbgprint(1, "Cant place due to " + go.tag);
+        return false;
+      }
+    }
+    // plates can only be placed on empty tops,
+    else if(isFinalPlate(held) || isMidPlate(held) || isEmptyPlate(held))
+    {
+      // go is NOT null due to above if statement, so return false
+      return false;
+    }
+    // we can place it
+    return true;
+  }
+
   // pick an object up, works on spawners, plates and ingredients of all sorts
   // reference: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
   private void PickUp()
@@ -201,33 +380,9 @@ public class PlayerControl : MonoBehaviour
     {
       processing_pickup_putdown = true;
       key_ghost = (int)KeyGhost.DownHold;
-      dbgprint(2, "player hit interact");
-      float closest_distance = Mathf.Infinity;
-      // find closest object
-      for(int i = 0; i < pickup_tags.Length; i++)
-      {
-        GameObject[] gos = GameObject.FindGameObjectsWithTag(pickup_tags[i]);
-        GameObject closest = null;
-        bool new_closest = false;
-        Vector3 position = transform.position;
-        foreach (GameObject go in gos)
-        {
-          Vector3 diff = go.GetComponent<Transform>().position - position;
-          float curDistance = diff.sqrMagnitude;
-          if (curDistance < closest_distance && curDistance < min_dist_pickup)
-          {
-            new_closest = true;
-            closest = go;
-            dbgprint(3, "Found GameObject: " + closest.name);
-            closest_distance = curDistance;
-          }
-        }
-        if(new_closest)
-        {
-          player_item = closest;
-          dbgprint(3, "Found GameObject: " + player_item.name);
-        }
-      }
+      // find closest game object to pick up
+      player_item = findClosestGameObject(pickup_tags, min_dist_pickup);
+      GameObject table = findClosestGameObject(putdown_tags, min_dist_putdown);
 
       if(player_item != null)
       {
@@ -237,6 +392,9 @@ public class PlayerControl : MonoBehaviour
           dbgprint(3, "Found spawner: " + player_item.name.ToString());
           player_item = cloneObject(player_item);
         }
+        // if we picked it up from a table, tell the table it no longer has an item
+        else if(table.tag == "normal_table")
+          table.GetComponent<NormalTable>().removeOnTable();
         // place it on our head
         player_item.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         dbgprint(2, "Picking up: " + player_item.name);
@@ -258,43 +416,21 @@ public class PlayerControl : MonoBehaviour
     {
       processing_pickup_putdown = true;
       key_ghost = (int)KeyGhost.DownHold;
-      dbgprint(3, "player hit interact");
-      float closest_distance = Mathf.Infinity;
-      GameObject table = null;
-      // find closest object
-      for(int i = 0; i < putdown_tags.Length; i++)
-      {
-        GameObject[] gos = GameObject.FindGameObjectsWithTag(putdown_tags[i]);
-        GameObject closest = null;
-        bool new_closest = false;
-        Vector3 position = transform.position;
-        foreach (GameObject go in gos)
-        {
-          Vector3 diff = go.GetComponent<Transform>().position - position;
-          dbgprint(4, "Checking gameObject: " + go.name);
-          float curDistance = diff.sqrMagnitude;
-          if (curDistance < closest_distance && curDistance < min_dist_putdown)
-          {
-            new_closest = true;
-            closest = go;
-            dbgprint(3, "Found GameObject table: " + closest.name);
-            closest_distance = curDistance;
-          }
-          else
-          {
-            dbgprint(4, "Table too far: " + curDistance.ToString());
-          }
-        }
-        if(new_closest)
-        {
-          table = closest;
-          dbgprint(3,"Found GameObject table to put on: " + table.name);
-        }
-      }
-
+      // find closest game object to place item on
+      GameObject table = findClosestGameObject(putdown_tags, min_dist_putdown);
       // pick up item
       if(table != null)
       {
+        GameObject item_on_table = null;
+        // check if anything is on counter
+        if(table.tag == "normal_table")
+          item_on_table = table.GetComponent<NormalTable>().isOnTable();
+        if(checkIfPlaceable(item_on_table, player_item) == false)
+        {
+          processing_pickup_putdown = false;
+          dbgprint(1, "Can't place item here, object on table is incompatible");
+          return; 
+        }
         // location is a trash can
         if(table.tag == "trashcan")
         {
@@ -303,6 +439,7 @@ public class PlayerControl : MonoBehaviour
         }
         else 
         {
+          dbgprint(1, "Placing " + player_item.tag + " onto table " + table.tag + " (" + table.name + ")");
           // place it on our table
           player_item.transform.position = new Vector3(table.transform.position.x, table.transform.position.y + 0.35f, table.transform.position.z + 0.05f);
         }
@@ -318,6 +455,34 @@ public class PlayerControl : MonoBehaviour
         {
           var link_table = table.GetComponent<OutputTable>();
           link_table.playerPlaced(player_id, temp);
+        }
+        // if it's a normal table we need to tell it we put something there
+        // call the normal table
+        else if(table.tag == "normal_table")
+        {
+          table.GetComponent<NormalTable>().putOnTable(temp);
+        }
+        else if(table.tag == "Chopping_Board")
+        {
+          var link_table = table.GetComponent<ChoppingBoardSwapper>();
+          // set the processing table and item so we can call back into it in update
+          processing_table = table;
+          processing_item = temp;
+          // set up the boolean as false first
+          process_wait_time = link_table.PlayerStartedChopping(gameObject, temp);
+          // probably cant chop something
+          if(process_wait_time == 0f)
+          {
+            dbgprint(3, "Can't process " + temp.tag + " at " + link_table.tag);
+          }
+          // we can process it, start the time
+          else
+          {
+            // set the status
+            status = (int)PlayerStatus.Chopping;
+            // start the time
+            process_start_time = Time.time;
+          }
         }
       }
       else
@@ -399,6 +564,11 @@ public class PlayerControl : MonoBehaviour
     {
       status = (int)PlayerStatus.CC;
       dbgprint(2, gameObject.tag + " CC'd");
+
+      // purge processing just in case it introduces a bug later
+      processing_item = null;
+      processing_table = null;
+
       // maybe do this better
       transform.Rotate(0, 0.0f, 45.0f);
       StartCoroutine(CCStutter());
@@ -425,7 +595,7 @@ public class PlayerControl : MonoBehaviour
     else if(key_ghost != (int)KeyGhost.None)
       key_ghost = (int)KeyGhost.None;
 
-
+    // the player can move
     if (status == (int)PlayerStatus.Normal)
     {
       iFrame();
@@ -433,8 +603,20 @@ public class PlayerControl : MonoBehaviour
       ThrowObject();
       PickUp();
       PutDown();
-    // if(player_id == (int)PlayerNum.One)
-    //   dbgprint(1, "Holding item: " + holding_item.ToString() );
+    }
+
+    // if we're processing
+    else if(status == (int)PlayerStatus.Chopping)
+    {
+      // end processing
+      if(Time.time >= process_start_time + process_wait_time)
+      {
+        if(status == (int)PlayerStatus.Chopping)
+          processing_table.GetComponent<ChoppingBoardSwapper>().PlayerFinishedChopping(processing_item);
+
+        // clear up status
+        status = (int)PlayerStatus.Normal;
+      }
     }
 
     // update held item position

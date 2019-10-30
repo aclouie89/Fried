@@ -13,13 +13,13 @@ public class OutputTable : MonoBehaviour
    * 3 - Verbose
    * 4 - Hyperverbose
    */
-  int DEBUG = 1;
+  int DEBUG = 3;
 
   // final plate list, EDIT THIS FOR EACH LEVEL
-  private string[] final_tag = {"test_final_plate"};
+  private string[] final_tag = {"plate_tomato_lettuce_cheese"};
   // point list MUST match final_tag list in length
   // each plate can be worth different amounts
-  private int[] final_points = {0};
+  private int[] final_points = {0, 1};
 
   private Score score;
   /*public Score1 p1_score;
@@ -42,19 +42,26 @@ public class OutputTable : MonoBehaviour
     if(DEBUG >= level)
       Debug.Log(text);
   }
+  
+  IEnumerator waitForSeedChange()
+  {
+    yield return new WaitForSeconds(1);
+  }
 
   // randomly picks order from all possible orders
-  string NewRandomOrder()
+  // Seed could be improved
+  string NewRandomOrder(int index)
   {
-    System.Random rnd = new System.Random();
+    System.Random rnd = new System.Random(index * index * index + (int)Time.time);
     int rnd_index = rnd.Next(final_tag.Length);
-    dbgprint(5, "NewRandomOrder() generated random number: " + rnd_index.ToString());
+    StartCoroutine(waitForSeedChange());
+    dbgprint(3, "NewRandomOrder() generated random number: " + rnd_index.ToString());
     return final_tag[rnd_index];
   }
   // updates the acceptable orders
   void UpdateToList(int index)
   {
-    cur_orders[index] = NewRandomOrder();
+    cur_orders[index] = NewRandomOrder(index);
     dbgprint(2, "Adding " + cur_orders[index] + " to acceptable orders");
   }
 
@@ -197,8 +204,7 @@ public class OutputTable : MonoBehaviour
   void Start()
   {
     score = new Score();
-    // set up allowable orders
-    for(int i = 0; i < 2; i++)
+    for(int i = 0; i < 3; i++)
     {
       UpdateToList(i);
     }

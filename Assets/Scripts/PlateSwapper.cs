@@ -15,7 +15,35 @@ public class PlateSwapper : MonoBehaviour
     public Material cut_tomato_lettuce_cheese_mat;
 
     public GameObject plate;
+
+    private float min_dist = 1.0f;
    
+     // check for table we're on
+      private GameObject findTable()
+      {
+          float closest_distance = Mathf.Infinity;
+          GameObject[] gos = GameObject.FindGameObjectsWithTag("normal_table");
+          GameObject closest = null;
+          Vector3 position = transform.position;
+          foreach (GameObject go in gos)
+          {
+            Vector3 diff = go.GetComponent<Transform>().position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < closest_distance && curDistance < min_dist)
+            {
+              closest = go;
+              closest_distance = curDistance;
+            }
+          }
+
+          return closest;
+      }
+
+    // tell our table to update
+    private void updateTable(GameObject table, GameObject new_plate)
+    {
+        table.GetComponent<NormalTable>().putOnTable(new_plate);
+    }
     private IEnumerator OnTriggerEnter(Collider col)
     {
         Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
@@ -28,6 +56,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce")
@@ -35,6 +64,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese")
@@ -42,6 +72,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_cheese";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
 
             }
@@ -51,6 +82,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else
@@ -67,6 +99,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese")
@@ -74,6 +107,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_cheese";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato")
@@ -81,6 +115,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_cheese" || plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_lettuce"
@@ -89,6 +124,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else
@@ -105,6 +141,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce")
@@ -112,6 +149,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_cheese";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato")
@@ -119,6 +157,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_cheese";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
 
             }
@@ -128,6 +167,7 @@ public class PlateSwapper : MonoBehaviour
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
                 Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else
