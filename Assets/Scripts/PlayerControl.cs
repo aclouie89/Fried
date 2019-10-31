@@ -35,9 +35,9 @@ public class PlayerControl : MonoBehaviour
   private int key_ghost = (int)KeyGhost.None;
 
   // this must be updated for the number of raw ingredients
-  int num_ingredients = 3;
-  int num_mid_plates = 6;
-  int num_final_plates = 1;
+  int num_ingredients = 5;
+  int num_mid_plates = 7;
+  int num_final_plates = 3;
   // index of RAW materials
   int[] type_ingredient;
   // midway finished plates
@@ -54,15 +54,18 @@ public class PlayerControl : MonoBehaviour
                           "tomato_spawner", "tomato", "cut_tomato",
                           "cheese_spawner", "Cheese", "cut_cheese",
                           "lettuce_spawner", "Lettuce", "cut_lettuce",
+                          "bread_spawner", "bread", "bread",
+                          "steak_spawner", "steak", "cooked_steak","burnt_steak",
                           
                           // combined plate names
-                          "plate_tomato", "plate_cheese", "plate_lettuce",
+                          "plate_tomato", "plate_cheese", "plate_lettuce", "plate_bread",
                           "plate_tomato_lettuce", "plate_tomato_cheese", "plate_lettuce_cheese",
                           // final plate names
                           "test_final_plate","plate_tomato_lettuce_cheese",
+                            "plate_cheeseburger", "plate_burger",
                           // etc items
                           "plate_spawner", "Plate"};
-  string[] putdown_tags = {"normal_table", "output_table", "trashcan","Chopping_Board"};
+  string[] putdown_tags = {"normal_table", "output_table", "trashcan","Chopping_Board", "Cooking_Pan"};
   // minimum distance
   private float min_dist_pickup = 3.0f;
   private float min_dist_putdown = 4.0f;
@@ -344,7 +347,15 @@ public class PlayerControl : MonoBehaviour
     dbgprint(1, "Item held: " + held.tag);
     // some if logic to check if it's placeable
     // raw materials cant be placed on: ingredients of any sort, mid plates, finished plates
-    if(isRawIngredient(held))
+    if(isProcessedIngredient(held))
+    {
+      if(isRawIngredient(go) || isProcessedIngredient(go) || isFinalPlate(go))
+      {
+        dbgprint(1, "Cant place due to " + go.tag);
+        return false;
+      }
+    }
+    else if(isRawIngredient(held))
     {
       if(isRawIngredient(go) || isProcessedIngredient(go) || isEmptyPlate(go) || isMidPlate(go) || isFinalPlate(go))
       {
@@ -353,14 +364,14 @@ public class PlayerControl : MonoBehaviour
       }
     }
     // processed materials cant be placed on: ingredients of any sort, finished plates
-    else if(isProcessedIngredient(held))
-    {
-      if(isRawIngredient(go) || isProcessedIngredient(go) || isFinalPlate(go))
-      {
-        dbgprint(1, "Cant place due to " + go.tag);
-        return false;
-      }
-    }
+    //else if(isProcessedIngredient(held))
+    //{
+    //  if(isRawIngredient(go) || isProcessedIngredient(go) || isFinalPlate(go))
+    //  {
+    //    dbgprint(1, "Cant place due to " + go.tag);
+    //    return false;
+    //  }
+    //}
     // plates can only be placed on empty tops,
     else if(isFinalPlate(held) || isMidPlate(held) || isEmptyPlate(held))
     {
@@ -393,7 +404,7 @@ public class PlayerControl : MonoBehaviour
           player_item = cloneObject(player_item);
         }
         // if we picked it up from a table, tell the table it no longer has an item
-        else if(table.tag == "normal_table" || table.tag == "Chopping_Board")
+        else if(table.tag == "normal_table" || table.tag == "Chopping_Board" || table.tag == "Cooking_Pan")
           table.GetComponent<NormalTable>().removeOnTable();
         // place it on our head
         player_item.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
