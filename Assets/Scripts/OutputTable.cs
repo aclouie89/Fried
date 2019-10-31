@@ -50,7 +50,7 @@ public class OutputTable : MonoBehaviour
 
   // randomly picks order from all possible orders
   // Seed could be improved
-  string NewRandomOrder(int index)
+  private string NewRandomOrder(int index)
   {
     System.Random rnd = new System.Random(index * index * index + (int)Time.time);
     int rnd_index = rnd.Next(final_tag.Length);
@@ -59,13 +59,13 @@ public class OutputTable : MonoBehaviour
     return final_tag[rnd_index];
   }
   // updates the acceptable orders
-  void UpdateToList(int index)
+  private void UpdateToList(int index)
   {
     cur_orders[index] = NewRandomOrder(index);
     dbgprint(2, "Adding " + cur_orders[index] + " to acceptable orders");
   }
 
-  int GetIndex(string order)
+  public int GetIndex(string order)
   {
     for(int i = 0; i < cur_orders.Length; i++)
       if(order == cur_orders[i])
@@ -73,7 +73,7 @@ public class OutputTable : MonoBehaviour
     return -1;
   }
 
-  int GetFinalIndex(string order)
+  private int GetFinalIndex(string order)
   {
     for(int i = 0; i < final_tag.Length; i++)
       if(order == final_tag[i])
