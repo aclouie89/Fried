@@ -434,7 +434,7 @@ public class PlayerControl : MonoBehaviour
       {
         GameObject item_on_table = null;
         // check if anything is on counter
-        if(table.tag == "normal_table" || table.tag == "Chopping_Board")
+        if(table.tag == "normal_table" || table.tag == "Chopping_Board" || table.tag == "Cooking_Pan")
           item_on_table = table.GetComponent<NormalTable>().isOnTable();
         if(checkIfPlaceable(item_on_table, player_item) == false)
         {
@@ -469,7 +469,7 @@ public class PlayerControl : MonoBehaviour
         }
         // if it's a normal table we need to tell it we put something there
         // call the normal table
-        else if(table.tag == "normal_table" || table.tag == "Chopping_Board")
+        else if(table.tag == "normal_table" || table.tag == "Chopping_Board" || table.tag == "Cooking_Pan")
         {
           table.GetComponent<NormalTable>().putOnTable(temp);
         }
