@@ -12,10 +12,10 @@ public class Score : MonoBehaviour
    */
   int DEBUG = 1;
 
-  private int player1_score = 0;
-  private int player2_score = 0;
-  public TextMeshProUGUI player1_scoreText;
-  public TextMeshProUGUI player2_scoreText;
+  public int player1_score = 0;
+  public int player2_score = 0;
+  public TextMeshProUGUI player_scoreText;
+  //public TextMeshProUGUI player2_scoreText;
 
   void dbgprint(int level, string text)
   {
@@ -32,8 +32,12 @@ public class Score : MonoBehaviour
     else
       dbgprint(1, "ERROR, no player_id specified in Score()");
 
-    //player1_scoreText.text = player1_score.ToString();
-    //player2_scoreText.text = player2_score.ToString();
 
   }
+
+   public void UpdateDisplay()
+    {
+        player_scoreText.text = player1_score.ToString() + "                           " + player2_score.ToString();
+        //Debug.Log("Stars : "+ stars.ToString()) ;
+    }
 }

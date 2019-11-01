@@ -21,7 +21,8 @@ public class OutputTable : MonoBehaviour
   // each plate can be worth different amounts
   private int[] final_points = {0, 1};
 
-  private Score score;
+    public Score score;
+  //private Score score;
   /*public Score1 p1_score;
   public Score2 p2_score;*/
 
@@ -112,6 +113,7 @@ public class OutputTable : MonoBehaviour
           UpdateToList(order_index);
           // score our player
           score.ScorePlayer(player_found, points);
+          score.UpdateDisplay();
           // prevent the user from picking up this plate and using it to score
           order.tag = "final_scored";
           // wait to destroy, we can do something else here like animation
@@ -203,7 +205,7 @@ public class OutputTable : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    score = new Score();
+    //score = new Score();
     for(int i = 0; i < 3; i++)
     {
       UpdateToList(i);
