@@ -19,7 +19,7 @@ public class OutputTable : MonoBehaviour
   private string[] final_tag = {"plate_tomato_lettuce_cheese"};
   // point list MUST match final_tag list in length
   // each plate can be worth different amounts
-  private int[] final_points = {0, 1};
+  private int[] final_points = {1};
 
     public Score score;
   //private Score score;
