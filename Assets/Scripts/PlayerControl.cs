@@ -10,6 +10,8 @@ enum PlayerStatus {Start = 0, Normal, iFrame, CC, Chopping}
 enum KeyGhost {None = 0, DownOnce, DownHold, UpOnce}
 // Player facing
 enum PlayerOrientation {North = 0, East, South, West}
+// PLayer material
+enum PlayerMat {StandN = 0, StandE, StandS, StandW}
 
 // Player Controller
 /* - Handles Movement
@@ -30,6 +32,10 @@ public class PlayerControl : MonoBehaviour
   private string p_interact_key;
   private string p_iframe_key;
   private string p_throw_key;
+
+  // Animation related
+  private Material[] player_mat;
+  int last_mesh_index = (int)PlayerMat.StandN;
 
   // Pickup/Placing related
   private int key_ghost = (int)KeyGhost.None;
@@ -117,6 +123,8 @@ public class PlayerControl : MonoBehaviour
   {
     controller = GetComponent<CharacterController>();
 
+    player_mat = GetComponent<Renderer>().materials;
+
     // INIT index for types, assumes these strings are the first types
     // find raw materials
     int i = 2;
@@ -183,6 +191,13 @@ public class PlayerControl : MonoBehaviour
 
     status = (int)PlayerStatus.Normal;
     orientation = (int) PlayerOrientation.South;
+    
+    // set up the sprite
+    for(int x = 0; x < player_mat.Length; x++)
+    {
+      GetComponent<Renderer>().materials[x].color = new Color(1,1,1,0f);
+    }
+    showSingleMesh((int) PlayerMat.StandS);
 
     // Players are shrinking after iframe, WHY   
     StartCoroutine(iFrameRotate());
@@ -194,21 +209,54 @@ public class PlayerControl : MonoBehaviour
     movementEnabled = flag;
   }
 
+  private void meshIndexToOrientation(int index)
+  {
+    // normal standing
+    if(index >= (int)PlayerMat.StandN && index <= (int)PlayerMat.StandW)
+      orientation = index;
+  }
+
+  // display only one mesh
+  private void showSingleMesh(int index)
+  {
+    if(index != last_mesh_index)
+    {
+      Color fade = new Color(1,1,1,0f);
+      Color vis = new Color(1,1,1,1f);
+      GetComponent<Renderer>().materials[index].color = new Color(1,1,1,1f);;
+      GetComponent<Renderer>().materials[last_mesh_index].color = new Color(1,1,1,0f);
+      last_mesh_index = index;
+      meshIndexToOrientation(index);
+    }
+  }
+
   private void UpdateOrientation()
   {
     // ORDER?!?!?!?!?
     // how do i know which way they are facing if theyre hitting multiple keys
     // im just going to let this cascade and pick
-    if(Input.GetAxis(p_vertical) > 0)
-      orientation = (int) PlayerOrientation.North;
-    if(Input.GetAxis(p_vertical) < 0)
-      orientation = (int) PlayerOrientation.South;
-    if(Input.GetAxis(p_horizontal) > 0)
-      orientation = (int) PlayerOrientation.East;
-    if(Input.GetAxis(p_horizontal) < 0)
-      orientation = (int) PlayerOrientation.West;
+    if(Input.GetButton(p_vertical) && Input.GetAxis(p_vertical) > 0)
+    {
+      dbgprint(5, "Player is facing: North");
+      showSingleMesh((int) PlayerMat.StandN);
+    }
+    else if(Input.GetButton(p_vertical) && Input.GetAxis(p_vertical) < 0)
+    {
+      dbgprint(5, "Player is facing: South");
+      showSingleMesh((int) PlayerMat.StandS);
+    }
+    else if(Input.GetButton(p_horizontal) && Input.GetAxis(p_horizontal) > 0)
+    {
+      dbgprint(5, "Player is facing: East");
+      showSingleMesh((int) PlayerMat.StandE);
+    }
+    else if(Input.GetButton(p_horizontal) && Input.GetAxis(p_horizontal) < 0)
+    {
+      dbgprint(5, "Player is facing: West");
+      showSingleMesh((int) PlayerMat.StandW);
+    }
 
-    dbgprint(5, "Player is facing: " + orientation.ToString());
+    dbgprint(0, "Player is facing: " + orientation.ToString());
   }
 
   private void Movement()
@@ -217,7 +265,7 @@ public class PlayerControl : MonoBehaviour
     if (controller.isGrounded)
     {
         // update which way we're facing
-        UpdateOrientation();
+        //UpdateOrientation();
 
         moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
         // move forward
@@ -363,15 +411,6 @@ public class PlayerControl : MonoBehaviour
         return false;
       }
     }
-    // processed materials cant be placed on: ingredients of any sort, finished plates
-    //else if(isProcessedIngredient(held))
-    //{
-    //  if(isRawIngredient(go) || isProcessedIngredient(go) || isFinalPlate(go))
-    //  {
-    //    dbgprint(1, "Cant place due to " + go.tag);
-    //    return false;
-    //  }
-    //}
     // plates can only be placed on empty tops,
     else if(isFinalPlate(held) || isMidPlate(held) || isEmptyPlate(held))
     {
@@ -610,6 +649,7 @@ public class PlayerControl : MonoBehaviour
     if (status == (int)PlayerStatus.Normal)
     {
       iFrame();
+      UpdateOrientation();
       Movement();
       ThrowObject();
       PickUp();
