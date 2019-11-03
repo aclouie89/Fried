@@ -5,7 +5,7 @@ using UnityEngine;
 // Player ID enum
 enum PlayerNum {None = 0, One, Two}
 // Player status
-enum PlayerStatus {Start = 0, Normal, iFrame, CC, Chopping}
+enum PlayerStatus {Start = 0, Normal, iFrame, CC, Chopping, Cooking}
 // Key ghosting state
 enum KeyGhost {None = 0, DownOnce, DownHold, UpOnce}
 // Player facing
@@ -534,6 +534,28 @@ public class PlayerControl : MonoBehaviour
             process_start_time = Time.time;
           }
         }
+        else if(table.tag == "Cooking_Pan")
+        {
+          var link_table = table.GetComponent<CookingSwapper>();
+          // set the processing table and item so we can call back into it in update
+          processing_table = table;
+          processing_item = temp;
+          // set up the boolean as false first
+          process_wait_time = link_table.PlayerStartedCooking(gameObject, temp);
+          // probably cant chop something
+          if(process_wait_time == 0f)
+          {
+            dbgprint(3, "Can't process " + temp.tag + " at " + link_table.tag);
+          }
+          // we can process it, start the time
+          else
+          {
+            // set the status
+            status = (int)PlayerStatus.Cooking;
+            // start the time
+            process_start_time = Time.time;
+          }
+        }
       }
       else
       {
@@ -664,7 +686,8 @@ public class PlayerControl : MonoBehaviour
       {
         if(status == (int)PlayerStatus.Chopping)
           processing_table.GetComponent<ChoppingBoardSwapper>().PlayerFinishedChopping(processing_item);
-
+        else if(status == (int)PlayerStatus.Cooking)
+          processing_table.GetComponent<CookingSwapper>().PlayerFinishedCooking(processing_item);
         // clear up status
         status = (int)PlayerStatus.Normal;
       }
