@@ -35,9 +35,9 @@ public class Score : MonoBehaviour
 
   }
 
-   public void UpdateDisplay()
+   public void UpdatePoint()
     {
-        player_scoreText.text = player1_score.ToString() + "                           " + player2_score.ToString();
+        player_scoreText.text = player1_score.ToString() + "                                " + player2_score.ToString();
         //Debug.Log("Stars : "+ stars.ToString()) ;
     }
 }

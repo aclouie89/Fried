@@ -15,16 +15,18 @@ public class OutputTable : MonoBehaviour
    */
   int DEBUG = 3;
 
-  // final plate list, EDIT THIS FOR EACH LEVEL
-  private string[] final_tag = {"plate_tomato_lettuce_cheese"};
+    // final plate list, EDIT THIS FOR EACH LEVEL
+    private string[] final_tag = { "plate_tomato_lettuce_cheese", "plate_cheeseburger" ,"plate_burger" };
   // point list MUST match final_tag list in length
   // each plate can be worth different amounts
   private int[] final_points = {1};
 
     public Score score;
-  //private Score score;
-  /*public Score1 p1_score;
-  public Score2 p2_score;*/
+    //private Score score;
+    /*public Score1 p1_score;
+    public Score2 p2_score;*/
+    //display order
+    public DisplayOrder displayOrder;
 
   // minimum distance settings for player/order detection
   private float player_min_dist = 2.0f;
@@ -64,6 +66,7 @@ public class OutputTable : MonoBehaviour
   {
     cur_orders[index] = NewRandomOrder(index);
     dbgprint(2, "Adding " + cur_orders[index] + " to acceptable orders");
+    displayOrder.display(cur_orders[index]);
   }
 
   public int GetIndex(string order)
@@ -113,11 +116,12 @@ public class OutputTable : MonoBehaviour
           UpdateToList(order_index);
           // score our player
           score.ScorePlayer(player_found, points);
-          score.UpdateDisplay();
+          score.UpdatePoint();
           // prevent the user from picking up this plate and using it to score
           order.tag = "final_scored";
           // wait to destroy, we can do something else here like animation
           StartCoroutine(WaitToDestroy(order));
+          displayOrder.DestoryOrder(order.tag);
         }
       }
       else
