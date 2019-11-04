@@ -1745,7 +1745,7 @@ MonoBehaviour:
   cut_lettuce_mat: {fileID: 2100000, guid: eda55b5ae50664e4d9bd205b7023da97, type: 2}
   cut_cheese_mat: {fileID: 2100000, guid: cfd6aa26b29f74157881dd3639c46e15, type: 2}
   board: {fileID: 91822790}
-  progress_bar: {fileID: 0}
+  progress_bar: {fileID: 712093394}
 --- !u!54 &91822797
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18517,7 +18517,7 @@ MonoBehaviour:
   cut_lettuce_mat: {fileID: 2100000, guid: eda55b5ae50664e4d9bd205b7023da97, type: 2}
   cut_cheese_mat: {fileID: 2100000, guid: cfd6aa26b29f74157881dd3639c46e15, type: 2}
   board: {fileID: 1053213807}
-  progress_bar: {fileID: 0}
+  progress_bar: {fileID: 260359770}
 --- !u!136 &1053213813
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34847,6 +34847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 146106884}
+  displayOrder: {fileID: 0}
 --- !u!1 &2088236510
 GameObject:
   m_ObjectHideFlags: 0
