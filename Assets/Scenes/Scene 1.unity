@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4438474, g: 0.4932106, b: 0.5727175, a: 1}
+  m_IndirectSpecularColor: {r: 0.44384786, g: 0.49321133, b: 0.5727186, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13419,10 +13419,9 @@ GameObject:
   - component: {fileID: 750642146}
   - component: {fileID: 750642145}
   - component: {fileID: 750642144}
-  - component: {fileID: 750642147}
   m_Layer: 0
   m_Name: Level1_StoveBox_Left
-  m_TagString: normal_table
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13502,18 +13501,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750642142}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &750642147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750642142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd86fbba580e1441b1c3cfa9bc506a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &751792758
 GameObject:
   m_ObjectHideFlags: 0
@@ -26137,6 +26124,7 @@ GameObject:
   - component: {fileID: 1594639967}
   - component: {fileID: 1594639966}
   - component: {fileID: 1594639971}
+  - component: {fileID: 1594639972}
   m_Layer: 0
   m_Name: Level1_CookingPan_Right
   m_TagString: Cooking_Pan
@@ -26248,6 +26236,18 @@ MonoBehaviour:
   burnt_steak_mat: {fileID: 2100000, guid: 849d3d25194df4b4fb1c12aaf73acb65, type: 2}
   pan: {fileID: 1594639965}
   progress_bar: {fileID: 712093394}
+--- !u!114 &1594639972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594639965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd86fbba580e1441b1c3cfa9bc506a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1596872179
 GameObject:
   m_ObjectHideFlags: 0
@@ -26601,10 +26601,9 @@ GameObject:
   - component: {fileID: 1625191470}
   - component: {fileID: 1625191469}
   - component: {fileID: 1625191468}
-  - component: {fileID: 1625191471}
   m_Layer: 0
   m_Name: Level1_StoveBox_Right
-  m_TagString: normal_table
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26684,18 +26683,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625191466}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1625191471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625191466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd86fbba580e1441b1c3cfa9bc506a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1631963654
 GameObject:
   m_ObjectHideFlags: 0
@@ -31037,6 +31024,7 @@ GameObject:
   - component: {fileID: 1861939417}
   - component: {fileID: 1861939416}
   - component: {fileID: 1861939421}
+  - component: {fileID: 1861939422}
   m_Layer: 0
   m_Name: Level1_CookingPan_Left
   m_TagString: Cooking_Pan
@@ -31148,6 +31136,18 @@ MonoBehaviour:
   burnt_steak_mat: {fileID: 2100000, guid: 849d3d25194df4b4fb1c12aaf73acb65, type: 2}
   pan: {fileID: 1861939415}
   progress_bar: {fileID: 260359770}
+--- !u!114 &1861939422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861939415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd86fbba580e1441b1c3cfa9bc506a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1864352741
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 // Player ID enum
 enum PlayerNum {None = 0, One, Two}
 // Player status
-enum PlayerStatus {Start = 0, Normal, iFrame, CC, Chopping, Cooking}
+enum PlayerStatus {Start = 0, Normal, iFrame, CC, Chopping}
 // Key ghosting state
 enum KeyGhost {None = 0, DownOnce, DownHold, UpOnce}
 // Player facing
@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
    * 3 - Verbose
    * 4 - Hyperverbose
    */
-  int DEBUG = 4;
+  int DEBUG = 3;
   // Character related
   public int player_id = (int)PlayerNum.None;
   private string p_vertical;
@@ -42,10 +42,13 @@ public class PlayerControl : MonoBehaviour
 
   // this must be updated for the number of raw ingredients
   int num_ingredients = 5;
+  int num_spoiled = 1;
   int num_mid_plates = 7;
   int num_final_plates = 3;
   // index of RAW materials
   int[] type_ingredient;
+  // index of SPOILED materials
+  int[] type_spoiled;
   // midway finished plates
   int[] type_mid;
   // finished plates
@@ -61,8 +64,9 @@ public class PlayerControl : MonoBehaviour
                           "cheese_spawner", "Cheese", "cut_cheese",
                           "lettuce_spawner", "Lettuce", "cut_lettuce",
                           "bread_spawner", "bread", "bread",
-                          "steak_spawner", "steak", "cooked_steak","burnt_steak",
+                          "steak_spawner", "steak", "cooked_steak",
                           
+                          "burnt_steak",
                           // combined plate names
                           "plate_tomato", "plate_cheese", "plate_lettuce", "plate_bread",
                           "plate_tomato_lettuce", "plate_tomato_cheese", "plate_lettuce_cheese",
@@ -141,6 +145,20 @@ public class PlayerControl : MonoBehaviour
       i += 3;
       dbgprint(3, "Found ingredient: " + pickup_tags[type_ingredient[x]]);
       dbgprint(3, "Found processed ingredient: " + pickup_tags[type_ingredient[x]+1]);
+    }
+    // find spoiled materials
+    for(int x = 0; x < pickup_tags.Length; x++)
+      if(pickup_tags[x] == "burnt_steak")
+      {
+        i = x;
+        break;
+      }
+    type_spoiled = new int[num_spoiled];
+    for(int x = 0; x < num_spoiled; x++)
+    {
+      type_spoiled[x] = i;
+      i += 1;
+      dbgprint(3, "Found spoiled ingredient: " + pickup_tags[type_spoiled[x]]);
     }
     // find mid plates
     for(int x = 0; x < pickup_tags.Length; x++)
@@ -256,7 +274,7 @@ public class PlayerControl : MonoBehaviour
       showSingleMesh((int) PlayerMat.StandW);
     }
 
-    dbgprint(0, "Player is facing: " + orientation.ToString());
+    dbgprint(5, "Player is facing: " + orientation.ToString());
   }
 
   private void Movement()
@@ -359,6 +377,15 @@ public class PlayerControl : MonoBehaviour
     return false;
   }
 
+  // returns true if spoiled ingredient
+  private bool isSpoiledIngredient(GameObject go)
+  {
+    for(int i = 0; i < type_spoiled.Length; i++)
+      if(go.tag == pickup_tags[type_spoiled[i]+1])
+        return true;
+    return false;
+  }
+
   // returns true if it is a midway finished plate
   private bool isMidPlate(GameObject go)
   {
@@ -403,7 +430,8 @@ public class PlayerControl : MonoBehaviour
         return false;
       }
     }
-    else if(isRawIngredient(held))
+    // raw materials cant be placed on: ingredients of any sort, mid plates, finished plates
+    else if(isRawIngredient(held) || isSpoiledIngredient(held))
     {
       if(isRawIngredient(go) || isProcessedIngredient(go) || isEmptyPlate(go) || isMidPlate(go) || isFinalPlate(go))
       {
@@ -444,7 +472,14 @@ public class PlayerControl : MonoBehaviour
         }
         // if we picked it up from a table, tell the table it no longer has an item
         else if(table.tag == "normal_table" || table.tag == "Chopping_Board" || table.tag == "Cooking_Pan")
+        {
           table.GetComponent<NormalTable>().removeOnTable();
+          // tell the cooking pan we picked up the item
+          if(table.tag == "Cooking_Pan")
+          {
+            table.GetComponent<CookingSwapper>().PlayerPickedUpItem();
+          }
+        }
         // place it on our head
         player_item.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         dbgprint(2, "Picking up: " + player_item.name);
@@ -534,27 +569,12 @@ public class PlayerControl : MonoBehaviour
             process_start_time = Time.time;
           }
         }
+        // cooking is hands off, we dont need to set anything
         else if(table.tag == "Cooking_Pan")
         {
           var link_table = table.GetComponent<CookingSwapper>();
-          // set the processing table and item so we can call back into it in update
-          processing_table = table;
-          processing_item = temp;
           // set up the boolean as false first
-          process_wait_time = link_table.PlayerStartedCooking(gameObject, temp);
-          // probably cant chop something
-          if(process_wait_time == 0f)
-          {
-            dbgprint(3, "Can't process " + temp.tag + " at " + link_table.tag);
-          }
-          // we can process it, start the time
-          else
-          {
-            // set the status
-            status = (int)PlayerStatus.Cooking;
-            // start the time
-            process_start_time = Time.time;
-          }
+          link_table.PlayerStartedCooking(gameObject, temp);
         }
       }
       else
@@ -686,8 +706,6 @@ public class PlayerControl : MonoBehaviour
       {
         if(status == (int)PlayerStatus.Chopping)
           processing_table.GetComponent<ChoppingBoardSwapper>().PlayerFinishedChopping(processing_item);
-        else if(status == (int)PlayerStatus.Cooking)
-          processing_table.GetComponent<CookingSwapper>().PlayerFinishedCooking(processing_item);
         // clear up status
         status = (int)PlayerStatus.Normal;
       }

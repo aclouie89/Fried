@@ -12,10 +12,13 @@ public class CookingSwapper : MonoBehaviour
     public Image progress_bar;
 
     private GameObject player_occupying = null;
+    private GameObject cooking_item = null;
     private bool occupied = false;
     // dont let more than one player chop at a time
     private float process_wait_time = 0f;
     private float process_start_time = 0f;
+    // time to burn
+    private float time_to_burn = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +41,7 @@ public class CookingSwapper : MonoBehaviour
     {
         if(!occupied)
         {
-            float time_to_chop = 3.0f;
+            float time_to_cook = 3.0f;
             ProgressBar();
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
             // YOU CANT CUT THIS
@@ -47,11 +50,12 @@ public class CookingSwapper : MonoBehaviour
                 Debug.Log("You can't cook a " + item.tag);
                 return 0f;
             }
-            process_wait_time = time_to_chop;
+            process_wait_time = time_to_cook;
             process_start_time = Time.time;
             player_occupying = player;
             occupied = true;
-            return time_to_chop;
+            cooking_item = item;
+            return time_to_cook;
         }
         else
         {
@@ -61,41 +65,50 @@ public class CookingSwapper : MonoBehaviour
     }
 
     // player says they're finished, swap the item
-    public void PlayerFinishedCooking(GameObject item)
+    public void PlayerPickedUpItem()
     {
-        if (item.tag == "steak")
+        if(occupied && cooking_item != null)
         {
-            item.GetComponent<Renderer>().material = cooked_steak_mat;
-            item.tag = "cooked_steak";
             occupied = false;
-       
+            cooking_item = null;
+            // reset time
+            float process_wait_time = 0f;
+            float process_start_time = 0f;
         }
-        // reset time
-        float process_wait_time = 0f;
-        float process_start_time = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         // turn off occupation after a set amount of time
-        if(occupied)
+        if(occupied && cooking_item != null)
         {
             ProgressBar();
-            // check if player got cc'd if so remove occupied flag
-            if (player_occupying.GetComponent<PlayerControl>().status == (int) PlayerStatus.CC)
+            // check if item is cooked
+            if(cooking_item.tag == "steak" && process_wait_time < Time.time - process_start_time)
             {
-                occupied = false;
+                Debug.Log("COOKED STEAK DONE");
+                cooking_item.tag = "cooked_steak";
+                cooking_item.GetComponent<Renderer>().material = cooked_steak_mat;
+                // set up burn timer
+                process_start_time = Time.time;
+                process_wait_time = time_to_burn;
+            }
+            // check if item is burnt
+            if(cooking_item.tag == "cooked_steak" && process_wait_time < Time.time - process_start_time)
+            {
+                Debug.Log("WE BURNT THE STEAK");
+                // we burned it
+                cooking_item.tag = "burnt_steak";
+                cooking_item.GetComponent<Renderer>().material = burnt_steak_mat;
+                // remove timer
                 process_start_time = 0f;
                 process_wait_time = 0f;
             }
-            // check if time is exceeded
-            if(process_wait_time < Time.time - process_start_time)
-            {
-                occupied = false;
-                process_start_time = 0f;
-                process_wait_time = 0f;
-            }
+        }
+        else
+        {
+            occupied = false;
         }
     }
 }
