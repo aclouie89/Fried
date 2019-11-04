@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CookingSwapper : MonoBehaviour
 {
-    public Material cut_tomato_mat;
-    public Material cut_lettuce_mat;
-    public Material cut_cheese_mat;
 
-    public GameObject board;
+    public Material cooked_steak_mat;
+    public Material burnt_steak_mat;
+    public GameObject pan;
+    public Image progress_bar;
 
     private GameObject player_occupying = null;
     private bool occupied = false;
@@ -21,18 +22,29 @@ public class CookingSwapper : MonoBehaviour
     {
 
     }
+    void ProgressBar()
+    {
+        progress_bar.enabled = true;
+        progress_bar.fillAmount += 0.35f * Time.deltaTime;
+        Debug.Log(progress_bar.fillAmount);
+        if (progress_bar.fillAmount >= 1f)
+        {
+            progress_bar.enabled = false;
+        }
 
+    }
     // the player has started chopping
     public float PlayerStartedCooking(GameObject player, GameObject item)
     {
         if(!occupied)
         {
             float time_to_chop = 3.0f;
+            ProgressBar();
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
             // YOU CANT CUT THIS
-            if(item.tag != "tomato" && item.tag != "Lettuce" && item.tag != "Cheese")
+            if(item.tag != "steak")
             {
-                Debug.Log("You can't chop a " + item.tag);
+                Debug.Log("You can't cook a " + item.tag);
                 return 0f;
             }
             process_wait_time = time_to_chop;
@@ -51,25 +63,12 @@ public class CookingSwapper : MonoBehaviour
     // player says they're finished, swap the item
     public void PlayerFinishedCooking(GameObject item)
     {
-        if (item.tag == "tomato")
+        if (item.tag == "steak")
         {
-            item.GetComponent<Renderer>().material = cut_tomato_mat;
-            item.tag = "cut_tomato";
+            item.GetComponent<Renderer>().material = cooked_steak_mat;
+            item.tag = "cooked_steak";
             occupied = false;
        
-        }
-        else if (item.tag == "Lettuce")
-        {
-            item.GetComponent<Renderer>().material = cut_lettuce_mat;
-            item.tag = "cut_lettuce";
-            occupied = false;
-           
-        }
-        else if (item.tag == "Cheese")
-        {
-            item.GetComponent<Renderer>().material = cut_cheese_mat;
-            item.tag = "cut_cheese";
-            occupied = false;
         }
         // reset time
         float process_wait_time = 0f;
@@ -82,8 +81,9 @@ public class CookingSwapper : MonoBehaviour
         // turn off occupation after a set amount of time
         if(occupied)
         {
+            ProgressBar();
             // check if player got cc'd if so remove occupied flag
-            if(player_occupying.GetComponent<PlayerControl>().status == (int) PlayerStatus.CC)
+            if (player_occupying.GetComponent<PlayerControl>().status == (int) PlayerStatus.CC)
             {
                 occupied = false;
                 process_start_time = 0f;
