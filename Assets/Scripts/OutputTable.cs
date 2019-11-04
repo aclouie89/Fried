@@ -66,7 +66,7 @@ public class OutputTable : MonoBehaviour
   {
     cur_orders[index] = NewRandomOrder(index);
     dbgprint(2, "Adding " + cur_orders[index] + " to acceptable orders");
-    //displayOrder.display(cur_orders[index]);
+    displayOrder.display(cur_orders[index]);
   }
 
   public int GetIndex(string order)
