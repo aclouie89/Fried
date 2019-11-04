@@ -94,6 +94,9 @@ public class CookingSwapper : MonoBehaviour
                 // set up burn timer
                 process_start_time = Time.time;
                 process_wait_time = time_to_burn;
+                progress_bar.fillAmount = 0;
+                ProgressBar();
+
             }
             // check if item is burnt
             if(cooking_item.tag == "cooked_steak" && process_wait_time < Time.time - process_start_time)
