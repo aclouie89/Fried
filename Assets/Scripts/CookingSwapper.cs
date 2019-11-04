@@ -42,6 +42,7 @@ public class CookingSwapper : MonoBehaviour
         if(!occupied)
         {
             float time_to_cook = 3.0f;
+            progress_bar.fillAmount = 0;
             ProgressBar();
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
             // YOU CANT CUT THIS
