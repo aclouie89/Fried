@@ -18,7 +18,7 @@ public class CookingSwapper : MonoBehaviour
     private float process_wait_time = 0f;
     private float process_start_time = 0f;
     // time to burn
-    private float time_to_burn = 3f;
+    private float time_to_burn = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +108,7 @@ public class CookingSwapper : MonoBehaviour
                 // remove timer
                 process_start_time = 0f;
                 process_wait_time = 0f;
+                progress_bar.enabled = false;
             }
         }
         else
