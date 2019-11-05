@@ -67,11 +67,11 @@ public class PlayerControl : MonoBehaviour
                           "steak_spawner", "steak", "cooked_steak",
                           "burnt_steak",
                           // combined plate names
-                          "plate_tomato", "plate_cheese", "plate_lettuce", "plate_bread",
+                          "plate_tomato", "plate_cheese", "plate_lettuce", "plate_bread", "plate_steak",
                           "plate_tomato_lettuce", "plate_tomato_cheese", "plate_lettuce_cheese",
-                          "Plate_Bread_Cheese", "Plate_Bread_Steak", "Plate_Bread_Lettuce",
-                          "Plate_Lettuce_Steak", "Plate_Cheese_Steak", "Plate_Bread_Cheese_Lettuce", "Plate_Bread_Cheese_Steak",
-                          "Plate_Bread_Lettuce_Steak", "Plate_Cheese_Lettuce_Steak", 
+                          "plate_bread_cheese", "plate_bread_steak", "plate_bread_lettuce",
+                          "plate_lettuce_steak", "plate_cheese_steak", "plate_bread_cheese_lettuce", "plate_bread_cheese_steak",
+                          "plate_bread_lettuce_steak", "plate_cheese_lettuce_steak", 
                           // final plate names
                           "test_final_plate","plate_tomato_lettuce_cheese",
                             "plate_cheeseburger", "plate_burger",
