@@ -43,7 +43,7 @@ public class PlayerControl : MonoBehaviour
   // this must be updated for the number of raw ingredients
   int num_ingredients = 5;
   int num_spoiled = 1;
-  int num_mid_plates = 7;
+  int num_mid_plates = 16;
   int num_final_plates = 3;
   // index of RAW materials
   int[] type_ingredient;
@@ -65,11 +65,13 @@ public class PlayerControl : MonoBehaviour
                           "lettuce_spawner", "Lettuce", "cut_lettuce",
                           "bread_spawner", "bread", "bread",
                           "steak_spawner", "steak", "cooked_steak",
-                          
                           "burnt_steak",
                           // combined plate names
                           "plate_tomato", "plate_cheese", "plate_lettuce", "plate_bread",
                           "plate_tomato_lettuce", "plate_tomato_cheese", "plate_lettuce_cheese",
+                          "Plate_Bread_Cheese", "Plate_Bread_Steak", "Plate_Bread_Lettuce",
+                          "Plate_Lettuce_Steak", "Plate_Cheese_Steak", "Plate_Bread_Cheese_Lettuce", "Plate_Bread_Cheese_Steak",
+                          "Plate_Bread_Lettuce_Steak", "Plate_Cheese_Lettuce_Steak", 
                           // final plate names
                           "test_final_plate","plate_tomato_lettuce_cheese",
                             "plate_cheeseburger", "plate_burger",

@@ -31,7 +31,6 @@ TagManager:
   - plate_lettuce
   - plate_tomato_lettuce
   - plate_tomato_cheese
-  - plate_tomato_lettuce_cheese
   - plate_lettuce_cheese
   - bread
   - bread_spawner
@@ -40,6 +39,15 @@ TagManager:
   - plate_burger
   - plate_bread
   - Cooking_Pan
+  - Plate_Bread_Cheese
+  - Plate_Bread_Steak
+  - Plate_Bread_Lettuce
+  - Plate_Lettuce_Steak
+  - Plate_Bread_Cheese_Lettuce
+  - Plate_Bread_Cheese_Steak
+  - Plate_Bread_Lettuce_Steak
+  - Plate_Cheese_Lettuce_Steak
+  - Plate_Cheese_Steak
   layers:
   - Default
   - TransparentFX
