@@ -65,6 +65,7 @@ public class PlayerControl : MonoBehaviour
                           "lettuce_spawner", "Lettuce", "cut_lettuce",
                           "bread_spawner", "bread", "bread",
                           "steak_spawner", "steak", "cooked_steak",
+                          // spoiled ingredients (overcooked)
                           "burnt_steak",
                           // combined plate names
                           "plate_tomato", "plate_cheese", "plate_lettuce", "plate_bread", "plate_steak",
@@ -73,7 +74,7 @@ public class PlayerControl : MonoBehaviour
                           "plate_lettuce_steak", "plate_cheese_steak", "plate_bread_cheese_lettuce", "plate_bread_cheese_steak",
                           "plate_bread_lettuce_steak", "plate_cheese_lettuce_steak", 
                           // final plate names
-                          "test_final_plate","plate_tomato_lettuce_cheese",
+                          "plate_tomato_lettuce_cheese",
                             "plate_cheeseburger", "plate_burger",
                           // etc items
                           "plate_spawner", "Plate"};
