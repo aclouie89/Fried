@@ -60,16 +60,16 @@ public class PlateSwapper : MonoBehaviour
     }
     private IEnumerator OnTriggerEnter(Collider col)
     {
-        Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+        //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
         if (col.gameObject.GetComponent<Renderer>().tag == "cut_tomato")
         {
 
             if (plate.gameObject.GetComponent<Renderer>().tag == "Plate")
             {
-                Debug.Log(col.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(col.gameObject.GetComponent<Renderer>().tag);
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -77,7 +77,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -85,7 +85,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -94,7 +94,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = salad_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -111,7 +111,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -119,7 +119,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -127,7 +127,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -135,7 +135,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_lettuce";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -143,7 +143,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese_lettuce";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -151,7 +151,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -159,7 +159,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -167,7 +167,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_lettuce_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -175,7 +175,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -184,7 +184,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = salad_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -201,7 +201,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -209,7 +209,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -217,7 +217,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_tomato_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
 
@@ -226,7 +226,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_bread_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -234,7 +234,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_steak_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -242,7 +242,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_lettuce_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -250,7 +250,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -258,7 +258,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cheese_burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheeseburger";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -266,7 +266,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese_lettuce";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -275,7 +275,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = salad_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -292,7 +292,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = bread_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -300,7 +300,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_lettuce";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -308,7 +308,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_bread_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
 
@@ -317,7 +317,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = bread_steak_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -325,7 +325,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cheese_burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheeseburger";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -333,7 +333,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_bread_steak_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_lettuce_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -341,7 +341,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -349,7 +349,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese_lettuce";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -362,7 +362,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = Plate_Steak;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -370,7 +370,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -378,7 +378,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_steak_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
 
@@ -387,7 +387,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = bread_steak_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -395,7 +395,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cheese_burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheeseburger";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -403,7 +403,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_bread_steak_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_lettuce_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -411,7 +411,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -419,7 +419,7 @@ public class PlateSwapper : MonoBehaviour
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_lettuce_steak";
-                Debug.Log(plate.gameObject.GetComponent<Renderer>().tag);
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }

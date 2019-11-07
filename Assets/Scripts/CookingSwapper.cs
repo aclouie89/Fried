@@ -11,6 +11,9 @@ public class CookingSwapper : MonoBehaviour
     public GameObject pan;
     public Image progress_bar;
 
+    private GameObject primordial_fire;
+    private GameObject fire;
+
     private GameObject player_occupying = null;
     private GameObject cooking_item = null;
     private bool occupied = false;
@@ -18,18 +21,20 @@ public class CookingSwapper : MonoBehaviour
     private float process_wait_time = 0f;
     private float process_start_time = 0f;
     // time to burn
-    private float time_to_burn = 5f;
+    private float time_to_burn = 3f;
 
     // Start is called before the first frame update
     void Start()
     {
+        // find the fire
+        primordial_fire = GameObject.FindGameObjectWithTag("Fire");
 
     }
     void ProgressBar()
     {
         progress_bar.enabled = true;
         progress_bar.fillAmount += 0.35f * Time.deltaTime;
-        Debug.Log(progress_bar.fillAmount);
+        //Debug.Log(progress_bar.fillAmount);
         if (progress_bar.fillAmount >= 1f)
         {
             progress_bar.enabled = false;
@@ -49,6 +54,10 @@ public class CookingSwapper : MonoBehaviour
             if(item.tag != "steak")
             {
                 Debug.Log("You can't cook a " + item.tag);
+                process_wait_time = time_to_burn;
+                process_start_time = Time.time;
+                cooking_item = item;
+                occupied = true;
                 return 0f;
             }
             process_wait_time = time_to_cook;
@@ -70,11 +79,22 @@ public class CookingSwapper : MonoBehaviour
     {
         if(occupied && cooking_item != null)
         {
+            //kill the fire if they picked it up in time
+            if(Time.time < process_wait_time + process_start_time)
+            {
+                Debug.Log("KILLING FIRE");
+                if(fire != null)
+                {
+                    fire.GetComponent<Fire>().killFire();
+                    fire = null;
+                }
+            }
             occupied = false;
             cooking_item = null;
+            progress_bar.enabled = false;
             // reset time
-            float process_wait_time = 0f;
-            float process_start_time = 0f;
+            process_wait_time = 0f;
+            process_start_time = 0f;
         }
     }
 
@@ -86,7 +106,7 @@ public class CookingSwapper : MonoBehaviour
         {
             ProgressBar();
             // check if item is cooked
-            if(cooking_item.tag == "steak" && process_wait_time < Time.time - process_start_time)
+            if(cooking_item.tag == "steak" && Time.time >= process_wait_time + process_start_time)
             {
                 Debug.Log("COOKED STEAK DONE");
                 cooking_item.tag = "cooked_steak";
@@ -95,11 +115,14 @@ public class CookingSwapper : MonoBehaviour
                 process_start_time = Time.time;
                 process_wait_time = time_to_burn;
                 progress_bar.fillAmount = 0;
+                // set up the fire
+                fire = Instantiate(primordial_fire, primordial_fire.transform.position, primordial_fire.transform.rotation) as GameObject;
+                fire.GetComponent<Fire>().startFire(cooking_item, true);
                 ProgressBar();
 
             }
             // check if item is burnt
-            if(cooking_item.tag == "cooked_steak" && process_wait_time < Time.time - process_start_time)
+            if(cooking_item.tag == "cooked_steak" && Time.time  >= process_wait_time + process_start_time)
             {
                 Debug.Log("WE BURNT THE STEAK");
                 // we burned it
@@ -109,6 +132,27 @@ public class CookingSwapper : MonoBehaviour
                 process_start_time = 0f;
                 process_wait_time = 0f;
                 progress_bar.enabled = false;
+            }
+            // check if item is not a steak
+            if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_steak") && fire == null)
+            {
+                // set up burn timer
+                progress_bar.fillAmount = 0;
+                // set up the fire
+                fire = Instantiate(primordial_fire, primordial_fire.transform.position, primordial_fire.transform.rotation) as GameObject;
+                fire.GetComponent<Fire>().startFire(cooking_item, true);
+                ProgressBar();
+            }
+            else if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_steak") && fire != null)
+            {
+                if(Time.time >= process_wait_time + process_start_time)
+                {
+                    // cooking_item.tag = "burnt_thing";
+                    // cooking_item.GetComponent<Renderer>().material = burnt_thing_mat;
+                    process_start_time = 0f;
+                    process_wait_time = 0f;
+                    progress_bar.enabled = false;
+                }
             }
         }
         else

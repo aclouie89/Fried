@@ -50,6 +50,8 @@ TagManager:
   - plate_bread_lettuce_steak
   - plate_cheese_lettuce_steak
   - plate_cheese_steak
+  - Fire
+  - BigFire
   layers:
   - Default
   - TransparentFX

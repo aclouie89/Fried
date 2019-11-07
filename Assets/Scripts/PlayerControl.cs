@@ -35,7 +35,7 @@ public class PlayerControl : MonoBehaviour
 
   // Animation related
   private Material[] player_mat;
-  int last_mesh_index = (int)PlayerMat.StandN;
+  private int last_mesh_index = (int)PlayerMat.StandN;
 
   // Pickup/Placing related
   private int key_ghost = (int)KeyGhost.None;
@@ -96,6 +96,10 @@ public class PlayerControl : MonoBehaviour
   GameObject processing_table;
   GameObject processing_item;
 
+  // Fire related
+  GameObject primordial_fire;
+  GameObject fire;
+  bool IM_ON_FIRE;
 
   // Collision related
   GameObject closest_table;
@@ -112,8 +116,6 @@ public class PlayerControl : MonoBehaviour
   public int status = (int)PlayerStatus.Start;
   private float iFrame_time = 0.5f;
   private float CC_time = 1.5f;
-  private float DoubleTapCD = 0.5f;
-  private int DoubleTapCount = 0;
 
   // Throwing related
   private int orientation;
@@ -220,6 +222,9 @@ public class PlayerControl : MonoBehaviour
     }
     showSingleMesh((int) PlayerMat.StandS);
 
+    // set up the fire reference
+    primordial_fire = GameObject.FindGameObjectWithTag("BigFire");
+
     // Players are shrinking after iframe, WHY   
     StartCoroutine(iFrameRotate());
   }
@@ -301,6 +306,8 @@ public class PlayerControl : MonoBehaviour
         }
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= movementSpeed;
+        if(IM_ON_FIRE)
+          moveDirection = -moveDirection;
     }
 
     // move character
@@ -672,6 +679,33 @@ public class PlayerControl : MonoBehaviour
     {
       dbgprint(2, gameObject.tag + " iFrame'd that CC");
     }
+  }
+
+  public void SetOnFire()
+  {
+    if(status != (int)PlayerStatus.iFrame && IM_ON_FIRE == false)
+    {
+      IM_ON_FIRE = true;
+      dbgprint(2, gameObject.tag + " CC_Fire'd");
+
+      // SET US ON FIRE
+      fire = Instantiate(primordial_fire, primordial_fire.transform.position, primordial_fire.transform.rotation) as GameObject;
+      fire.GetComponent<Fire>().startFire(gameObject, true);
+      fire.GetComponent<Fire>().set_player_burnt(gameObject);
+
+      // purge processing just in case it introduces a bug later
+      processing_item = null;
+      processing_table = null;
+    }
+    else
+    {
+      dbgprint(2, gameObject.tag + " iFrame'd that CC_Fire");
+    }
+  }
+
+  public void FireComplete()
+  {
+    IM_ON_FIRE = false;
   }
 
   // non oriented movement
