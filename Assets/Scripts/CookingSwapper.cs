@@ -7,7 +7,7 @@ public class CookingSwapper : MonoBehaviour
 {
 
     public Material cooked_steak_mat;
-    public Material burnt_steak_mat;
+    public Material burnt_rock_mat;
     public GameObject pan;
     public Image progress_bar;
 
@@ -126,15 +126,15 @@ public class CookingSwapper : MonoBehaviour
             {
                 Debug.Log("WE BURNT THE STEAK");
                 // we burned it
-                cooking_item.tag = "burnt_steak";
-                cooking_item.GetComponent<Renderer>().material = burnt_steak_mat;
+                cooking_item.tag = "burnt_rock";
+                cooking_item.GetComponent<Renderer>().material = burnt_rock_mat;
                 // remove timer
                 process_start_time = 0f;
                 process_wait_time = 0f;
                 progress_bar.enabled = false;
             }
             // check if item is not a steak
-            if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_steak") && fire == null)
+            if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_rock") && fire == null)
             {
                 // set up burn timer
                 progress_bar.fillAmount = 0;
@@ -143,12 +143,12 @@ public class CookingSwapper : MonoBehaviour
                 fire.GetComponent<Fire>().startFire(cooking_item, true);
                 ProgressBar();
             }
-            else if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_steak") && fire != null)
+            else if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_rock") && fire != null)
             {
                 if(Time.time >= process_wait_time + process_start_time)
                 {
-                    // cooking_item.tag = "burnt_thing";
-                    // cooking_item.GetComponent<Renderer>().material = burnt_thing_mat;
+                    cooking_item.tag = "burnt_rock";
+                    cooking_item.GetComponent<Renderer>().material = burnt_rock_mat;
                     process_start_time = 0f;
                     process_wait_time = 0f;
                     progress_bar.enabled = false;
@@ -170,7 +170,7 @@ public class CookingSwapper : MonoBehaviour
 // {
 
 //     public Material cooked_steak_mat;
-//     public Material burnt_steak_mat;
+//     public Material burnt_rock;
 
 //     public GameObject stove;
 
@@ -189,7 +189,7 @@ public class CookingSwapper : MonoBehaviour
 //             col.gameObject.GetComponent<Renderer>().tag = "cooked_steak";
 //             Debug.Log(col.gameObject.GetComponent<Renderer>().tag);
 //             yield return new WaitForSeconds(5);
-//             col.gameObject.GetComponent<Renderer>().material = burnt_steak_mat;
+//             col.gameObject.GetComponent<Renderer>().material = burnt_rock;
 //             col.gameObject.GetComponent<Renderer>().tag = "burnt_steak";
 //             Destroy(col.gameObject, 3);
 //         }

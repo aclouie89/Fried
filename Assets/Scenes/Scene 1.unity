@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44384694, g: 0.49320996, b: 0.57271755, a: 1}
+  m_IndirectSpecularColor: {r: 0.44384786, g: 0.49321133, b: 0.5727186, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13385,7 +13385,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1e-45, y: 435.375, z: 1e-45, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -22387,7 +22387,7 @@ GameObject:
   - component: {fileID: 1236251568}
   m_Layer: 0
   m_Name: Level1_BurntSteak_Right
-  m_TagString: Untagged
+  m_TagString: burnt_rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22423,7 +22423,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 849d3d25194df4b4fb1c12aaf73acb65, type: 2}
+  - {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22829,7 +22829,7 @@ GameObject:
   - component: {fileID: 1246994616}
   m_Layer: 0
   m_Name: Level1_BurntSteak_Left
-  m_TagString: Untagged
+  m_TagString: burnt_rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22865,7 +22865,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 849d3d25194df4b4fb1c12aaf73acb65, type: 2}
+  - {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27980,7 +27980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooked_steak_mat: {fileID: 2100000, guid: 226873f4082ec45f58c1edfdcb6557cc, type: 2}
-  burnt_steak_mat: {fileID: 2100000, guid: 849d3d25194df4b4fb1c12aaf73acb65, type: 2}
+  burnt_rock_mat: {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   pan: {fileID: 1594639965}
   progress_bar: {fileID: 712093394}
 --- !u!114 &1594639972
@@ -33070,7 +33070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooked_steak_mat: {fileID: 2100000, guid: 226873f4082ec45f58c1edfdcb6557cc, type: 2}
-  burnt_steak_mat: {fileID: 2100000, guid: 849d3d25194df4b4fb1c12aaf73acb65, type: 2}
+  burnt_rock_mat: {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   pan: {fileID: 1861939415}
   progress_bar: {fileID: 260359770}
 --- !u!114 &1861939422

@@ -52,6 +52,7 @@ TagManager:
   - plate_cheese_steak
   - Fire
   - BigFire
+  - burnt_rock
   layers:
   - Default
   - TransparentFX

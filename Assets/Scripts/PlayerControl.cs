@@ -66,7 +66,7 @@ public class PlayerControl : MonoBehaviour
                           "bread_spawner", "bread", "bread",
                           "steak_spawner", "steak", "cooked_steak",
                           // spoiled ingredients (overcooked)
-                          "burnt_steak",
+                          "burnt_rock",
                           // combined plate names
                           "plate_tomato", "plate_cheese", "plate_lettuce", "plate_bread", "plate_steak",
                           "plate_tomato_lettuce", "plate_tomato_cheese", "plate_lettuce_cheese",
@@ -119,7 +119,6 @@ public class PlayerControl : MonoBehaviour
 
   // Throwing related
   private int orientation;
-  private float throwSpeed = 16.0f;
 
   void dbgprint(int level, string text)
   {

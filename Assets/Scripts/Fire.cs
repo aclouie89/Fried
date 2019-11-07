@@ -88,13 +88,6 @@ public class Fire : MonoBehaviour
     burned_player = player;
   }
 
-  // tell the game object we're attached to that it's burnt
-  private void burnt()
-  {
-    //GetComponent<
-  }
-
-
   // finds closest game object given a list
   private GameObject findClosestPlayerInDist()
   {

@@ -86,8 +86,8 @@ public class ChoppingBoardSwapper : MonoBehaviour
             occupied = false;
         }
         // reset time
-        float process_wait_time = 0f;
-        float process_start_time = 0f;
+        process_wait_time = 0f;
+        process_start_time = 0f;
     }
 
     // private IEnumerator OnTriggerEnter(Collider col)
