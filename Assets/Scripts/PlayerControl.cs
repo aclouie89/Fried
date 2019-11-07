@@ -307,7 +307,7 @@ public class PlayerControl : MonoBehaviour
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= movementSpeed;
         if(IM_ON_FIRE)
-          moveDirection = -moveDirection;
+          moveDirection = -moveDirection * 1.5f;
     }
 
     // move character
