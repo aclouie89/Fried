@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44384786, g: 0.49321133, b: 0.5727186, a: 1}
+  m_IndirectSpecularColor: {r: 0.44384694, g: 0.49320996, b: 0.57271755, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cut_tomato_mat: {fileID: 2100000, guid: bfa55cdace3844cf0a922bafb2df9af1, type: 2}
-  cut_lettuce_mat: {fileID: 2100000, guid: eda55b5ae50664e4d9bd205b7023da97, type: 2}
+  cut_lettuce_mat: {fileID: 2100000, guid: 775e95167135f4db4b1c0ba6af4fcd00, type: 2}
   cut_cheese_mat: {fileID: 2100000, guid: cfd6aa26b29f74157881dd3639c46e15, type: 2}
   board: {fileID: 91822790}
   progress_bar: {fileID: 712093394}
@@ -3635,10 +3635,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.17
-  m_Height: 0
+  m_Radius: 0.12874205
+  m_Height: 102.000015
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.019491037, y: 0, z: -0.017650127}
 --- !u!23 &172943343
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7594,7 +7594,7 @@ GameObject:
   - component: {fileID: 409151543}
   m_Layer: 0
   m_Name: Level1_SliceTomato_Right
-  m_TagString: Untagged
+  m_TagString: cut_tomato
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7668,7 +7668,7 @@ Transform:
   m_GameObject: {fileID: 409151542}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 4.23, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.08, y: 0.1, z: 0.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 31
@@ -8675,7 +8675,7 @@ GameObject:
   - component: {fileID: 458270424}
   m_Layer: 0
   m_Name: Level1_CookedSteak_Left
-  m_TagString: Untagged
+  m_TagString: cooked_steak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8749,7 +8749,7 @@ Transform:
   m_GameObject: {fileID: 458270423}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -7.46, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.13, y: 0.1, z: 0.13}
+  m_LocalScale: {x: 0.11, y: 0.1, z: 0.11}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 32
@@ -14506,7 +14506,7 @@ GameObject:
   - component: {fileID: 763132663}
   m_Layer: 0
   m_Name: Level1_LettuceCut_Left
-  m_TagString: Untagged
+  m_TagString: cut_lettuce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14542,7 +14542,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eda55b5ae50664e4d9bd205b7023da97, type: 2}
+  - {fileID: 2100000, guid: 775e95167135f4db4b1c0ba6af4fcd00, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14580,7 +14580,7 @@ Transform:
   m_GameObject: {fileID: 763132662}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -4.25, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.2, y: 0.1, z: 0.2}
+  m_LocalScale: {x: 0.15, y: 0.1, z: 0.15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 28
@@ -19480,7 +19480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cut_tomato_mat: {fileID: 2100000, guid: bfa55cdace3844cf0a922bafb2df9af1, type: 2}
-  cut_lettuce_mat: {fileID: 2100000, guid: eda55b5ae50664e4d9bd205b7023da97, type: 2}
+  cut_lettuce_mat: {fileID: 2100000, guid: 775e95167135f4db4b1c0ba6af4fcd00, type: 2}
   cut_cheese_mat: {fileID: 2100000, guid: cfd6aa26b29f74157881dd3639c46e15, type: 2}
   board: {fileID: 1053213807}
   progress_bar: {fileID: 260359770}
@@ -20609,7 +20609,7 @@ GameObject:
   - component: {fileID: 1166469024}
   m_Layer: 0
   m_Name: Level1_SliceTomato_Left
-  m_TagString: Untagged
+  m_TagString: cut_tomato
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20683,7 +20683,7 @@ Transform:
   m_GameObject: {fileID: 1166469023}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -5.77, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.08, y: 0.1, z: 0.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 30
@@ -22202,7 +22202,7 @@ GameObject:
   - component: {fileID: 1231150338}
   m_Layer: 0
   m_Name: Level1_CookedSteak_Right
-  m_TagString: Untagged
+  m_TagString: cooked_steak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22276,7 +22276,7 @@ Transform:
   m_GameObject: {fileID: 1231150337}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 5.7, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.13, y: 0.1, z: 0.13}
+  m_LocalScale: {x: 0.11, y: 0.1, z: 0.11}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 33
@@ -22387,7 +22387,7 @@ GameObject:
   - component: {fileID: 1236251568}
   m_Layer: 0
   m_Name: Level1_BurntSteak_Right
-  m_TagString: burnt_rock
+  m_TagString: burnt_steak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22461,7 +22461,7 @@ Transform:
   m_GameObject: {fileID: 1236251567}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 7.42, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.13, y: 0.1, z: 0.13}
+  m_LocalScale: {x: 0.08, y: 0.1, z: 0.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 35
@@ -22829,7 +22829,7 @@ GameObject:
   - component: {fileID: 1246994616}
   m_Layer: 0
   m_Name: Level1_BurntSteak_Left
-  m_TagString: burnt_rock
+  m_TagString: burnt_steak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22903,7 +22903,7 @@ Transform:
   m_GameObject: {fileID: 1246994615}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -9.18, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.13, y: 0.1, z: 0.13}
+  m_LocalScale: {x: 0.08, y: 0.1, z: 0.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 34
@@ -23883,7 +23883,7 @@ GameObject:
   - component: {fileID: 1329430642}
   m_Layer: 0
   m_Name: Level1_CheeseCut_Left
-  m_TagString: Untagged
+  m_TagString: cut_cheese
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23957,7 +23957,7 @@ Transform:
   m_GameObject: {fileID: 1329430641}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -2.91, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.09, y: 0.1, z: 0.09}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
@@ -25629,10 +25629,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 0
+  m_Radius: 0.52697194
+  m_Height: 84.31553
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.000046938658, y: 0, z: 0}
 --- !u!23 &1437322443
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28819,7 +28819,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642377103}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1642377108
 Transform:
   m_ObjectHideFlags: 0
@@ -28829,7 +28829,7 @@ Transform:
   m_GameObject: {fileID: 1642377103}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 12.94, y: 0.8, z: -5.34}
-  m_LocalScale: {x: 1.0379337, y: 0.032949585, z: 1.6962401}
+  m_LocalScale: {x: 0.1, y: 0.032949585, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 62
@@ -29193,10 +29193,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 0
+  m_Radius: 0.3464715
+  m_Height: 83.15317
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.024057526}
 --- !u!23 &1653089836
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32762,10 +32762,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 0
+  m_Radius: 0.5337167
+  m_Height: 85.394684
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.006751418, y: 0, z: 0}
 --- !u!23 &1852170296
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32868,7 +32868,7 @@ GameObject:
   - component: {fileID: 1860670546}
   m_Layer: 0
   m_Name: Level1_CheeseCut_Right
-  m_TagString: Untagged
+  m_TagString: cut_cheese
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32942,7 +32942,7 @@ Transform:
   m_GameObject: {fileID: 1860670545}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 1.58, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.09, y: 0.1, z: 0.09}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 27
@@ -33520,7 +33520,7 @@ GameObject:
   - component: {fileID: 1883523582}
   m_Layer: 0
   m_Name: Level1_LettuceCut_Right
-  m_TagString: Untagged
+  m_TagString: cut_lettuce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33556,7 +33556,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eda55b5ae50664e4d9bd205b7023da97, type: 2}
+  - {fileID: 2100000, guid: 775e95167135f4db4b1c0ba6af4fcd00, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -33594,7 +33594,7 @@ Transform:
   m_GameObject: {fileID: 1883523581}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 2.91, y: 0.85002005, z: -2.010194}
-  m_LocalScale: {x: 0.2, y: 0.1, z: 0.2}
+  m_LocalScale: {x: 0.15, y: 0.1, z: 0.15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 29
@@ -34701,10 +34701,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.17
-  m_Height: 0
+  m_Radius: 0.12758811
+  m_Height: 102.00002
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.02178828, y: 0, z: 0}
 --- !u!23 &1947218564
 MeshRenderer:
   m_ObjectHideFlags: 0
