@@ -5420,7 +5420,7 @@ RectTransform:
   - {fileID: 2013861860}
   - {fileID: 779574409}
   m_Father: {fileID: 0}
-  m_RootOrder: 52
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6406,7 +6406,7 @@ MonoBehaviour:
   cut_lettuce_mat: {fileID: 2100000, guid: 7fb60be4d51b447a8a2e43467afceeac, type: 2}
   cut_cheese_mat: {fileID: 2100000, guid: 204e304d56b0746fdbae86672bbc4642, type: 2}
   bread_mat: {fileID: 2100000, guid: 143bfa6fcf2d04f5d9fe145978e016bb, type: 2}
-  steak_mat: {fileID: 2100000, guid: 53505f1e9a58490449e5a44a04ee0b7f, type: 2}
+  steak_mat: {fileID: 2100000, guid: ccdf3ea74aada4045920f6697e5b2a65, type: 2}
   bread_steak_mat: {fileID: 2100000, guid: 8c007b2a27af34f09bec709138cb782a, type: 2}
   cut_steak_lettuce_mat: {fileID: 2100000, guid: 03af45f03aa924f13a80f1f411ba0490,
     type: 2}
@@ -6424,7 +6424,7 @@ MonoBehaviour:
   cut_lettuce_cheese_mat: {fileID: 2100000, guid: f71225b22912543ef93e842ec1dfde4b,
     type: 2}
   salad_mat: {fileID: 2100000, guid: 4f7faf9cf7afa440c8fada430304c54a, type: 2}
-  Plate_Steak: {fileID: 2100000, guid: 53505f1e9a58490449e5a44a04ee0b7f, type: 2}
+  Plate_Steak: {fileID: 2100000, guid: ccdf3ea74aada4045920f6697e5b2a65, type: 2}
   plate: {fileID: 298572623}
 --- !u!1 &299598737
 GameObject:
@@ -6950,7 +6950,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &340699059
 GameObject:
@@ -7240,7 +7240,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 60
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &371423373
 GameObject:
@@ -7552,7 +7552,7 @@ Transform:
   m_LocalScale: {x: 1.6, y: 3, z: 0.0001}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 55
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!143 &390435013
 CharacterController:
@@ -7821,7 +7821,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 54
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420162357
 GameObject:
@@ -10087,7 +10087,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &535332411
 GameObject:
@@ -10324,7 +10324,7 @@ MonoBehaviour:
   cut_lettuce_mat: {fileID: 2100000, guid: 7fb60be4d51b447a8a2e43467afceeac, type: 2}
   cut_cheese_mat: {fileID: 2100000, guid: 204e304d56b0746fdbae86672bbc4642, type: 2}
   bread_mat: {fileID: 2100000, guid: 143bfa6fcf2d04f5d9fe145978e016bb, type: 2}
-  steak_mat: {fileID: 2100000, guid: 53505f1e9a58490449e5a44a04ee0b7f, type: 2}
+  steak_mat: {fileID: 2100000, guid: ccdf3ea74aada4045920f6697e5b2a65, type: 2}
   bread_steak_mat: {fileID: 2100000, guid: 8c007b2a27af34f09bec709138cb782a, type: 2}
   cut_steak_lettuce_mat: {fileID: 2100000, guid: 03af45f03aa924f13a80f1f411ba0490,
     type: 2}
@@ -10342,7 +10342,7 @@ MonoBehaviour:
   cut_lettuce_cheese_mat: {fileID: 2100000, guid: f71225b22912543ef93e842ec1dfde4b,
     type: 2}
   salad_mat: {fileID: 2100000, guid: 4f7faf9cf7afa440c8fada430304c54a, type: 2}
-  Plate_Steak: {fileID: 2100000, guid: 53505f1e9a58490449e5a44a04ee0b7f, type: 2}
+  Plate_Steak: {fileID: 2100000, guid: ccdf3ea74aada4045920f6697e5b2a65, type: 2}
   plate: {fileID: 538001242}
 --- !u!1 &541110108
 GameObject:
@@ -12307,7 +12307,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 48
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &643155723
 GameObject:
@@ -16372,7 +16372,7 @@ Transform:
   m_LocalScale: {x: 1.6, y: 3, z: 0.0001}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 56
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!1 &824871483
 GameObject:
@@ -17003,7 +17003,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b49221d4355745a582664f31c72e61e, type: 2}
+  - {fileID: 2100000, guid: f5dcb0232b2654991a376a1cd9d42e30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17507,7 +17507,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 65
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &919605818
 GameObject:
@@ -21407,7 +21407,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 66
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1193895755
 GameObject:
@@ -23943,7 +23943,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 51
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1328554401
 GameObject:
@@ -25054,6 +25054,99 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413073634}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1415154695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1415154699}
+  - component: {fileID: 1415154698}
+  - component: {fileID: 1415154697}
+  - component: {fileID: 1415154696}
+  m_Layer: 0
+  m_Name: Plate_Steak
+  m_TagString: plate_steak
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!136 &1415154696
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415154695}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!23 &1415154697
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415154695}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ccdf3ea74aada4045920f6697e5b2a65, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1415154698
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415154695}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1415154699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415154695}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 11.41, y: 0.8, z: 5.95}
+  m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 40
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1417740132
 GameObject:
   m_ObjectHideFlags: 0
@@ -25486,7 +25579,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1436045583
 GameObject:
@@ -25579,7 +25672,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 57
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1437037218
 GameObject:
@@ -27023,7 +27116,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1521812882
 GameObject:
@@ -27761,7 +27854,7 @@ GameObject:
   - component: {fileID: 1580956681}
   m_Layer: 0
   m_Name: Plate_Bread_Steak
-  m_TagString: Untagged
+  m_TagString: plate_bread_steak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27838,7 +27931,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 49
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1594034783
 GameObject:
@@ -28427,7 +28520,7 @@ Transform:
   m_LocalScale: {x: 2.0364258, y: 0.057276264, z: 3.6216419}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 58
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1 &1612666863
 GameObject:
@@ -28907,7 +29000,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.032949585, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 59
+  m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1 &1642976707
 GameObject:
@@ -29230,7 +29323,7 @@ RectTransform:
   - {fileID: 260359769}
   - {fileID: 712093393}
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -30417,7 +30510,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1712431114
 GameObject:
@@ -31256,7 +31349,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 64
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1756325210
 GameObject:
@@ -32393,7 +32486,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 61
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1810805699
 GameObject:
@@ -32775,7 +32868,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1839471976
 GameObject:
@@ -32991,7 +33084,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 63
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1851844471
 GameObject:
@@ -34519,7 +34612,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 62
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1914437040
 GameObject:
@@ -35749,7 +35842,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1997120727
 GameObject:
@@ -37036,7 +37129,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2058844184
 GameObject:
@@ -38366,7 +38459,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.01, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 43
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2145550647
 GameObject:
