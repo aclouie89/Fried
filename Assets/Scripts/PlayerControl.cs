@@ -43,8 +43,8 @@ public class PlayerControl : MonoBehaviour
   // this must be updated for the number of raw ingredients
   int num_ingredients = 5;
   int num_spoiled = 1;
-  int num_mid_plates = 16;
-  int num_final_plates = 3;
+  int num_mid_plates = 15;
+  int num_final_plates = 9;
   // index of RAW materials
   int[] type_ingredient;
   // index of SPOILED materials
@@ -69,13 +69,13 @@ public class PlayerControl : MonoBehaviour
                           "burnt_rock",
                           // combined plate names
                           "plate_tomato", "plate_cheese", "plate_lettuce", "plate_bread", "plate_steak",
-                          "plate_tomato_lettuce", "plate_tomato_cheese", "plate_lettuce_cheese",
-                          "plate_bread_cheese", "plate_bread_steak", "plate_bread_lettuce",
-                          "plate_lettuce_steak", "plate_cheese_steak", "plate_bread_cheese_lettuce", "plate_bread_cheese_steak",
-                          "plate_bread_lettuce_steak", "plate_cheese_lettuce_steak", 
+                          "plate_tomato_lettuce", "plate_tomato_cheese", "plate_tomato_steak", "plate_lettuce_cheese",
+                          "plate_bread_cheese", "plate_bread_steak", "plate_bread_lettuce", "plate_bread_tomato",
+                          "plate_lettuce_steak", "plate_cheese_steak",  
                           // final plate names
                           "plate_tomato_lettuce_cheese",
-                            "plate_cheeseburger", "plate_burger",
+                            "plate_cheeseburger", "plate_steak_salad", "plate_sandwich", "plate_lettuce_burger",
+                            "plate_tomato_sandwich", "plate_CheeseSteak", "plate_tomato_burger", "plate_TomatoSteak",
                           // etc items
                           "plate_spawner", "Plate"};
   string[] putdown_tags = {"normal_table", "output_table", "trashcan","Chopping_Board", "Cooking_Pan"};

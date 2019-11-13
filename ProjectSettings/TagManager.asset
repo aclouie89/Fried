@@ -36,7 +36,6 @@ TagManager:
   - bread_spawner
   - steak_spawner
   - plate_cheeseburger
-  - plate_burger
   - plate_bread
   - Cooking_Pan
   - plate_steak
@@ -45,14 +44,19 @@ TagManager:
   - plate_bread_steak
   - plate_bread_lettuce
   - plate_lettuce_steak
-  - plate_bread_cheese_lettuce
-  - plate_bread_cheese_steak
-  - plate_bread_lettuce_steak
-  - plate_cheese_lettuce_steak
   - plate_cheese_steak
   - Fire
   - BigFire
   - burnt_rock
+  - plate_tomato_steak
+  - plate_bread_tomato
+  - plate_steak_salad
+  - plate_sandwich
+  - plate_lettuce_burger
+  - plate_tomato_sandwich
+  - plate_CheeseSteak
+  - plate_tomato_burger
+  - plate_TomatoSteak
   layers:
   - Default
   - TransparentFX
