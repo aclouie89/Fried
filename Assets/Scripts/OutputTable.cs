@@ -7,16 +7,18 @@ enum order_status { Invalid = 0, Valid }
 
 public class OutputTable : MonoBehaviour
 {
-  /* DEBUG levels
-   * 1 - Actions only
-   * 2 - Search level
-   * 3 - Verbose
-   * 4 - Hyperverbose
-   */
-  int DEBUG = 3;
+    /* DEBUG levels
+     * 1 - Actions only
+     * 2 - Search level
+     * 3 - Verbose
+     * 4 - Hyperverbose
+     */
+    int DEBUG = 3;
 
     // final plate list, EDIT THIS FOR EACH LEVEL
-    private string[] final_tag = { "plate_tomato_lettuce_cheese", "plate_cheeseburger" ,"plate_burger" };
+    private string[] final_tag = { "plate_tomato_lettuce_cheese",
+                            "plate_cheeseburger", "plate_steak_salad", "plate_sandwich", "plate_lettuce_burger",
+                            "plate_tomato_sandwich", "plate_CheeseSteak", "plate_tomato_burger", "plate_TomatoSteak"};
   // point list MUST match final_tag list in length
   // each plate can be worth different amounts
   private int[] final_points = {1, 2, 1};
