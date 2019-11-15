@@ -5,24 +5,34 @@ using UnityEngine;
 
 public class PlateSwapper : MonoBehaviour
 {
-
+    public Material bread_mat;
     public Material cut_tomato_mat;
     public Material cut_lettuce_mat;
     public Material cut_cheese_mat;
-    public Material bread_mat;
     public Material steak_mat;
+
+    public Material tomato_lettuce_mat;
+    public Material tomato_cheese_mat;
+    public Material tomato_steak_mat;
+    public Material bread_tomato_mat;
+    public Material lettuce_cheese_mat;
+    public Material lettuce_steak_mat;
+    public Material bread_lettuce_mat;
+    public Material cheese_steak_mat;
     public Material bread_steak_mat;
-    public Material cut_steak_lettuce_mat;
-    public Material cut_steak_cheese_mat;
-    public Material cut_bread_lettuce_mat;
-    public Material cut_bread_cheese_mat;
+    public Material bread_cheese_mat;
+
     public Material cheese_burger_mat;
-    public Material cut_tomato_lettuce_mat;
-    public Material cut_tomato_cheese_mat;
-    public Material cut_lettuce_cheese_mat;
+    public Material steak_salad_mat;
+    public Material sandwich_mat;
+    public Material lettuce_burger_mat;
     public Material salad_mat;
-    public Material Plate_Steak;
- 
+    public Material tomato_sandwich_mat;
+    public Material cheesesteak_mat;
+    public Material tomato_burger_mat;
+    public Material tomatosteak_mat;
+
+
     public GameObject plate;
 
     private float min_dist = 1.0f;
@@ -70,7 +80,7 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_mat;
+                plate.gameObject.GetComponent<Renderer>().material = tomato_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -78,18 +88,67 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_tomato_cheese_mat;
+                plate.gameObject.GetComponent<Renderer>().material = tomato_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_cheese";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_cheese" || plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_lettuce"
-                || plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_cheese")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = bread_tomato_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_tomato";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = tomato_steak_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_steak";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_cheese")
             {
                 plate.gameObject.GetComponent<Renderer>().material = salad_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = steak_salad_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_steak_salad" +
+                    "";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_bread")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = tomato_sandwich_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_sandwich" +
+                    "";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = tomatosteak_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_TomatoSteak";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = tomato_burger_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_burger";
+              
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
@@ -105,14 +164,13 @@ public class PlateSwapper : MonoBehaviour
             if (plate.gameObject.GetComponent<Renderer>().tag == "Plate")
             {
                 plate.gameObject.GetComponent<Renderer>().material = cut_lettuce_mat;
-                plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce";
-                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce";          
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_lettuce_cheese_mat;
+                plate.gameObject.GetComponent<Renderer>().material = lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_cheese";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -120,7 +178,7 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_tomato_lettuce_mat;
+                plate.gameObject.GetComponent<Renderer>().material = tomato_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -128,57 +186,65 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_mat;
+                plate.gameObject.GetComponent<Renderer>().material = bread_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_lettuce";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_cheese")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_cheese_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese_lettuce";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_steak")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_mat;
+                plate.gameObject.GetComponent<Renderer>().material = lettuce_steak_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_steak";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheeseburger")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = burger_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese_steak")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_cheese_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_lettuce_steak";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_cheese_steak")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = burger_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_cheese" || plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_lettuce"
-                || plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_cheese")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_cheese")
             {
                 plate.gameObject.GetComponent<Renderer>().material = salad_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = steak_salad_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_steak_salad";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_bread")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = sandwich_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_sandwich";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = cheesesteak_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_CheeseSteak" +
+                    "";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_cheese")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = sandwich_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_sandwich";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = lettuce_burger_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_burger";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
@@ -202,7 +268,7 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_lettuce_cheese_mat;
+                plate.gameObject.GetComponent<Renderer>().material = lettuce_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_cheese";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -210,7 +276,7 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_tomato_cheese_mat;
+                plate.gameObject.GetComponent<Renderer>().material = tomato_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_cheese";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -219,7 +285,7 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_bread_cheese_mat;
+                plate.gameObject.GetComponent<Renderer>().material = bread_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -227,49 +293,48 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_steak")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_steak_cheese_mat;
+                plate.gameObject.GetComponent<Renderer>().material = cheese_steak_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_steak";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_steak")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_cheese_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_lettuce_steak";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_lettuce_steak")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = burger_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_steak")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_lettuce")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cheese_burger_mat;
-                plate.gameObject.GetComponent<Renderer>().tag = "plate_cheeseburger";
+                plate.gameObject.GetComponent<Renderer>().material = salad_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_lettuce")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_cheese_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese_lettuce";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_cheese" || plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_lettuce"
-                || plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_cheese")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_steak")
             {
-                plate.gameObject.GetComponent<Renderer>().material = salad_mat;
-                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_lettuce_cheese";
+                plate.gameObject.GetComponent<Renderer>().material = tomatosteak_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomatosteak";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = cheesesteak_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_CheeseSteak";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_lettuce")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = sandwich_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_sandwich";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = cheese_burger_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_cheeseburger";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
@@ -291,9 +356,18 @@ public class PlateSwapper : MonoBehaviour
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = bread_tomato_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_tomato";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+
+            }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_mat;
+                plate.gameObject.GetComponent<Renderer>().material = bread_lettuce_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_lettuce";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -301,7 +375,7 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_bread_cheese_mat;
+                plate.gameObject.GetComponent<Renderer>().material = bread_cheese_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -316,6 +390,38 @@ public class PlateSwapper : MonoBehaviour
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_lettuce")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = tomato_sandwich_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_sandwich";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = tomato_burger_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_burger";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_cheese")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = sandwich_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_sandwich";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_steak")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = lettuce_burger_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_burger";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese_steak")
             {
                 plate.gameObject.GetComponent<Renderer>().material = cheese_burger_mat;
@@ -324,30 +430,11 @@ public class PlateSwapper : MonoBehaviour
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_steak")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = cut_bread_steak_lettuce_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_lettuce_steak";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese_lettuce_steak")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = burger_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_cheese")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = cut_bread_lettuce_cheese_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_cheese_lettuce";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
+            else
+            {
+                Destroy(col.gameObject);
+            }
+
         }
 
         else if (col.gameObject.GetComponent<Renderer>().tag == "cooked_steak")
@@ -355,15 +442,24 @@ public class PlateSwapper : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
             if (plate.gameObject.GetComponent<Renderer>().tag == "Plate")
             {
-                plate.gameObject.GetComponent<Renderer>().material = Plate_Steak;
+                plate.gameObject.GetComponent<Renderer>().material = steak_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_steak";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = tomato_steak_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_steak";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+
+            }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_mat;
+                plate.gameObject.GetComponent<Renderer>().material = lettuce_steak_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_steak";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -371,7 +467,7 @@ public class PlateSwapper : MonoBehaviour
             }
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese")
             {
-                plate.gameObject.GetComponent<Renderer>().material = cut_steak_cheese_mat;
+                plate.gameObject.GetComponent<Renderer>().material = cheese_steak_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_steak";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
@@ -386,38 +482,59 @@ public class PlateSwapper : MonoBehaviour
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_cheese")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_lettuce")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = steak_salad_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_steak_salad";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_cheese")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = tomatosteak_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_TomatoSteak";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_bread")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = tomato_burger_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_burger";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_cheese")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = cheesesteak_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_CheeseSteak";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_bread")
+            {
+                plate.gameObject.GetComponent<Renderer>().material = lettuce_burger_mat;
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_burger";
+                //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
+                updateTable(findTable(), plate);
+                Destroy(col.gameObject);
+
+            }
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese_bread")
             {
                 plate.gameObject.GetComponent<Renderer>().material = cheese_burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheeseburger";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
+
             }
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_lettuce")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = cut_bread_steak_lettuce_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_bread_lettuce_steak";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_cheese_lettuce")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = burger_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_burger";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
-            //else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_cheese")
-            //{
-            //    plate.gameObject.GetComponent<Renderer>().material = cut_steak_lettuce_cheese_mat;
-            //    plate.gameObject.GetComponent<Renderer>().tag = "plate_cheese_lettuce_steak";
-            //    //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
-            //    updateTable(findTable(), plate);
-            //    Destroy(col.gameObject);
-            //}
             else
             {
                 Destroy(col.gameObject);
