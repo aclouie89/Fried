@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
    void Update()
    {
         currentTime -= 1 * Time.deltaTime;
-        if (currentTime <= 3)
+        if (currentTime <= 30)
         {
             timerText.color = Color.red;
         }
