@@ -60,7 +60,7 @@ public class Projectile : MonoBehaviour
     }
     if(orientation == (int)ThrownOrientation.South)
     {
-      s_mod = -offset / 1.5f;
+      s_mod = -offset / 1f;
     }
     if(orientation == (int)ThrownOrientation.West)
     {
