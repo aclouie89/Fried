@@ -57,6 +57,7 @@ TagManager:
   - plate_CheeseSteak
   - plate_tomato_burger
   - plate_TomatoSteak
+  - Lightning
   layers:
   - Default
   - TransparentFX
