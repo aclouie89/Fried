@@ -250,7 +250,7 @@ public class PlayerControl : MonoBehaviour
   // display only one mesh
   private void showSingleMesh(int index)
   {
-    dbgprint(1, "showSingleMesh called with index: " + index);
+    dbgprint(5, "showSingleMesh called with index: " + index);
     if(index != last_mesh_index)
     {
       Color fade = new Color(1,1,1,0f);
