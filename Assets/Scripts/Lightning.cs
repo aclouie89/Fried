@@ -14,7 +14,8 @@ public class Lightning : MonoBehaviour
   private int cur_lightning = (int) LightningSprite.One;
 
   // max time between lightning strikes
-  private float max_time_strike = 10f;
+  private float max_time_strike = 15f;
+  private float min_time_strike = 3f;
   // strike = true means we throw out lightning
   private int strike = (int)StrikeState.Start;
 
@@ -126,7 +127,7 @@ public class Lightning : MonoBehaviour
     strike = (int)StrikeState.Wait;
     // random time to wait
     System.Random rnd = new System.Random(System.DateTime.Now.Millisecond);
-    float cur_time = (float) rnd.NextDouble() * max_time_strike;
+    float cur_time = (float) rnd.NextDouble() * max_time_strike + min_time_strike;
     Debug.Log("waitToLightningStrike() time to wait: " + cur_time);
     // waiting
     while(cur_time > 0)
