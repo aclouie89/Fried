@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 enum LightningSprite {One = 0, Two, Three, Four, Five, Six, Seven, Eight, Kill}
+enum StrikeState {Start=0, Wait, Strike}
 
 public class Lightning : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class Lightning : MonoBehaviour
   private Material[] lightning_mat;
   private int last_mesh_index = (int) LightningSprite.Two;
   private int cur_lightning = (int) LightningSprite.One;
+
+  // max time between lightning strikes
+  private float max_time_strike = 10f;
+  // strike = true means we throw out lightning
+  private bool waiting_strike = false;
+  private int strike = (int)StrikeState.Start;
 
   // animation times
   private float time_to_anim = 0.1f;
@@ -25,8 +32,9 @@ public class Lightning : MonoBehaviour
   private GameObject Player2;
   private Vector3 p1_pos;
   private Vector3 p2_pos;
+  private float min_dist = 3.0f;
 
-  void startLightning()
+  public void startLightning()
   {
     spawned_lightning = true;
   }
@@ -66,17 +74,18 @@ public class Lightning : MonoBehaviour
     // kill spawned lightning here
     // non spawned lightning must set the sprite back to one
     if(cur_lightning == (int)LightningSprite.Kill)
+    {
+      cur_lightning = (int) LightningSprite.One;
       if(spawned_lightning)
         Destroy(gameObject);
-      else
-        cur_lightning = (int) LightningSprite.One;
+    }
     return cur_lightning;
   }
 
   // new random index
   private int randInt(int max)
   {
-    System.Random rnd = new System.Random((int)Time.time);
+    System.Random rnd = new System.Random(System.DateTime.Now.Millisecond);
     int rnd_index = rnd.Next(max);
     // Debug.Log("Random int chosen: " + rnd_index + " with a max of: " + max);
 
@@ -86,13 +95,19 @@ public class Lightning : MonoBehaviour
   // coroutine to to wait for player to move
   private IEnumerator waitToLight()
   {
+    Debug.Log("waitToLight() time to wait: " + time_to_light);
     float cur_time = time_to_light;
     while(cur_time > 0)
     {
       cur_time -= Time.deltaTime;
       yield return null;
     }
+    // hit the player location
+    strikeLocation();
+    // strike complete, reset params
+    strike = (int)StrikeState.Start;
     is_tracking = false;
+    Debug.Log("waitToLight() complete");
   }
 
   // track players last location
@@ -100,19 +115,80 @@ public class Lightning : MonoBehaviour
   {
     if(is_tracking == false)
     {
-      // Debug.Log("trackPlayer()");
+      Debug.Log("trackPlayer() started");
+      waiting_strike = true;
       p1_pos = Player1.GetComponent<Transform>().position;
       p2_pos = Player2.GetComponent<Transform>().position;
       is_tracking = true;
       // choose a random player
       player_to_hit = randInt((int) PlayerNum.Two);
       StartCoroutine(waitToLight());
+      Debug.Log("trackPlayer() complete");
     }
   }  
 
   // rng timer to throw out lightning
+  private IEnumerator waitToLightningStrike()
+  {
+    // strike started
+    strike = (int)StrikeState.Wait;
+    // random time to wait
+    System.Random rnd = new System.Random(System.DateTime.Now.Millisecond);
+    float cur_time = (float) rnd.NextDouble() * max_time_strike;
+    Debug.Log("waitToLightningStrike() time to wait: " + cur_time);
+    // waiting
+    while(cur_time > 0)
+    {
+      cur_time -= Time.deltaTime;
+      yield return null;
+    }
+    strike = (int)StrikeState.Strike;
+    Debug.Log("waitToLightningStrike() wait complete ");
 
-  // spawn a lightning to hit a player
+  }
+
+  // spawn a lightning to hit the players last location
+  private void strikeLocation()
+  {
+    Vector3 pos;
+    // get player to hit position
+    if(player_to_hit == (int) PlayerNum.One)
+      pos = p1_pos;
+    else
+      pos = p2_pos;
+    // spawn a lightning here
+    GameObject lightning = Instantiate(gameObject, pos + new Vector3(-1.0f,2.0f,0.0f), gameObject.transform.rotation) as GameObject;
+    lightning.GetComponent<Lightning>().startLightning();
+    GameObject closest_player = findClosestPlayerInDist();
+    if(closest_player != null)
+      Debug.Log("Closest player found: " + closest_player.tag);
+  }
+
+  // finds closest game object given a list
+  private GameObject findClosestPlayerInDist()
+  {
+    // player 1 distance
+    Vector3 position = transform.position;
+    Vector3 p1_diff = Player1.GetComponent<Transform>().position - position;
+    float player1_dist = p1_diff.sqrMagnitude;
+    // player 2 distance
+    Vector3 p2_diff = Player2.GetComponent<Transform>().position - position;
+    float player2_dist = p2_diff.sqrMagnitude;
+
+    // Debug.Log("P1 dist: " + player1_dist);
+    // Debug.Log("P2 dist: " + player2_dist);
+    if(player1_dist < min_dist && player1_dist < player2_dist)
+    {
+      // Debug.Log("Player1 found");
+      return Player1;
+    }
+    else if(player2_dist < min_dist && player2_dist < player1_dist)
+    {
+      // Debug.Log("Player2 found");
+      return Player2;
+    }
+    return null;
+  }
 
   // cc player and set player on fire if lightning contacts
 
@@ -128,7 +204,11 @@ public class Lightning : MonoBehaviour
     // non spawned lightning will generate the RNG script
     if(spawned_lightning == false)
     {
-      trackPlayer();
+      // strike start trigger, wait for some time before striking
+      if(strike == (int)StrikeState.Start)
+        StartCoroutine(waitToLightningStrike());
+      else if(strike == (int)StrikeState.Strike)
+        trackPlayer();
     }
   }
 }

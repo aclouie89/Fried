@@ -57,7 +57,7 @@ public class OutputTable : MonoBehaviour
   // Seed could be improved
   private string NewRandomOrder(int index)
   {
-    System.Random rnd = new System.Random(index * index * index + (int)Time.time);
+    System.Random rnd = new System.Random(System.DateTime.Now.Millisecond);
     int rnd_index = rnd.Next(final_tag.Length);
     StartCoroutine(waitForSeedChange());
     dbgprint(3, "NewRandomOrder() generated random number: " + rnd_index.ToString());
