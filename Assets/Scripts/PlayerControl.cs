@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
    * 3 - Verbose
    * 4 - Hyperverbose
    */
-  int DEBUG = 5;
+  int DEBUG = 1;
   // Character related
   public int player_id = (int)PlayerNum.None;
   private string p_vertical;

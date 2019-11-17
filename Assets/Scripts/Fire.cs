@@ -99,16 +99,16 @@ public class Fire : MonoBehaviour
     Vector3 p2_diff = Player2.GetComponent<Transform>().position - position;
     float player2_dist = p2_diff.sqrMagnitude;
 
-    Debug.Log("P1 dist: " + player1_dist);
-    Debug.Log("P2 dist: " + player2_dist);
+    // Debug.Log("P1 dist: " + player1_dist);
+    // Debug.Log("P2 dist: " + player2_dist);
     if(player1_dist < min_dist && player1_dist < player2_dist)
     {
-      Debug.Log("Player1 found");
+      // Debug.Log("Player1 found");
       return Player1;
     }
     else if(player2_dist < min_dist && player2_dist < player1_dist)
     {
-      Debug.Log("Player2 found");
+      // Debug.Log("Player2 found");
       return Player2;
     }
     return null;
@@ -131,7 +131,7 @@ public class Fire : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, on_fire.transform.position + new Vector3(0,0.6f,0.0f), ref AVelocity, smoothTime);
       else
       {
-        Debug.Log("Fire destroying self since other object did");
+        // Debug.Log("Fire destroying self since other object did");
         // it prob hit something, check if its a player
         GameObject player = findClosestPlayerInDist();
         // SET THIS GUY ON FIRE
