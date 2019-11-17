@@ -5,13 +5,13 @@ using UnityEngine;
 // Player ID enum
 enum PlayerNum {None = 0, One, Two}
 // Player status
-enum PlayerStatus {Start = 0, Normal, iFrame, CC, Chopping}
+enum PlayerStatus {Start = 0, Normal, Throw, iFrame, CC, Chopping}
 // Key ghosting state
 enum KeyGhost {None = 0, DownOnce, DownHold, UpOnce}
 // Player facing
 enum PlayerOrientation {North = 0, East, South, West}
 // PLayer material
-enum PlayerMat {StandN = 0, StandE, StandS, StandW}
+enum PlayerMat {StandN = 0, StandE, StandS, StandW, ThrowN, ThrowE, ThrowS, ThrowW, HoldN, HoldE, HoldS, HoldW}
 
 // Player Controller
 /* - Handles Movement
@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
    * 3 - Verbose
    * 4 - Hyperverbose
    */
-  int DEBUG = 3;
+  int DEBUG = 5;
   // Character related
   public int player_id = (int)PlayerNum.None;
   private string p_vertical;
@@ -36,6 +36,7 @@ public class PlayerControl : MonoBehaviour
   // Animation related
   private Material[] player_mat;
   private int last_mesh_index = (int)PlayerMat.StandN;
+  private float throw_time = 0.25f;
 
   // Pickup/Placing related
   private int key_ghost = (int)KeyGhost.None;
@@ -239,11 +240,17 @@ public class PlayerControl : MonoBehaviour
     // normal standing
     if(index >= (int)PlayerMat.StandN && index <= (int)PlayerMat.StandW)
       orientation = index;
+    // throwing
+    else if(index >= (int)PlayerMat.ThrowN && index <= (int)PlayerMat.ThrowW)
+      orientation = index - 4;
+    else if(index >= (int)PlayerMat.HoldN && index <= (int)PlayerMat.HoldW)
+      orientation = index - 8;
   }
 
   // display only one mesh
   private void showSingleMesh(int index)
   {
+    dbgprint(1, "showSingleMesh called with index: " + index);
     if(index != last_mesh_index)
     {
       Color fade = new Color(1,1,1,0f);
@@ -257,31 +264,37 @@ public class PlayerControl : MonoBehaviour
 
   private void UpdateOrientation()
   {
+    int mesh_index = -1;
     // ORDER?!?!?!?!?
     // how do i know which way they are facing if theyre hitting multiple keys
     // im just going to let this cascade and pick
     if(Input.GetButton(p_vertical) && Input.GetAxis(p_vertical) > 0)
     {
       dbgprint(5, "Player is facing: North");
-      showSingleMesh((int) PlayerMat.StandN);
+      mesh_index = (int) PlayerMat.StandN;
     }
     else if(Input.GetButton(p_vertical) && Input.GetAxis(p_vertical) < 0)
     {
       dbgprint(5, "Player is facing: South");
-      showSingleMesh((int) PlayerMat.StandS);
+      mesh_index = (int) PlayerMat.StandS;
     }
     else if(Input.GetButton(p_horizontal) && Input.GetAxis(p_horizontal) > 0)
     {
       dbgprint(5, "Player is facing: East");
-      showSingleMesh((int) PlayerMat.StandE);
+      mesh_index = (int) PlayerMat.StandE;
     }
     else if(Input.GetButton(p_horizontal) && Input.GetAxis(p_horizontal) < 0)
     {
       dbgprint(5, "Player is facing: West");
-      showSingleMesh((int) PlayerMat.StandW);
+      mesh_index = (int) PlayerMat.StandW;
     }
-
-    dbgprint(5, "Player is facing: " + orientation.ToString());
+    // dont update meshes if nothing changed
+    if(mesh_index != -1)
+    {
+      if(holding_item == true)
+        mesh_index += 8;    
+      showSingleMesh(mesh_index);
+    }
   }
 
   private void Movement()
@@ -290,7 +303,7 @@ public class PlayerControl : MonoBehaviour
     if (controller.isGrounded)
     {
         // update which way we're facing
-        //UpdateOrientation();
+        UpdateOrientation();
 
         moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
         // move forward
@@ -594,6 +607,18 @@ public class PlayerControl : MonoBehaviour
     }
   }
 
+  private IEnumerator TimerOnThrow()
+  {
+    float cur_time = throw_time;
+    while(cur_time > 0)
+    {
+      cur_time -= Time.deltaTime;
+      yield return null;
+    }
+    dbgprint(3, "Throw complete");
+    status = (int)PlayerStatus.Normal;
+  }
+
   private void ThrowObject()
   {
     if(Input.GetButton(p_throw_key) && holding_item == true)
@@ -601,6 +626,12 @@ public class PlayerControl : MonoBehaviour
       dbgprint(3, "player hit throw");
       if(player_item != null)
       {
+        // update orientation mesh
+        status = (int)PlayerStatus.Throw;
+        StartCoroutine(TimerOnThrow());
+        dbgprint(1, "orientation for throw: " + orientation);
+        showSingleMesh(orientation+4);
+        // throw projectile
         var link_projectile = player_item.GetComponent<Projectile>();
         string player_tag = "";
         if(player_id == (int)PlayerNum.One)
@@ -727,7 +758,6 @@ public class PlayerControl : MonoBehaviour
     if (status == (int)PlayerStatus.Normal)
     {
       iFrame();
-      UpdateOrientation();
       Movement();
       ThrowObject();
       PickUp();
