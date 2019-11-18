@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44384694, g: 0.49320996, b: 0.57271755, a: 1}
+  m_IndirectSpecularColor: {r: 0.4438474, g: 0.4932106, b: 0.5727175, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6697,6 +6697,7 @@ GameObject:
   - component: {fileID: 298572628}
   - component: {fileID: 298572629}
   - component: {fileID: 298572630}
+  - component: {fileID: 298572631}
   m_Layer: 0
   m_Name: Plate_Right
   m_TagString: plate_spawner
@@ -6842,6 +6843,19 @@ MonoBehaviour:
   cheesesteak_mat: {fileID: 2100000, guid: 7bea07948f2df4e3fb1bcbfeff92903f, type: 2}
   tomato_burger_mat: {fileID: 2100000, guid: bab5758e6d059421f844ef49dcba59bc, type: 2}
   tomatosteak_mat: {fileID: 2100000, guid: b806e4f0bc1bb49e094d14c9da4b0d98, type: 2}
+  plate: {fileID: 298572623}
+--- !u!114 &298572631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298572623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8525accc5b915a4a9cb34cfba311bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   plate: {fileID: 298572623}
 --- !u!1 &299598737
 GameObject:
@@ -10624,6 +10638,7 @@ GameObject:
   - component: {fileID: 538001244}
   - component: {fileID: 538001248}
   - component: {fileID: 538001249}
+  - component: {fileID: 538001250}
   m_Layer: 0
   m_Name: Plate_Left (2)
   m_TagString: plate_spawner
@@ -10769,6 +10784,19 @@ MonoBehaviour:
   cheesesteak_mat: {fileID: 2100000, guid: 7bea07948f2df4e3fb1bcbfeff92903f, type: 2}
   tomato_burger_mat: {fileID: 2100000, guid: bab5758e6d059421f844ef49dcba59bc, type: 2}
   tomatosteak_mat: {fileID: 2100000, guid: b806e4f0bc1bb49e094d14c9da4b0d98, type: 2}
+  plate: {fileID: 538001242}
+--- !u!114 &538001250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538001242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8525accc5b915a4a9cb34cfba311bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   plate: {fileID: 538001242}
 --- !u!1 &541110108
 GameObject:
