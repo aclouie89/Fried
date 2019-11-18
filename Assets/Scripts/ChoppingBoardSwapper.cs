@@ -59,15 +59,6 @@ public class ChoppingBoardSwapper : MonoBehaviour
             }
            
         }
-        
-
-        //for (int i = 0; i < knives.Length; i++)
-        //{
-        //    knives[i].enabled = true;
-        //    disableKnives(i);
-        //}
-        //i++;
-        //Debug.Log(progress_bar.fillAmount);
 
         if (progress_bar.fillAmount >= 1f)
         {
