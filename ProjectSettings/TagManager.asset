@@ -58,6 +58,7 @@ TagManager:
   - plate_tomato_burger
   - plate_TomatoSteak
   - Lightning
+  - Smoke
   layers:
   - Default
   - TransparentFX

@@ -14556,13 +14556,26 @@ GameObject:
   - component: {fileID: 655682483}
   - component: {fileID: 655682482}
   - component: {fileID: 655682481}
+  - component: {fileID: 655682480}
   m_Layer: 0
   m_Name: Lightning (1)
-  m_TagString: Lightning
+  m_TagString: Smoke
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
   m_IsActive: 1
+--- !u!114 &655682480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655682479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a39695825fa97488c467b9742798d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &655682481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14641,7 +14654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655682479}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 17.1, y: 3.25, z: -10.05}
+  m_LocalPosition: {x: -0.62, y: 3.25, z: 3.22}
   m_LocalScale: {x: 0.1628806, y: 0.004772946, z: 0.26449537}
   m_Children: []
   m_Father: {fileID: 0}
@@ -31917,19 +31930,6 @@ MonoBehaviour:
   burnt_rock_mat: {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   pan: {fileID: 1594639965}
   progress_bar: {fileID: 1590255938}
-  smoke:
-  - {fileID: 1152307400}
-  - {fileID: 720238970}
-  - {fileID: 1486748989}
-  - {fileID: 151108664}
-  - {fileID: 151108664}
-  - {fileID: 2063768354}
-  - {fileID: 364788500}
-  - {fileID: 2043054868}
-  - {fileID: 701380721}
-  - {fileID: 976075696}
-  - {fileID: 1301394054}
-  - {fileID: 1860184337}
 --- !u!114 &1594639972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37606,19 +37606,6 @@ MonoBehaviour:
   burnt_rock_mat: {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   pan: {fileID: 1861939415}
   progress_bar: {fileID: 659786107}
-  smoke:
-  - {fileID: 1234229547}
-  - {fileID: 1481246072}
-  - {fileID: 756181630}
-  - {fileID: 680290979}
-  - {fileID: 856595060}
-  - {fileID: 916036677}
-  - {fileID: 147218290}
-  - {fileID: 1982652820}
-  - {fileID: 1766950688}
-  - {fileID: 883633046}
-  - {fileID: 969238865}
-  - {fileID: 1484537393}
 --- !u!114 &1861939422
 MonoBehaviour:
   m_ObjectHideFlags: 0

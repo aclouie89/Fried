@@ -14,6 +14,9 @@ public class CookingSwapper : MonoBehaviour
     private GameObject primordial_fire;
     private GameObject fire;
 
+    private GameObject primordial_smoke;
+    private GameObject smoke;
+
     private GameObject player_occupying = null;
     private GameObject cooking_item = null;
     private bool occupied = false;
@@ -22,8 +25,6 @@ public class CookingSwapper : MonoBehaviour
     private float process_start_time = 0f;
     // time to burn
     private float time_to_burn = 3f;
-    public Image[] smoke;
-    int i;
     float timer;
 
     // Start is called before the first frame update
@@ -31,50 +32,18 @@ public class CookingSwapper : MonoBehaviour
     {
         // find the fire
         primordial_fire = GameObject.FindGameObjectWithTag("Fire");
+        // find the smoke
+        primordial_smoke = GameObject.FindGameObjectWithTag("Smoke");
 
-    }
-    void disableSmoke(int i)
-    {
-
-        for (int j = 0; j < smoke.Length; j++)
-        {
-            Debug.Log(i);
-            if (j != i)
-            {
-                smoke[j].enabled = false;
-                Debug.Log(i);
-            }
-        }
     }
     void ProgressBar()
     {
         progress_bar.enabled = true;
         progress_bar.fillAmount += 0.35f * Time.deltaTime;
-
-        timer -= Time.deltaTime;
-        if (timer < 0)
-        {
-            timer = .35f;//<--this happens about every second;
-            if (i < 4)
-            {
-                smoke[i].enabled = true;
-                disableSmoke(i);
-                i++;
-            }
-            else
-            {
-                i = 0;
-            }
-
-        }
         //Debug.Log(progress_bar.fillAmount);
         if (progress_bar.fillAmount >= 1f)
         {
             progress_bar.enabled = false;
-            for (int i = 0; i < smoke.Length; i++)
-            {
-                smoke[i].enabled = false;
-            }
         }
 
     }
@@ -85,7 +54,6 @@ public class CookingSwapper : MonoBehaviour
         {
             float time_to_cook = 3.0f;
             progress_bar.fillAmount = 0;
-            i = 0;
             ProgressBar();
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
             // YOU CANT CUT THIS
@@ -142,6 +110,8 @@ public class CookingSwapper : MonoBehaviour
         // turn off occupation after a set amount of time
         if(occupied && cooking_item != null)
         {
+            if(smoke == null)
+                smoke = Instantiate(primordial_smoke, gameObject.transform.position + new Vector3(0.0f, 1.0f, 0.1f), primordial_smoke.transform.rotation) as GameObject;
             ProgressBar();
             // check if item is cooked
             if(cooking_item.tag == "steak" && Time.time >= process_wait_time + process_start_time)
@@ -195,6 +165,11 @@ public class CookingSwapper : MonoBehaviour
         }
         else
         {
+            if(smoke != null)
+            {
+                smoke.GetComponent<Smoke>().cookComplete();
+                smoke = null;
+            }
             occupied = false;
         }
     }
