@@ -21,7 +21,7 @@ public class OutputTable : MonoBehaviour
                             "plate_tomato_sandwich", "plate_CheeseSteak", "plate_tomato_burger", "plate_TomatoSteak"};
   // point list MUST match final_tag list in length
   // each plate can be worth different amounts
-  private int[] final_points = {1, 2, 1};
+  private int[] final_points = {1, 1, 1, 1, 1, 1, 1, 1, 1};
 
   public Score score;
   //private Score score;
@@ -114,8 +114,8 @@ public class OutputTable : MonoBehaviour
           dbgprint(1, "Player " + player_found.ToString() + " scored " + points.ToString());
           if(points == -9999)
             dbgprint(0, "DEVELOPER, DID YOU FORGET TO ADD TO THE FINAL_POINTS STRING IN OUTPUTTABLE.CS?!");
-          // get new item in our list
-          UpdateToList(order_index);
+          //// get new item in our list
+          //UpdateToList(order_index);
           // score our player
           score.ScorePlayer(player_found, points);
           score.UpdatePoint();
@@ -123,7 +123,10 @@ public class OutputTable : MonoBehaviour
           order.tag = "final_scored";
           // wait to destroy, we can do something else here like animation
           StartCoroutine(WaitToDestroy(order));
-          displayOrder.DestoryOrder(order.tag);
+          displayOrder.DestoryOrder(cur_orders[order_index]);
+                    dbgprint(1, "distoryOrder name " + cur_orders[order_index]);
+                    // get new item in our list
+                    UpdateToList(order_index);
         }
       }
       else

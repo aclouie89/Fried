@@ -118,26 +118,26 @@ public class DisplayOrder : MonoBehaviour
             lettuceBurgerIsShow = false;
 
         }
-        else if (order == "plate_tomato_sandwich" && !tomatoSandwichIsShow)
+        else if (order == "plate_tomato_sandwich" && tomatoSandwichIsShow)
         {
           
             tomatoSandwich.SetActive(false);
             tomatoSandwichIsShow = false;
         }
-        else if (order == "plate_CheeseSteak" && !cheeseSteakIsShow)
+        else if (order == "plate_CheeseSteak" && cheeseSteakIsShow)
         {
             
             cheeseSteak.SetActive(false);
             cheeseSteakIsShow = false;
         }
-        else if (order == "plate_tomato_burger" && !tomatoBurgerIsShow)
+        else if (order == "plate_tomato_burger" && tomatoBurgerIsShow)
         {
           
             tomatoBurger.SetActive(false);
             tomatoBurgerIsShow = true;
 
         }
-        else if (order == "plate_TomatoSteak" && !tomatoSteakIsShow)
+        else if (order == "plate_TomatoSteak" && tomatoSteakIsShow)
         {
           
             tomatoSteak.SetActive(false);
