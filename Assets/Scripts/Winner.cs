@@ -24,9 +24,8 @@ public class Winner : MonoBehaviour
         }
         else
         {
-            Win.text = "dogfall ";
-            Application.Quit();
-            //SceneManager.LoadScene("Menu");
+            Win.text = "Tied ";
+            SceneManager.LoadScene("Tied");
         }
 
     }
