@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+enum BoardOrientation {North=0, East, South, West}
 public class ChoppingBoardSwapper : MonoBehaviour
 {
     public Material cut_tomato_mat;
@@ -10,7 +11,11 @@ public class ChoppingBoardSwapper : MonoBehaviour
     public Material cut_cheese_mat;
 
     public GameObject board;
-    public Image[] knives;
+
+    // knife aniations
+    private GameObject base_knife;
+    private GameObject knife = null;
+    public int orientation = (int)BoardOrientation.North;
     
     private GameObject player_occupying = null;
     private bool occupied = false;
@@ -19,24 +24,12 @@ public class ChoppingBoardSwapper : MonoBehaviour
     private float process_start_time = 0f;
     public Image progress_bar;
     float timer;
-    int i;
 
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    void disableKnives(int i) {
-       
-        for (int j = 0; j < knives.Length; j++)
-        {
-            Debug.Log(i);
-            if (j != i) {     
-                knives[j].enabled = false;
-                Debug.Log(i);
-            }
-        }
+        // find the knife
+        base_knife = GameObject.FindGameObjectWithTag("Knives");
     }
 
     void ProgressBar()
@@ -48,28 +41,27 @@ public class ChoppingBoardSwapper : MonoBehaviour
         if (timer < 0)
         {
             timer = .35f;//<--this happens about every second;
-            if (i < 4)
-            {
-                knives[i].enabled = true;
-                disableKnives(i);
-                i++;
-            }
-            else {
-                i = 0;
-            }
            
         }
 
         if (progress_bar.fillAmount >= 1f)
         {
             progress_bar.enabled = false;
-            for (int i = 0; i < knives.Length; i++)
-            {
-                knives[i].enabled = false;
-            }
         }
 
     }
+
+    // private Vector3 getKnifeRotation()
+    // {
+    //     if(orientation == (int)BoardOrientation.North)
+    //         return new Vector3(0.5)
+    //     else if(orientation == (int)BoardOrientation.East)
+    //     else if(orientation == (int)BoardOrientation.South)
+    //     else if(orientation == (int)BoardOrientation.West)
+
+    //     return new Vector3(0,0,0);
+    // }
+
     // the player has started chopping
     public float PlayerStartedChopping(GameObject player, GameObject item)
     {
@@ -77,9 +69,21 @@ public class ChoppingBoardSwapper : MonoBehaviour
         {
             float time_to_chop = 3.0f;
             progress_bar.fillAmount = 0;
-            i = 0;
             ProgressBar();
-
+            // start chopping animation
+            if(knife == null)
+            {
+                
+                knife = Instantiate(base_knife, gameObject.transform.position + new Vector3(0.5f, 0.8f, 0.0f), base_knife.transform.rotation) as GameObject;
+                // cant rotate, there's no backside of this sprite
+                // need to turn Culling Off in shader to disable backface culling
+                // if(orientation == (int) BoardOrientation.South || orientation == (int) BoardOrientation.East)
+                // {
+                //     Debug.Log("Rotating knife");
+                //     knife.transform.Rotate(320,0f,0f, Space.Self);
+                // }
+            }
+            
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
             // YOU CANT CUT THIS
             if (item.tag != "tomato" && item.tag != "Lettuce" && item.tag != "Cheese")
@@ -170,6 +174,11 @@ public class ChoppingBoardSwapper : MonoBehaviour
             ProgressBar();
             if (player_occupying.GetComponent<PlayerControl>().status == (int)PlayerStatus.CC)
             {
+                if(knife != null)
+                {
+                    knife.GetComponent<Chopping>().chopComplete();
+                    knife = null;
+                }
                 occupied = false;
                 process_start_time = 0f;
                 process_wait_time = 0f;
@@ -179,10 +188,23 @@ public class ChoppingBoardSwapper : MonoBehaviour
             // check if time is exceeded
             if (process_wait_time < Time.time - process_start_time)
             {
+                if(knife != null)
+                {
+                    knife.GetComponent<Chopping>().chopComplete();
+                    knife = null;
+                }
                 occupied = false;
                 process_start_time = 0f;
                 process_wait_time = 0f;
               
+            }
+        }
+        else
+        {        
+            if(knife != null)
+            {
+                knife.GetComponent<Chopping>().chopComplete();
+                knife = null;
             }
         }
     }

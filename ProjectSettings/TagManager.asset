@@ -59,6 +59,7 @@ TagManager:
   - plate_TomatoSteak
   - Lightning
   - Smoke
+  - Knives
   layers:
   - Default
   - TransparentFX

@@ -1996,11 +1996,7 @@ MonoBehaviour:
   cut_lettuce_mat: {fileID: 2100000, guid: 775e95167135f4db4b1c0ba6af4fcd00, type: 2}
   cut_cheese_mat: {fileID: 2100000, guid: cfd6aa26b29f74157881dd3639c46e15, type: 2}
   board: {fileID: 91822790}
-  knives:
-  - {fileID: 482605735}
-  - {fileID: 314525283}
-  - {fileID: 505213406}
-  - {fileID: 267464654}
+  orientation: 1
   progress_bar: {fileID: 712093394}
 --- !u!54 &91822797
 Rigidbody:
@@ -14558,7 +14554,7 @@ GameObject:
   - component: {fileID: 655682481}
   - component: {fileID: 655682480}
   m_Layer: 0
-  m_Name: Lightning (1)
+  m_Name: Smoke
   m_TagString: Smoke
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14654,7 +14650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655682479}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -0.62, y: 3.25, z: 3.22}
+  m_LocalPosition: {x: 16.84, y: 3.25, z: -9.24}
   m_LocalScale: {x: 0.1628806, y: 0.004772946, z: 0.26449537}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18699,6 +18695,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd86fbba580e1441b1c3cfa9bc506a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &841109790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841109795}
+  - component: {fileID: 841109794}
+  - component: {fileID: 841109793}
+  - component: {fileID: 841109792}
+  - component: {fileID: 841109791}
+  m_Layer: 0
+  m_Name: Lightning (2)
+  m_TagString: Knives
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 1
+  m_IsActive: 1
+--- !u!114 &841109791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841109790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3556a5ebd6b28fc4aa4b7928fa26babc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &841109792
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841109790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.65941596, y: 2.0000155, z: 0.87247854}
+  m_Center: {x: 0.014846517, y: -9.5231914e-15, z: 0.06376033}
+--- !u!23 &841109793
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841109790}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e4b0fa0742a4c4fe382c5fb108d1b8cc, type: 2}
+  - {fileID: 2100000, guid: bac8e43e5b95c40dda5f251852aa45b3, type: 2}
+  - {fileID: 2100000, guid: c7c0ee61b21a64e20a523e46d67d9a7d, type: 2}
+  - {fileID: 2100000, guid: e74400acf47ab45fca04e1519610c5a9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &841109794
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841109790}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &841109795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841109790}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 15.11, y: 3.25, z: -9.24}
+  m_LocalScale: {x: 0.119898036, y: 0.004772946, z: 0.19555466}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 72
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1 &854905462
 GameObject:
   m_ObjectHideFlags: 0
@@ -22609,11 +22713,7 @@ MonoBehaviour:
   cut_lettuce_mat: {fileID: 2100000, guid: 775e95167135f4db4b1c0ba6af4fcd00, type: 2}
   cut_cheese_mat: {fileID: 2100000, guid: cfd6aa26b29f74157881dd3639c46e15, type: 2}
   board: {fileID: 1053213807}
-  knives:
-  - {fileID: 1471173673}
-  - {fileID: 1908791316}
-  - {fileID: 956651228}
-  - {fileID: 550170024}
+  orientation: 0
   progress_bar: {fileID: 260359770}
 --- !u!136 &1053213813
 CapsuleCollider:
