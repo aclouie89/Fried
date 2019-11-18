@@ -121,17 +121,15 @@ public class PlateSwapper : MonoBehaviour
             else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_steak")
             {
                 plate.gameObject.GetComponent<Renderer>().material = steak_salad_mat;
-                plate.gameObject.GetComponent<Renderer>().tag = "plate_steak_salad" +
-                    "";
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_steak_salad";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_bread")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_lettuce")
             {
                 plate.gameObject.GetComponent<Renderer>().material = tomato_sandwich_mat;
-                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_sandwich" +
-                    "";
+                plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_sandwich";
                 //Debug.log(plate.gameObject.GetComponent<Renderer>().tag);
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
@@ -216,7 +214,7 @@ public class PlateSwapper : MonoBehaviour
                 updateTable(findTable(), plate);
                 Destroy(col.gameObject);
             }
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_bread")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_tomato")
             {
                 plate.gameObject.GetComponent<Renderer>().material = sandwich_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_sandwich";
@@ -499,7 +497,7 @@ public class PlateSwapper : MonoBehaviour
                 Destroy(col.gameObject);
 
             }
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_tomato_bread")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_tomato")
             {
                 plate.gameObject.GetComponent<Renderer>().material = tomato_burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_tomato_burger";
@@ -517,7 +515,7 @@ public class PlateSwapper : MonoBehaviour
                 Destroy(col.gameObject);
 
             }
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_lettuce_bread")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_lettuce")
             {
                 plate.gameObject.GetComponent<Renderer>().material = lettuce_burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_lettuce_burger";
@@ -526,7 +524,7 @@ public class PlateSwapper : MonoBehaviour
                 Destroy(col.gameObject);
 
             }
-            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_cheese_bread")
+            else if (plate.gameObject.GetComponent<Renderer>().tag == "plate_bread_cheese")
             {
                 plate.gameObject.GetComponent<Renderer>().material = cheese_burger_mat;
                 plate.gameObject.GetComponent<Renderer>().tag = "plate_cheeseburger";
