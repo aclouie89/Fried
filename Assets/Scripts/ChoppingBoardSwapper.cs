@@ -10,27 +10,72 @@ public class ChoppingBoardSwapper : MonoBehaviour
     public Material cut_cheese_mat;
 
     public GameObject board;
-
+    public Image[] knives;
+    
     private GameObject player_occupying = null;
     private bool occupied = false;
     // dont let more than one player chop at a time
     private float process_wait_time = 0f;
     private float process_start_time = 0f;
     public Image progress_bar;
+    float timer;
+    int i;
 
     // Start is called before the first frame update
     void Start()
     {
 
     }
+
+    void disableKnives(int i) {
+       
+        for (int j = 0; j < knives.Length; j++)
+        {
+            Debug.Log(i);
+            if (j != i) {     
+                knives[j].enabled = false;
+                Debug.Log(i);
+            }
+        }
+    }
+
     void ProgressBar()
     {
         progress_bar.enabled = true;
+        
         progress_bar.fillAmount += 0.35f * Time.deltaTime;
-        Debug.Log(progress_bar.fillAmount);
+        timer -= Time.deltaTime;
+        if (timer < 0)
+        {
+            timer = .35f;//<--this happens about every second;
+            if (i < 4)
+            {
+                knives[i].enabled = true;
+                disableKnives(i);
+                i++;
+            }
+            else {
+                i = 0;
+            }
+           
+        }
+        
+
+        //for (int i = 0; i < knives.Length; i++)
+        //{
+        //    knives[i].enabled = true;
+        //    disableKnives(i);
+        //}
+        //i++;
+        //Debug.Log(progress_bar.fillAmount);
+
         if (progress_bar.fillAmount >= 1f)
         {
             progress_bar.enabled = false;
+            for (int i = 0; i < knives.Length; i++)
+            {
+                knives[i].enabled = false;
+            }
         }
 
     }
@@ -41,7 +86,9 @@ public class ChoppingBoardSwapper : MonoBehaviour
         {
             float time_to_chop = 3.0f;
             progress_bar.fillAmount = 0;
+            i = 0;
             ProgressBar();
+
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
             // YOU CANT CUT THIS
             if (item.tag != "tomato" && item.tag != "Lettuce" && item.tag != "Cheese")
@@ -69,15 +116,13 @@ public class ChoppingBoardSwapper : MonoBehaviour
         {
             item.GetComponent<Renderer>().material = cut_tomato_mat;
             item.tag = "cut_tomato";
-            occupied = false;
-
+            occupied = false;  
         }
         else if (item.tag == "Lettuce")
         {
             item.GetComponent<Renderer>().material = cut_lettuce_mat;
             item.tag = "cut_lettuce";
             occupied = false;
-
         }
         else if (item.tag == "Cheese")
         {
@@ -129,12 +174,16 @@ public class ChoppingBoardSwapper : MonoBehaviour
         if (occupied)
         {
             // check if player got cc'd if so remove occupied flag
+            //i = 0;
+            timer -= Time.deltaTime;
             ProgressBar();
             if (player_occupying.GetComponent<PlayerControl>().status == (int)PlayerStatus.CC)
             {
                 occupied = false;
                 process_start_time = 0f;
                 process_wait_time = 0f;
+
+              
             }
             // check if time is exceeded
             if (process_wait_time < Time.time - process_start_time)
@@ -142,6 +191,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
                 occupied = false;
                 process_start_time = 0f;
                 process_wait_time = 0f;
+              
             }
         }
     }
