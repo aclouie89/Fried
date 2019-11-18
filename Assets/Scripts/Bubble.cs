@@ -84,7 +84,11 @@ public class Bubble : MonoBehaviour
             {
 
                 string[] result = new string[ingredient.Length - 1];
-                ingredient.CopyTo(result, 1);
+                for(int j = 0; j < result.Length-1; j++)
+                {
+                    result[j] = ingredient[j+1];
+
+                }
                 return result;
             }
             return null;
