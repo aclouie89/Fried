@@ -29,7 +29,10 @@ public class ChoppingBoardSwapper : MonoBehaviour
     void Start()
     {
         // find the knife
-        base_knife = GameObject.FindGameObjectWithTag("Knives");
+        if(orientation == (int) BoardOrientation.South || orientation == (int) BoardOrientation.East)
+            base_knife = GameObject.FindGameObjectWithTag("Knives East");
+        else
+            base_knife = GameObject.FindGameObjectWithTag("Knives West");
     }
 
     void ProgressBar()
@@ -73,15 +76,13 @@ public class ChoppingBoardSwapper : MonoBehaviour
             // start chopping animation
             if(knife == null)
             {
-                
-                knife = Instantiate(base_knife, gameObject.transform.position + new Vector3(0.5f, 0.8f, 0.0f), base_knife.transform.rotation) as GameObject;
-                // cant rotate, there's no backside of this sprite
-                // need to turn Culling Off in shader to disable backface culling
-                // if(orientation == (int) BoardOrientation.South || orientation == (int) BoardOrientation.East)
-                // {
-                //     Debug.Log("Rotating knife");
-                //     knife.transform.Rotate(320,0f,0f, Space.Self);
-                // }
+                Vector3 offset;
+                // find the knife
+                if(orientation == (int) BoardOrientation.South || orientation == (int) BoardOrientation.East)
+                    offset = new Vector3(-0.5f, 0.8f, 0.0f);
+                else
+                    offset = new Vector3(0.5f, 0.8f, 0.0f);
+                knife = Instantiate(base_knife, gameObject.transform.position + offset, base_knife.transform.rotation) as GameObject;
             }
             
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
