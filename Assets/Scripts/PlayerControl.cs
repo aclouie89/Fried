@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
    * 3 - Verbose
    * 4 - Hyperverbose
    */
-  int DEBUG = 1;
+  int DEBUG = 4;
   // Character related
   public int player_id = (int)PlayerNum.None;
   private string p_vertical;
@@ -486,6 +486,7 @@ public class PlayerControl : MonoBehaviour
 
       if(player_item != null)
       {
+        bool pickup_success = true;
         // is a spawner
         if(player_item.tag.Contains("_spawner"))
         {
@@ -495,7 +496,7 @@ public class PlayerControl : MonoBehaviour
         // if we picked it up from a table, tell the table it no longer has an item
         else if(table.tag == "normal_table" || table.tag == "Chopping_Board" || table.tag == "Cooking_Pan")
         {
-          table.GetComponent<NormalTable>().removeOnTable();
+          pickup_success = table.GetComponent<NormalTable>().removeOnTable();
           // tell the cooking pan we picked up the item
           if(table.tag == "Cooking_Pan")
           {
@@ -503,9 +504,12 @@ public class PlayerControl : MonoBehaviour
           }
         }
         // place it on our head
-        player_item.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
-        dbgprint(2, "Picking up: " + player_item.name);
-        holding_item = true;
+        if(pickup_success)
+        {
+          player_item.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+          dbgprint(2, "Picking up: " + player_item.name);
+          holding_item = true;
+        }
       }
       else
       {

@@ -26,10 +26,17 @@ public class NormalTable : MonoBehaviour
     item = new_item;
   }
 
-  public void removeOnTable()
+  public bool removeOnTable()
   {
-    Debug.Log("removeOnTable " + item.tag);
-    item = null;
+    if(item != null)
+    {
+      Debug.Log("removeOnTable " + item.tag);
+      item = null;
+      return true;
+    }
+  
+    Debug.Log("removeOnTable nothing to pickup");
+    return false;
   }
 
 

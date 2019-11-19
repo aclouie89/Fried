@@ -57,7 +57,7 @@ public class Bubble : MonoBehaviour
                     if (nameComponents[j].ToString() == food[i].name)
                     {
                         //Time.timeScale = 1f;
-                        Debug.Log("gggggggggggggggggg" + nameComponents[j].ToString());
+                        // Debug.Log("gggggggggggggggggg" + nameComponents[j].ToString());
                         food[i].SetActive(true);
                     }
 
@@ -104,7 +104,7 @@ public class Bubble : MonoBehaviour
     {
 
         string ingredients1 = gameObject.tag;
-        Debug.Log("ttttttttttttttttttt" + ingredients1);
+        // Debug.Log("ttttttttttttttttttt" + ingredients1);
         ArrayList AL = new ArrayList();
        
 
