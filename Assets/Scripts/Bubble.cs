@@ -8,7 +8,6 @@ public class Bubble : MonoBehaviour
     public GameObject bubble;
     public GameObject[] food = new GameObject[5];
 
-    private float min_dist = 1.0f;
 
     string[] ingredientsComponents = { "cheese", "tomato", "bread", "lettuce", "steak" };
     private string result;

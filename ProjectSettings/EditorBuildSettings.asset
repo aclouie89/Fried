@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Welcome.unity
     guid: 89cd998dbcc50ff4ca8d84fa625518de
+  - enabled: 1
+    path: Assets/Scenes/Tied.unity
+    guid: f1bb0880b2382ce44b60edfd7492c0c6
   m_configObjects: {}

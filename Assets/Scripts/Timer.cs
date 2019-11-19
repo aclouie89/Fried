@@ -8,7 +8,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
-    private float startTime=180f;
+    private float startTime=60f;
     private float currentTime=0f;
     public Winner winPlayer;
     
