@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44384786, g: 0.49321133, b: 0.5727186, a: 1}
+  m_IndirectSpecularColor: {r: 0.4438474, g: 0.4932106, b: 0.5727175, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1892,6 +1892,7 @@ MonoBehaviour:
   board: {fileID: 91822790}
   orientation: 1
   progress_bar: {fileID: 712093394}
+  choppingSound: {fileID: 8300000, guid: 6c9bf4fb93f284fc2b070fe74a381ad6, type: 3}
 --- !u!54 &91822797
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21558,6 +21559,7 @@ MonoBehaviour:
   board: {fileID: 1053213807}
   orientation: 0
   progress_bar: {fileID: 260359770}
+  choppingSound: {fileID: 8300000, guid: 6c9bf4fb93f284fc2b070fe74a381ad6, type: 3}
 --- !u!136 &1053213813
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -25,11 +25,15 @@ public class ChoppingBoardSwapper : MonoBehaviour
     public Image progress_bar;
     float timer;
 
+    public AudioClip choppingSound; 
+    private AudioSource source ;
+
     // Start is called before the first frame update
     void Start()
     {
+        source = this.gameObject.AddComponent<AudioSource>();
         // find the knife
-        if(orientation == (int) BoardOrientation.South || orientation == (int) BoardOrientation.East)
+        if (orientation == (int) BoardOrientation.South || orientation == (int) BoardOrientation.East)
             base_knife = GameObject.FindGameObjectWithTag("Knives East");
         else
             base_knife = GameObject.FindGameObjectWithTag("Knives West");
@@ -70,6 +74,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
     {
         if (!occupied)
         {
+            source.Stop();
             float time_to_chop = 3.0f;
             progress_bar.fillAmount = 0;
             ProgressBar();
@@ -96,10 +101,12 @@ public class ChoppingBoardSwapper : MonoBehaviour
             process_start_time = Time.time;
             player_occupying = player;
             occupied = true;
+            source.PlayOneShot(choppingSound, 1F);
             return time_to_chop;
         }
         else
         {
+            
             Debug.Log("Occupied");
             return 0f;
         }
@@ -112,19 +119,22 @@ public class ChoppingBoardSwapper : MonoBehaviour
         {
             item.GetComponent<Renderer>().material = cut_tomato_mat;
             item.tag = "cut_tomato";
-            occupied = false;  
+            occupied = false;
+            source.Stop();
         }
         else if (item.tag == "Lettuce")
         {
             item.GetComponent<Renderer>().material = cut_lettuce_mat;
             item.tag = "cut_lettuce";
             occupied = false;
+            source.Stop();
         }
         else if (item.tag == "Cheese")
         {
             item.GetComponent<Renderer>().material = cut_cheese_mat;
             item.tag = "cut_cheese";
             occupied = false;
+            source.Stop();
         }
         // reset time
         process_wait_time = 0f;
@@ -181,6 +191,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
                     knife = null;
                 }
                 occupied = false;
+                source.Stop();
                 process_start_time = 0f;
                 process_wait_time = 0f;
 
@@ -195,6 +206,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
                     knife = null;
                 }
                 occupied = false;
+                source.Stop();
                 process_start_time = 0f;
                 process_wait_time = 0f;
               
