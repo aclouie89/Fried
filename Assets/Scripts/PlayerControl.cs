@@ -637,7 +637,7 @@ public class PlayerControl : MonoBehaviour
       dbgprint(3, "player hit throw");
       if(player_item != null)
       {
-        source1.PlayOneShot(shoutSound, 1F);
+        source1.PlayOneShot(hitSound, 1F);
         // update orientation mesh
         status = (int)PlayerStatus.Throw;
         StartCoroutine(TimerOnThrow());
