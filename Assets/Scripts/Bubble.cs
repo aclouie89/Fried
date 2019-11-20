@@ -78,7 +78,7 @@ public class Bubble : MonoBehaviour
 
     string checkIngredient(string str)
     {
-        string temp1;
+
         for(int i = 0; i < ingredientsComponents.Length; i++)
         {
 
