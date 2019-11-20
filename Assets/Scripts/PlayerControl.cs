@@ -121,7 +121,9 @@ public class PlayerControl : MonoBehaviour
   // Throwing related
   private int orientation;
   public AudioClip shoutSound;
+  public AudioClip hitSound;
   private AudioSource source;
+  private AudioSource source1;
 
 
     void dbgprint(int level, string text)
@@ -134,7 +136,8 @@ public class PlayerControl : MonoBehaviour
   void Start()
   {
     source = this.gameObject.AddComponent<AudioSource>();
-    controller = GetComponent<CharacterController>();
+        source1 = this.gameObject.AddComponent<AudioSource>();
+        controller = GetComponent<CharacterController>();
 
     player_mat = GetComponent<Renderer>().materials;
 
@@ -634,6 +637,7 @@ public class PlayerControl : MonoBehaviour
       dbgprint(3, "player hit throw");
       if(player_item != null)
       {
+        source1.PlayOneShot(shoutSound, 1F);
         // update orientation mesh
         status = (int)PlayerStatus.Throw;
         StartCoroutine(TimerOnThrow());
