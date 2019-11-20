@@ -46,8 +46,6 @@ public class Timer : MonoBehaviour
 
         Debug.Log("Quiting game...");
         
-        Application.Quit();
-        //SceneManager.LoadScene("Menu");
     }
 
 

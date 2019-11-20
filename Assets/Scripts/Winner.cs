@@ -11,10 +11,13 @@ public class Winner : MonoBehaviour
 
 
     public Score winner;
+
+
+
     IEnumerator WaitToDestroy()
     {
         Debug.Log("Waiting to Destroy");
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3);
         
     }
     public void win()
