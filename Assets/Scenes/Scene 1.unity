@@ -8211,6 +8211,7 @@ MonoBehaviour:
   player_id: 1
   status: 0
   shoutSound: {fileID: 8300000, guid: 80b4f2ef676a9475da1130cc32d1203b, type: 3}
+  hitSound: {fileID: 8300000, guid: 37e62371173544fd1893a7bbb17a2b30, type: 3}
 --- !u!65 &390435009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17623,6 +17624,7 @@ MonoBehaviour:
   player_id: 2
   status: 0
   shoutSound: {fileID: 8300000, guid: 80b4f2ef676a9475da1130cc32d1203b, type: 3}
+  hitSound: {fileID: 8300000, guid: 37e62371173544fd1893a7bbb17a2b30, type: 3}
 --- !u!65 &824246071
 BoxCollider:
   m_ObjectHideFlags: 0
