@@ -8210,6 +8210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_id: 1
   status: 0
+  shoutSound: {fileID: 8300000, guid: 80b4f2ef676a9475da1130cc32d1203b, type: 3}
 --- !u!65 &390435009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17621,6 +17622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_id: 2
   status: 0
+  shoutSound: {fileID: 8300000, guid: 80b4f2ef676a9475da1130cc32d1203b, type: 3}
 --- !u!65 &824246071
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30818,6 +30820,7 @@ MonoBehaviour:
   burnt_rock_mat: {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   pan: {fileID: 1594639965}
   progress_bar: {fileID: 1590255938}
+  cookingSound: {fileID: 8300000, guid: aa380223c1e3a454286d7fb27eab2604, type: 3}
 --- !u!114 &1594639972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36584,6 +36587,7 @@ MonoBehaviour:
   burnt_rock_mat: {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   pan: {fileID: 1861939415}
   progress_bar: {fileID: 659786107}
+  cookingSound: {fileID: 8300000, guid: aa380223c1e3a454286d7fb27eab2604, type: 3}
 --- !u!114 &1861939422
 MonoBehaviour:
   m_ObjectHideFlags: 0

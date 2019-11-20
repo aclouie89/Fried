@@ -120,8 +120,11 @@ public class PlayerControl : MonoBehaviour
 
   // Throwing related
   private int orientation;
+  public AudioClip shoutSound;
+  private AudioSource source;
 
-  void dbgprint(int level, string text)
+
+    void dbgprint(int level, string text)
   {
     if(DEBUG >= level)
       Debug.Log(text);
@@ -130,6 +133,7 @@ public class PlayerControl : MonoBehaviour
   // Starting function
   void Start()
   {
+    source = this.gameObject.AddComponent<AudioSource>();
     controller = GetComponent<CharacterController>();
 
     player_mat = GetComponent<Renderer>().materials;
@@ -707,6 +711,7 @@ public class PlayerControl : MonoBehaviour
 
       // maybe do this better
       transform.Rotate(0, 0.0f, 45.0f);
+      source.PlayOneShot(shoutSound, 1F);
       StartCoroutine(CCStutter());
     }
     else

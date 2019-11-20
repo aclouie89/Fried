@@ -25,13 +25,15 @@ public class ChoppingBoardSwapper : MonoBehaviour
     public Image progress_bar;
     float timer;
 
-    public AudioClip choppingSound; 
+    public AudioClip choppingSound;
     private AudioSource source ;
+
 
     // Start is called before the first frame update
     void Start()
     {
         source = this.gameObject.AddComponent<AudioSource>();
+       
         // find the knife
         if (orientation == (int) BoardOrientation.South || orientation == (int) BoardOrientation.East)
             base_knife = GameObject.FindGameObjectWithTag("Knives East");

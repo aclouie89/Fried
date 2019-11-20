@@ -27,9 +27,13 @@ public class CookingSwapper : MonoBehaviour
     private float time_to_burn = 3f;
     float timer;
 
+    public AudioClip cookingSound;
+    private AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
+        source = this.gameObject.AddComponent<AudioSource>();
         // find the fire
         primordial_fire = GameObject.FindGameObjectWithTag("Fire");
         // find the smoke
@@ -52,9 +56,11 @@ public class CookingSwapper : MonoBehaviour
     {
         if(!occupied)
         {
+            source.Stop();
             float time_to_cook = 3.0f;
             progress_bar.fillAmount = 0;
             ProgressBar();
+            source.PlayOneShot(cookingSound, 1F);
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
             // YOU CANT CUT THIS
             if(item.tag != "steak")
@@ -64,18 +70,21 @@ public class CookingSwapper : MonoBehaviour
                 process_start_time = Time.time;
                 cooking_item = item;
                 occupied = true;
+                //source.PlayOneShot(cookingSound, 1F);
                 return 0f;
             }
             process_wait_time = time_to_cook;
             process_start_time = Time.time;
             player_occupying = player;
             occupied = true;
+            //source.PlayOneShot(cookingSound, 1F);
             cooking_item = item;
             return time_to_cook;
         }
         else
         {
             Debug.Log("Occupied");
+            //source.PlayOneShot(cookingSound, 1F);
             return 0f;
         }
     }
@@ -96,6 +105,7 @@ public class CookingSwapper : MonoBehaviour
                 }
             }
             occupied = false;
+            source.Stop();
             cooking_item = null;
             progress_bar.enabled = false;
             // reset time
@@ -113,8 +123,9 @@ public class CookingSwapper : MonoBehaviour
             if(smoke == null)
                 smoke = Instantiate(primordial_smoke, gameObject.transform.position + new Vector3(0.0f, 1.0f, 0.1f), primordial_smoke.transform.rotation) as GameObject;
             ProgressBar();
+            source.PlayOneShot(cookingSound, 1F);
             // check if item is cooked
-            if(cooking_item.tag == "steak" && Time.time >= process_wait_time + process_start_time)
+            if (cooking_item.tag == "steak" && Time.time >= process_wait_time + process_start_time)
             {
                 Debug.Log("COOKED STEAK DONE");
                 cooking_item.tag = "cooked_steak";
@@ -127,6 +138,7 @@ public class CookingSwapper : MonoBehaviour
                 fire = Instantiate(primordial_fire, primordial_fire.transform.position, primordial_fire.transform.rotation) as GameObject;
                 fire.GetComponent<Fire>().startFire(cooking_item, true);
                 ProgressBar();
+                source.PlayOneShot(cookingSound, 1F);
 
             }
             // check if item is burnt
@@ -150,6 +162,7 @@ public class CookingSwapper : MonoBehaviour
                 fire = Instantiate(primordial_fire, primordial_fire.transform.position, primordial_fire.transform.rotation) as GameObject;
                 fire.GetComponent<Fire>().startFire(cooking_item, true);
                 ProgressBar();
+                source.PlayOneShot(cookingSound, 1F);
             }
             else if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_rock") && fire != null)
             {
@@ -169,8 +182,10 @@ public class CookingSwapper : MonoBehaviour
             {
                 smoke.GetComponent<Smoke>().cookComplete();
                 smoke = null;
+                source.PlayOneShot(cookingSound, 1F);
             }
             occupied = false;
+            source.Stop();
         }
     }
 }
