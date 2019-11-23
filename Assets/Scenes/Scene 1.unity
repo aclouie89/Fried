@@ -13932,7 +13932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.22352941}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20441,6 +20441,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -20513,6 +20514,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 52.457, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ba9bed489cd794aa115892ba9b7547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choppingSound: {fileID: 8300000, guid: 6c9bf4fb93f284fc2b070fe74a381ad6, type: 3}
+  sizzleSound: {fileID: 8300000, guid: aa380223c1e3a454286d7fb27eab2604, type: 3}
+  shoutSound: {fileID: 8300000, guid: 80b4f2ef676a9475da1130cc32d1203b, type: 3}
+  hitSound: {fileID: 8300000, guid: 37e62371173544fd1893a7bbb17a2b30, type: 3}
+  startSound: {fileID: 8300000, guid: 4ec8efca3fbe449b39d610082c67b943, type: 3}
+  winSound: {fileID: 8300000, guid: e50dca44696d44974912abc6dd10c415, type: 3}
+  volume: 1
 --- !u!1 &964466423
 GameObject:
   m_ObjectHideFlags: 0
@@ -20767,7 +20787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0.32156864}
+  m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

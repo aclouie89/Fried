@@ -10,9 +10,11 @@ public class StartTimer : MonoBehaviour
     public TextMeshProUGUI timerText;
     private float startTime = 3f;
     private float currentTime = 0f;
+    //public Audio sound;
 
     void Start()
     {
+        //sound.playStartSound();
         currentTime = startTime;
 
 

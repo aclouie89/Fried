@@ -25,8 +25,10 @@ public class ChoppingBoardSwapper : MonoBehaviour
     public Image progress_bar;
     float timer;
 
+    //sound
     public AudioClip choppingSound;
     private AudioSource source ;
+    //public Audio sound;
 
 
     // Start is called before the first frame update
@@ -76,6 +78,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
     {
         if (!occupied)
         {
+            //sound.stopSound();
             source.Stop();
             float time_to_chop = 3.0f;
             progress_bar.fillAmount = 0;
@@ -103,6 +106,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
             process_start_time = Time.time;
             player_occupying = player;
             occupied = true;
+            //sound.playChoopingSound();
             source.PlayOneShot(choppingSound, 1F);
             return time_to_chop;
         }
@@ -122,6 +126,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
             item.GetComponent<Renderer>().material = cut_tomato_mat;
             item.tag = "cut_tomato";
             occupied = false;
+            //sound.stopSound();
             source.Stop();
         }
         else if (item.tag == "Lettuce")
@@ -129,6 +134,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
             item.GetComponent<Renderer>().material = cut_lettuce_mat;
             item.tag = "cut_lettuce";
             occupied = false;
+            //sound.stopSound();
             source.Stop();
         }
         else if (item.tag == "Cheese")
@@ -136,6 +142,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
             item.GetComponent<Renderer>().material = cut_cheese_mat;
             item.tag = "cut_cheese";
             occupied = false;
+            //sound.stopSound();
             source.Stop();
         }
         // reset time
@@ -193,6 +200,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
                     knife = null;
                 }
                 occupied = false;
+                //sound.stopSound();
                 source.Stop();
                 process_start_time = 0f;
                 process_wait_time = 0f;
@@ -208,6 +216,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
                     knife = null;
                 }
                 occupied = false;
+                //sound.stopSound();
                 source.Stop();
                 process_start_time = 0f;
                 process_wait_time = 0f;

@@ -29,6 +29,7 @@ public class CookingSwapper : MonoBehaviour
 
     public AudioClip cookingSound;
     private AudioSource source;
+    //public Audio sound;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class CookingSwapper : MonoBehaviour
         if (progress_bar.fillAmount >= 1f)
         {
             progress_bar.enabled = false;
+            //sound.stopSizzleSound();
         }
 
     }
@@ -56,10 +58,12 @@ public class CookingSwapper : MonoBehaviour
     {
         if(!occupied)
         {
+            //sound.stopSizzleSound();
             source.Stop();
             float time_to_cook = 3.0f;
             progress_bar.fillAmount = 0;
             ProgressBar();
+            //sound.playSizzleSound();
             source.PlayOneShot(cookingSound, 1F);
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
             // YOU CANT CUT THIS
@@ -70,21 +74,21 @@ public class CookingSwapper : MonoBehaviour
                 process_start_time = Time.time;
                 cooking_item = item;
                 occupied = true;
-                //source.PlayOneShot(cookingSound, 1F);
+                
                 return 0f;
             }
             process_wait_time = time_to_cook;
             process_start_time = Time.time;
             player_occupying = player;
             occupied = true;
-            //source.PlayOneShot(cookingSound, 1F);
+           
             cooking_item = item;
             return time_to_cook;
         }
         else
         {
             Debug.Log("Occupied");
-            //source.PlayOneShot(cookingSound, 1F);
+            
             return 0f;
         }
     }
@@ -105,6 +109,7 @@ public class CookingSwapper : MonoBehaviour
                 }
             }
             occupied = false;
+            //sound.stopSizzleSound();
             source.Stop();
             cooking_item = null;
             progress_bar.enabled = false;
@@ -123,7 +128,8 @@ public class CookingSwapper : MonoBehaviour
             if(smoke == null)
                 smoke = Instantiate(primordial_smoke, gameObject.transform.position + new Vector3(0.0f, 1.0f, 0.1f), primordial_smoke.transform.rotation) as GameObject;
             ProgressBar();
-            source.PlayOneShot(cookingSound, 1F);
+            //sound.playSizzleSound();
+           source.PlayOneShot(cookingSound, 1F);
             // check if item is cooked
             if (cooking_item.tag == "steak" && Time.time >= process_wait_time + process_start_time)
             {
@@ -138,6 +144,7 @@ public class CookingSwapper : MonoBehaviour
                 fire = Instantiate(primordial_fire, primordial_fire.transform.position, primordial_fire.transform.rotation) as GameObject;
                 fire.GetComponent<Fire>().startFire(cooking_item, true);
                 ProgressBar();
+                //sound.playSizzleSound();
                 source.PlayOneShot(cookingSound, 1F);
 
             }
@@ -162,6 +169,7 @@ public class CookingSwapper : MonoBehaviour
                 fire = Instantiate(primordial_fire, primordial_fire.transform.position, primordial_fire.transform.rotation) as GameObject;
                 fire.GetComponent<Fire>().startFire(cooking_item, true);
                 ProgressBar();
+                //sound.playSizzleSound();
                 source.PlayOneShot(cookingSound, 1F);
             }
             else if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_rock") && fire != null)
@@ -182,9 +190,11 @@ public class CookingSwapper : MonoBehaviour
             {
                 smoke.GetComponent<Smoke>().cookComplete();
                 smoke = null;
+                //sound.playSizzleSound();
                 source.PlayOneShot(cookingSound, 1F);
             }
             occupied = false;
+            //sound.stopSizzleSound();
             source.Stop();
         }
     }
