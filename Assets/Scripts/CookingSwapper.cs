@@ -129,7 +129,7 @@ public class CookingSwapper : MonoBehaviour
                 smoke = Instantiate(primordial_smoke, gameObject.transform.position + new Vector3(0.0f, 1.0f, 0.1f), primordial_smoke.transform.rotation) as GameObject;
             ProgressBar();
             //sound.playSizzleSound();
-           source.PlayOneShot(cookingSound, 1F);
+          // source.PlayOneShot(cookingSound, 1F);
             // check if item is cooked
             if (cooking_item.tag == "steak" && Time.time >= process_wait_time + process_start_time)
             {
