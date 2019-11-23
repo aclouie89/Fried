@@ -120,6 +120,9 @@ public class PlayerControl : MonoBehaviour
 
   // Throwing related
   private int orientation;
+
+    //sound 
+    //public Audio sound;
   public AudioClip shoutSound;
   public AudioClip hitSound;
   private AudioSource source;
@@ -637,6 +640,7 @@ public class PlayerControl : MonoBehaviour
       dbgprint(3, "player hit throw");
       if(player_item != null)
       {
+        //        sound.playHitSound();
         source1.PlayOneShot(hitSound, 1F);
         // update orientation mesh
         status = (int)PlayerStatus.Throw;
@@ -715,6 +719,8 @@ public class PlayerControl : MonoBehaviour
 
       // maybe do this better
       transform.Rotate(0, 0.0f, 45.0f);
+      //      sound.playshoutSound();
+      //      sound.playshoutSound();
       source.PlayOneShot(shoutSound, 1F);
       StartCoroutine(CCStutter());
     }
