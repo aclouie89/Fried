@@ -57,7 +57,7 @@ public class OutputTable : MonoBehaviour
   // Seed could be improved
   private string NewRandomOrder(int index)
   {
-    System.Random rnd = new System.Random(System.DateTime.Now.Millisecond);
+    System.Random rnd = new System.Random(System.DateTime.Now.Millisecond + index);
     int rnd_index = rnd.Next(final_tag.Length);
     StartCoroutine(waitForSeedChange());
     dbgprint(3, "NewRandomOrder() generated random number: " + rnd_index.ToString());
@@ -66,7 +66,16 @@ public class OutputTable : MonoBehaviour
   // updates the acceptable orders
   private void UpdateToList(int index)
   {
-    cur_orders[index] = NewRandomOrder(index);
+    int count = 0;
+    string new_order = NewRandomOrder(index);
+    //while(cur_orders[0] != new_order && cur_orders[1] != new_order && cur_orders[2] != new_order)
+    while(cur_orders[0] == new_order || cur_orders[1] == new_order || cur_orders[2] == new_order)
+    {
+      dbgprint(1, "Found duplicate order, generating a new random order");
+      count++;
+      new_order = NewRandomOrder(index + count);
+    }
+    cur_orders[index] = new_order;
     dbgprint(2, "Adding " + cur_orders[index] + " to acceptable orders");
     displayOrder.display(cur_orders[index]);
   }
