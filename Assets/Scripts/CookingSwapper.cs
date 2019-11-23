@@ -29,6 +29,7 @@ public class CookingSwapper : MonoBehaviour
 
     public AudioClip cookingSound;
     private AudioSource source;
+    public SoundVolume sliderValue;
     //public Audio sound;
 
     // Start is called before the first frame update
@@ -64,7 +65,7 @@ public class CookingSwapper : MonoBehaviour
             progress_bar.fillAmount = 0;
             ProgressBar();
             //sound.playSizzleSound();
-            source.PlayOneShot(cookingSound, 1F);
+            source.PlayOneShot(cookingSound, sliderValue.value);
             Debug.Log(player.tag + " placed: " + item.tag + " on cutting board");
             // YOU CANT CUT THIS
             if(item.tag != "steak")
@@ -145,7 +146,7 @@ public class CookingSwapper : MonoBehaviour
                 fire.GetComponent<Fire>().startFire(cooking_item, true);
                 ProgressBar();
                 //sound.playSizzleSound();
-                source.PlayOneShot(cookingSound, 1F);
+                source.PlayOneShot(cookingSound, sliderValue.value);
 
             }
             // check if item is burnt
@@ -170,7 +171,7 @@ public class CookingSwapper : MonoBehaviour
                 fire.GetComponent<Fire>().startFire(cooking_item, true);
                 ProgressBar();
                 //sound.playSizzleSound();
-                source.PlayOneShot(cookingSound, 1F);
+                source.PlayOneShot(cookingSound, sliderValue.value);
             }
             else if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_rock") && fire != null)
             {
@@ -191,7 +192,7 @@ public class CookingSwapper : MonoBehaviour
                 smoke.GetComponent<Smoke>().cookComplete();
                 smoke = null;
                 //sound.playSizzleSound();
-                source.PlayOneShot(cookingSound, 1F);
+                source.PlayOneShot(cookingSound, sliderValue.value);
             }
             occupied = false;
             //sound.stopSizzleSound();

@@ -28,6 +28,9 @@ public class ChoppingBoardSwapper : MonoBehaviour
     //sound
     public AudioClip choppingSound;
     private AudioSource source ;
+    public SoundVolume sliderValue;
+   
+
     //public Audio sound;
 
 
@@ -107,7 +110,7 @@ public class ChoppingBoardSwapper : MonoBehaviour
             player_occupying = player;
             occupied = true;
             //sound.playChoopingSound();
-            source.PlayOneShot(choppingSound, 1F);
+            source.PlayOneShot(choppingSound, sliderValue.value);
             return time_to_chop;
         }
         else

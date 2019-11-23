@@ -127,6 +127,7 @@ public class PlayerControl : MonoBehaviour
   public AudioClip hitSound;
   private AudioSource source;
   private AudioSource source1;
+  public SoundVolume sliderValue;
 
 
     void dbgprint(int level, string text)
@@ -641,7 +642,7 @@ public class PlayerControl : MonoBehaviour
       if(player_item != null)
       {
         //        sound.playHitSound();
-        source1.PlayOneShot(hitSound, 1F);
+        source1.PlayOneShot(hitSound, sliderValue.value);
         // update orientation mesh
         status = (int)PlayerStatus.Throw;
         StartCoroutine(TimerOnThrow());
@@ -721,7 +722,7 @@ public class PlayerControl : MonoBehaviour
       transform.Rotate(0, 0.0f, 45.0f);
       //      sound.playshoutSound();
       //      sound.playshoutSound();
-      source.PlayOneShot(shoutSound, 1F);
+      source.PlayOneShot(shoutSound, sliderValue.value);
       StartCoroutine(CCStutter());
     }
     else
