@@ -207,8 +207,8 @@ public class ChoppingBoardSwapper : MonoBehaviour
                 source.Stop();
                 process_start_time = 0f;
                 process_wait_time = 0f;
+                progress_bar.enabled = false;
 
-              
             }
             // check if time is exceeded
             if (process_wait_time < Time.time - process_start_time)

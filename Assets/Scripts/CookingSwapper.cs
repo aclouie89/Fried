@@ -26,7 +26,7 @@ public class CookingSwapper : MonoBehaviour
     // time to burn
     private float time_to_burn = 8f;
     float timer;
-
+    float fillrate;
     public AudioClip cookingSound;
     private AudioSource source;
     public SoundVolume sliderValue;
@@ -45,7 +45,8 @@ public class CookingSwapper : MonoBehaviour
     void ProgressBar()
     {
         progress_bar.enabled = true;
-        progress_bar.fillAmount += 0.35f * Time.deltaTime;
+        progress_bar.fillAmount += fillrate * Time.deltaTime;
+        Debug.Log(fillrate);
         //Debug.Log(progress_bar.fillAmount);
         if (progress_bar.fillAmount >= 1f)
         {
@@ -63,6 +64,7 @@ public class CookingSwapper : MonoBehaviour
             source.Stop();
             float time_to_cook = 4.0f;
             progress_bar.fillAmount = 0;
+            fillrate = 0.25f;
             ProgressBar();
             //sound.playSizzleSound();
             source.PlayOneShot(cookingSound, sliderValue.value);
@@ -141,6 +143,7 @@ public class CookingSwapper : MonoBehaviour
                 process_start_time = Time.time;
                 process_wait_time = time_to_burn;
                 progress_bar.fillAmount = 0;
+                fillrate = 0.12f;
                 // set up the fire
                 fire = Instantiate(primordial_fire, primordial_fire.transform.position, primordial_fire.transform.rotation) as GameObject;
                 fire.GetComponent<Fire>().startFire(cooking_item, true);
