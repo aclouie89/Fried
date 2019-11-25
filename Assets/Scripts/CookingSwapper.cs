@@ -24,7 +24,7 @@ public class CookingSwapper : MonoBehaviour
     private float process_wait_time = 0f;
     private float process_start_time = 0f;
     // time to burn
-    private float time_to_burn = 3f;
+    private float time_to_burn = 8f;
     float timer;
 
     public AudioClip cookingSound;
@@ -61,7 +61,7 @@ public class CookingSwapper : MonoBehaviour
         {
             //sound.stopSizzleSound();
             source.Stop();
-            float time_to_cook = 3.0f;
+            float time_to_cook = 4.0f;
             progress_bar.fillAmount = 0;
             ProgressBar();
             //sound.playSizzleSound();
