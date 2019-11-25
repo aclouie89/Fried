@@ -11,6 +11,7 @@ public class StartTimer : MonoBehaviour
     private float startTime = 3f;
     private float currentTime = 0f;
     //public Audio sound;
+    
 
     void Start()
     {
@@ -31,7 +32,8 @@ public class StartTimer : MonoBehaviour
         if (currentTime <= 0.0)
         {
 
-            currentTime = 0;
+            currentTime = 3f;
+        
             SceneManager.LoadScene("Scene 1");
         }
     }
