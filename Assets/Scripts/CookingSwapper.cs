@@ -75,6 +75,7 @@ public class CookingSwapper : MonoBehaviour
                 Debug.Log("You can't cook a " + item.tag);
                 process_wait_time = time_to_burn;
                 process_start_time = Time.time;
+                fillrate = 0.12f;
                 cooking_item = item;
                 occupied = true;
                 
