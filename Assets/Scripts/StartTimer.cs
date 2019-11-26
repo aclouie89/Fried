@@ -34,7 +34,7 @@ public class StartTimer : MonoBehaviour
 
             currentTime = 3f;
         
-            SceneManager.LoadScene("Scene 1");
+            SceneManager.LoadScene("Scene 1", LoadSceneMode.Single);
         }
     }
 }
