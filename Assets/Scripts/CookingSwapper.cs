@@ -164,6 +164,7 @@ public class CookingSwapper : MonoBehaviour
                 process_start_time = 0f;
                 process_wait_time = 0f;
                 progress_bar.enabled = false;
+                source.Stop();
             }
             // check if item is not a steak
             if((cooking_item.tag != "steak" && cooking_item.tag != "cooked_steak" && cooking_item.tag != "burnt_rock") && fire == null)
@@ -186,6 +187,7 @@ public class CookingSwapper : MonoBehaviour
                     process_start_time = 0f;
                     process_wait_time = 0f;
                     progress_bar.enabled = false;
+                    source.Stop();
                 }
             }
         }

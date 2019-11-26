@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44384694, g: 0.49320996, b: 0.57271755, a: 1}
+  m_IndirectSpecularColor: {r: 0.4438474, g: 0.4932106, b: 0.5727175, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31455,7 +31455,7 @@ MonoBehaviour:
   burnt_rock_mat: {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   pan: {fileID: 1594639965}
   progress_bar: {fileID: 1590255938}
-  cookingSound: {fileID: 8300000, guid: aa380223c1e3a454286d7fb27eab2604, type: 3}
+  cookingSound: {fileID: 8300000, guid: 09ef647dcc9eba148908900a2f72f859, type: 3}
   sliderValue: {fileID: 309581211}
 --- !u!114 &1594639972
 MonoBehaviour:
@@ -37154,7 +37154,7 @@ MonoBehaviour:
   burnt_rock_mat: {fileID: 2100000, guid: 4f54eff15656e47429348be944b32287, type: 2}
   pan: {fileID: 1861939415}
   progress_bar: {fileID: 659786107}
-  cookingSound: {fileID: 8300000, guid: aa380223c1e3a454286d7fb27eab2604, type: 3}
+  cookingSound: {fileID: 8300000, guid: 09ef647dcc9eba148908900a2f72f859, type: 3}
   sliderValue: {fileID: 309581211}
 --- !u!114 &1861939422
 MonoBehaviour:
